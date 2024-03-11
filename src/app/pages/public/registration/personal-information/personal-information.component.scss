@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+  .atoka-form-header {
+    @apply flex flex-col items-center;
+    .atoka-form-header-icon {
+      @apply flex items-center mb-3 justify-center rounded-full text-center w-12 h-12 text-sm bg-accent-light text-accent transition-all duration-150;
+      mat-icon {
+        @apply text-3xl;
+        line-height: 24px;
+        width: 30px;
+      }
+    }
+    @apply text-center;
+    h1 {
+      @apply text-3xl font-bold mb-3;
+    }
+    small {
+      @apply text-sm;
+    }
+  }
+
+}
+
+
+

@@ -1,0 +1,170 @@
+
+<div class="atoka-form-header">
+  <div class="atoka-form-header-icon">
+    <mat-icon svgIcon="password" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+  </div>
+  <h1>Account Type</h1>
+  <small>Please select the account type that suite you.</small>
+</div>
+<form class="pt-10 max-w-xl mx-auto">
+  <div class="grid grid-cols-2 gap-2">
+    <div class="control">
+      <mat-label class="text-sm">Business Name*</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="Business Name" type="text" name="businessName" id="businessName">
+        <mat-error>Please enter business name</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="control">
+      <mat-label class="text-sm">Business Type*</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="Business Type" type="text" name="businessType" id="businessType">
+        <mat-error>Please enter business type</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="control">
+      <mat-label class="text-sm">Official Email Address*</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="Email address" formControlName="email" type="email" name="email" id="email">
+        <mat-error>Please enter your email address</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="control">
+      <mat-label class="text-sm">Phone Number</mat-label>
+      <div class="grid grid-cols-12 gap-2">
+        <mat-form-field class="rounded-xl col-span-2" appearance="fill" floatLabel="always">
+          <mat-select [placeholder]="'+234'">
+            <mat-option [value]="+234"> +234 Nigeria</mat-option>
+            <mat-option [value]="+232">+232 Ghana</mat-option>
+          </mat-select>
+          <mat-error>Please select county code</mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-full rounded-xl col-span-10" appearance="fill" floatLabel="always">
+          <input matInput placeholder="Phone Number" type="text" name="phone" id="phone">
+          <mat-error>Please enter business name</mat-error>
+        </mat-form-field>
+      </div>
+
+    </div>
+  </div>
+  <div class="download">
+    <p class="mb-2 text-sm">Upload your business logo</p>
+    <div class="text-center border border-dashed border-gray-400 rounded p-6 mb-3">
+      <p class="text-gray-400 text-xs">Drag file here to upload document or <span class="font-semibold text-primary-dark">choose file</span></p>
+    </div>
+  </div>
+
+  <mat-checkbox (click)="isCAC = !isCAC" class="text-sm -mt-2 -ml-2 font-semibold"><span class="text-primary-dark">Is your business registered with CAC?</span></mat-checkbox>
+  @if (isCAC) {
+    <div class="grid">
+      <div class="control">
+        <mat-label class="text-sm">Business registration number*</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <input matInput placeholder="Business registration number" formControlName="regNo" type="regNo" name="regNo" id="regNo">
+          <mat-error>Please enter your business registration number</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="download">
+      <p class="mb-2 text-sm">Proof of Identity and Address for Directors of Goodness oil & gas Ltd*</p>
+      <div class="text-center border border-dashed border-gray-400 rounded p-6 mb-3">
+        <p class="text-gray-400 text-xs">Drag file here to upload document or <span class="font-semibold text-primary-dark">choose file</span></p>
+      </div>
+    </div>
+  }
+
+
+
+  <div class="grid">
+    <div class="control">
+      <mat-label class="text-sm">Address (Head office)</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="ATOKA code" formControlName="firstName" type="tel" name="firstname" id="firstname">
+        <mat-error>Please enter your ATOKA code</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <p class="text-sm font-light text-gray-500 text-center pb-4">Don't have ATOKA? <a (click)="showAddressForm = !showAddressForm" href="javascript:">Enter Address Manually</a>.</p>
+  @if (showAddressForm) {
+    <div class="grid grid-cols-2 gap-2">
+      <div class="control">
+        <mat-label class="text-sm">Country</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <mat-select [placeholder]="'Select country'">
+            <mat-option [value]="1">Nigeria</mat-option>
+            <mat-option [value]="2">Ghana</mat-option>
+          </mat-select>
+          <mat-error>Please select county</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="control">
+        <mat-label class="text-sm">State</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <mat-select [placeholder]="'Select state'">
+            <mat-option [value]="1">Abuja</mat-option>
+            <mat-option [value]="2">Lagos</mat-option>
+          </mat-select>
+          <mat-error>Please select state</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="control">
+        <mat-label class="text-sm">Local Government Area</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <input matInput placeholder="LGA" type="tel" name="lga" id="lga">
+          <mat-error>Please enter LGA</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2">
+      <div class="control">
+        <mat-label class="text-sm">City</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <mat-select [placeholder]="'Select city'">
+            <mat-option [value]="1">Ikeja</mat-option>
+            <mat-option [value]="2">Any City</mat-option>
+          </mat-select>
+          <mat-error>Please select city</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="control">
+        <mat-label class="text-sm">District</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <input matInput placeholder="LGA" type="text" name="district" id="district">
+          <mat-error>Please enter district</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2">
+      <div class="control col-span-2">
+        <mat-label class="text-sm">Street Name</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <input matInput placeholder="street" type="text" name="street" id="street">
+          <mat-error>Please enter street name</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="control">
+        <mat-label class="text-sm">House Number</mat-label>
+        <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+          <input matInput placeholder="0" type="text" name="number" id="number">
+          <mat-error>Please enter house number</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  }
+  <mat-checkbox class="text-sm -mt-2 -ml-2">By signing up you agree to our <span class="text-accent font-semibold">Terms & Conditions</span> and <span class="text-accent font-semibold">Privacy Policy</span>.</mat-checkbox>
+
+
+  <div class="flex flex-col items-center mt-8">
+    <button (click)="submitAccountType()" type="button" mat-flat-button color="primary">Continue</button>
+  </div>
+
+</form>

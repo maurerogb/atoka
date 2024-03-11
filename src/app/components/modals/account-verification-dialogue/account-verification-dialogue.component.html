@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Verification @if (currentState === states.Success) {Successful}</h1>
+
+@if (verificationOption.value) { }
+<div mat-dialog-content>
+  @switch (currentState) {
+    @case (states.OTP) {
+      <p class="text-sm font-light text-gray-500">Please enter the code sent to your {{verificationOptionLabel | lowercase}}; {{identifer}}.</p>
+      <p class="text-sm text-center font-light text-red-500" ng-if="message" >{{message}}</p>
+      <div class="flex flex-col gap-4 justify-center items-center py-4">
+        <ng-otp-input  [formCtrl]="otp"  [config]="{length:6, inputClass: 'otp-input', placeholder: '-', allowNumbersOnly: true}"></ng-otp-input>
+        <button (click)="verifyAccount()" type="button" mat-flat-button color="primary">
+          Verify {{verificationOptionLabel}}
+        </button>
+      </div>
+      <p class="text-sm font-light text-gray-500">Did not receive a code? <a class="text-gray-500" (click)="resendOTP()" href="javascript:void(0)">Click to Resend</a>.</p>
+      <p class="text-sm font-light text-gray-500">OR</p>
+
+      <p class="text-sm font-light text-gray-500 pt-1">Switch to  <a class="text-gray-500" href="javascript:void(0)">{{(verificationOption.value === options.Email) ? 'Phone' : 'Email'}} verification</a>.</p>
+  }
+  @case (states.Success) {
+    <div class="flex flex-col gap-4 justify-center items-center pt-4">
+      <img class="w-auto h-16" src="assets/images/success.png" alt="" sizes="" srcset="">
+      <p class="text-green-800">{{verificationOptionLabel}} is verified.</p>
+      <button (click)="dialogRef.close(true)" type="button" mat-flat-button color="primary">
+        Continue
+      </button>
+    </div>
+  }
+  @default {
+
+  <p class="text-sm font-light text-gray-500">Please select the method you want to use to very identity.</p>
+  <p class="text-sm text-center font-light text-red-500"  ng-if="message" >{{message}}</p>
+  <div class="flex gap-4 justify-center items-center pt-8">
+    <button (click)="optionSelected(options.Email)" class="modal-button" type="button" mat-stroked-button
+      color="primary">
+      Email verification
+    </button>
+    <button (click)="optionSelected(options.Phone)" class="modal-button" type="button" mat-flat-button color="primary">
+      Phone verification
+    </button>
+  </div>
+
+  } }
+</div>

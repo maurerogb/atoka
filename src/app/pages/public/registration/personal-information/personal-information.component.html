@@ -1,0 +1,102 @@
+
+<div class="atoka-form-header">
+  <div class="atoka-form-header-icon">
+    <!-- <mat-icon>&#xe7fd;</mat-icon> -->
+    <mat-icon svgIcon="user" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+
+  </div>
+  <h1>Personal Information</h1>
+  <small>Please provide your personal details.</small>
+</div>
+
+<form class="pt-10" [formGroup]="personalDetailsfrom"  (ngSubmit)="register()" >
+  <div class="grid md:grid-cols-2 gap-x-4">
+    <div class="control">
+      <mat-label class="text-sm">First Name</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="First name" formControlName="firstName" type="text" name="firstname" id="firstname">
+        <mat-error>Please enter your first name</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="control">
+      <mat-label class="text-sm">Last Name</mat-label>
+      <mat-form-field class="w-full rounded-xl mb-3" appearance="fill" floatLabel="always">
+        <input matInput placeholder="Last name" formControlName="lastName" type="text" name="lastname" id="lastname">
+        <mat-error>Please enter your last name</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="grid  md:grid-cols-2 gap-x-4">
+    <div class="control">
+      <mat-label class="text-sm">Middle Name</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="Middle name" formControlName="middleName" type="email" name="firstname" id="firstname">
+        <mat-error>Please enter your email address</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="control">
+      <mat-label class="text-sm">Email Address</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="Email address" formControlName="emailAddress" type="email" name="firstname" id="firstname">
+        <mat-error>Please enter your email address</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-x-4">
+    <div class="control">
+      <mat-label class="text-sm">Phone Number</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <input matInput placeholder="Phone number" formControlName="phoneNumber" type="tel" name="firstname" id="firstname">
+        <mat-error>Please enter your first name</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="control">
+      <mat-label class="text-sm">Date of birth</mat-label>
+      <mat-form-field class="w-full rounded-xl mb-3" appearance="fill" floatLabel="always">
+        <input (click)="dob.open()" (focus)="dob.open()" placeholder="MM/DD/YYYY" matInput [matDatepicker]="dob" formControlName="dob" >
+        <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
+        <mat-datepicker #dob></mat-datepicker>
+        <mat-error>Please select your date of birth</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="grid  md:grid-cols-2 gap-x-4">
+    <div class="control">
+      <mat-label class="text-sm">Gender</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <mat-select [placeholder]="'Select gender'" formControlName="gender">
+          <mat-option [value]="1">Male</mat-option>
+          <mat-option [value]="2">Female</mat-option>
+        </mat-select>
+        <mat-error>Please select your gender</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="control">
+      <mat-label class="text-sm">Select Account Type</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <mat-select [placeholder]="'Select Account'" formControlName="accountType">
+          <mat-option [value]="1">Individual Account </mat-option>
+          <mat-option [value]="2">Business Account</mat-option>
+          <mat-option [value]="3">Public Sector Account</mat-option>
+        </mat-select>
+        <mat-error>Please select your gender</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+
+  <mat-checkbox formControlName="acceptTM" class="text-sm -mt-2 -ml-2">By signing up you agree to our <span class="text-accent font-semibold">Terms & Conditions</span> and <span class="text-accent font-semibold">Privacy Policy</span>.</mat-checkbox>
+  <div class="flex flex-col items-center mt-8 gap-y-4">
+    <button type="button" mat-flat-button color="primary" type="submit"  >Register</button>
+    <p class="text-sm">Already have an account? <span class="text-primary font-bold">Login</span></p>
+  </div>
+
+</form>

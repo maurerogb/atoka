@@ -1,0 +1,32 @@
+
+<div class="atoka-form-header">
+  <div class="atoka-form-header-icon">
+    <!-- <mat-icon>&#xe7fd;</mat-icon> -->
+    <mat-icon svgIcon="password" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+
+  </div>
+  <h1>Account Type</h1>
+  <small>Please select the account type that suite you.</small>
+</div>
+<form class="pt-10 max-w-md mx-auto">
+
+  <div class="grid">
+    <div class="control">
+      <mat-label class="text-sm">Account Type</mat-label>
+      <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+        <mat-select [placeholder]="'Select account type'">
+          <mat-option [value]="1">Individual</mat-option>
+          <mat-option [value]="2">Business</mat-option>
+          <mat-option [value]="2">Public sector</mat-option>
+        </mat-select>
+        <mat-error>Please select your gender</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <div class="flex flex-col items-center mt-8">
+    <button type="button" (click)="saveAccountType()" mat-flat-button color="primary">Continue</button>
+  </div>
+
+</form>
