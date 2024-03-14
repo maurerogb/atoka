@@ -1,0 +1,46 @@
+<div class="sidebar-container">
+  <div class="sidebar">
+    <div class="logo-div px-12 py-8 w-full">
+      <img src="assets/svg/logo.svg" alt="" class="w-full">
+    </div>
+
+    <ul>
+      <div class="top-nav">
+        <li class="nav-link" *ngFor="let nav of navList">
+          <a
+          [routerLink]="nav.routerLink"
+          routerLinkActive
+          #rla="routerLinkActive"
+          [class.activelink]="rla.isActive"
+          [routerLinkActiveOptions]="{ exact: nav.exact || false }"
+          >
+          <img [src]="nav.activeIcon" [class.hidden]="!rla.isActive" alt="" />
+          <img [src]="nav.inactiveIcon" [class.hidden]="rla.isActive" alt="" />
+          <span>{{ nav.name }}</span>
+        </a>
+        </li>
+      </div>
+
+      <div class="bottom-nav">
+        <li class="nav-link">
+          <a>
+            <img src="assets/svg/Profile.svg" alt="">
+            <span>Account</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a routerLink="" routerLinkActive="router-link-active">
+            <img src="assets/svg/Setting.svg" alt="">
+            <span>Settings</span>
+          </a>
+        </li>
+        <li class="nav-link">
+          <a routerLink="" routerLinkActive="router-link-active">
+            <img src="assets/svg/Logout.svg" alt="">
+            <span>Logout</span>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>

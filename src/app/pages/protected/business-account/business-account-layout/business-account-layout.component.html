@@ -1,0 +1,27 @@
+<!-- <div class="main-container">
+  <aside class="w-[270px] relative" [ngClass]="showNav ?  'block' : 'hidden'">
+    <app-dashboard-sidebar [navList]="navList"></app-dashboard-sidebar>
+  </aside>
+  <main class="main-contents">
+    <app-dashboard-nav (buttonToogle)="openNav()"></app-dashboard-nav>
+    <div class="contents">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div> -->
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
+<div class="layout bg-[#FAFEFF]">
+  <header class="w-full">
+    <app-dashboard-nav (buttonToogle)="openNav()"></app-dashboard-nav>
+  </header>
+  <aside class="w-full" [ngClass]="showNav ? 'left-0' : 'left-[-300px]'">
+    <app-dashboard-sidebar [navList]="navList"></app-dashboard-sidebar>
+  </aside>
+  <main>
+    <div class="max-w-screen-xl mx-auto ">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
