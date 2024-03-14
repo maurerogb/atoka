@@ -8,12 +8,21 @@ export const PROTECTED_ROUTES: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard',
+        redirectTo: 'business-account',
       },
       {
-        path: 'dashboard',
-        component: DashboardComponent
-      }
+        path: 'business-account',
+        loadChildren: () => import('./business-account/business-account.module').then(m => m.BusinessAccountModule),
+      },
+      {
+        path: 'tenant',
+        loadChildren: () => import('./tenant/tenant.module').then(m => m.TenantModule),
+      },
+      {
+        path: 'user',
+        loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+      },
+
     ]
   }
 ]

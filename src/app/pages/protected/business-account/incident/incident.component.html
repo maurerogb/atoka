@@ -1,0 +1,27 @@
+<div class="mb-10">
+  <div class="flex justify-between mb-5">
+    <div>
+      <div class="border border-[#D6F5FFD9] pl-4 pr-12 flex gap-4 items-center bg-[#F3FCFF]  rounded-lg">
+        <img src="assets/svg/Search.svg" alt="">
+        <input type="text" placeholder="Search" class="py-2 outline-none border-none !bg-inherit">
+      </div>
+    </div>
+
+    <app-button
+    buttonText="Report Incident"
+    [buttonStyles]="'px-8'"
+    (click)="reportIncident()"
+    ></app-button>
+  </div>
+
+ <div class="flex justify-center items-center mx-auto">
+  <div class="bg-white mt-4 rounded-lg shadow flex flex-col justify-center items-center min-w-[535px] py-5 px-10 gap-4">
+    <div>
+      <img src="assets/images/incident-empty-image.png" alt="" class="w-full">
+    </div>
+    <p class="text-[#00394F] font-bold font-[poppins] text-xl">You have not reported any incident yet</p>
+    <p class="max-w-[290px]">Meet friends and strangers with peace of mind Plan your next journey here</p>
+    <app-button buttonText="Report Incident" [buttonStyles]="'px-10'"></app-button>
+  </div>
+ </div>
+</div>
