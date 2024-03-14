@@ -6,27 +6,25 @@ import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
 
 
-const testMode = true;
-const remoteUrl =  'http://dstatoka-001-site7.htempurl.com/api/'
-const localUrl ='https://localhost:5001/api/';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class PersonService extends HttpService<PersonRequest> {
-    baseUrl = '';
+
   constructor(private http: HttpClient) {
     super(http);
   }
 
   getOccupants(person: PersonRequest): Observable<BaseResponse<PersonalData>> {
-    this.baseUrl = testMode ? localUrl : remoteUrl;
-    const url = this.baseUrl+'OccupantDetails/Create-User-Profile'
+    // this.baseUrl = testMode ? localUrl : remoteUrl;
+    const url = 'OccupantDetails/Create-User-Profile'
     return this.http.post<BaseResponse<PersonRequest>>(url, person);
   }
   getGenerateOTP(identifer: any): Observable<BaseResponse<any>> {
-     this.baseUrl = testMode ? localUrl : remoteUrl;
-    const url = this.baseUrl+`ValidateOTP/Generate-OTP-Identifer/${identifer}`
+    // this.baseUrl = testMode ? localUrl : remoteUrl;
+    const url = `ValidateOTP/Generate-OTP-Identifer/${identifer}`
     return this.http.get<BaseResponse<PersonRequest>>(url);
   }
 

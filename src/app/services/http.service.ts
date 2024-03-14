@@ -1,17 +1,27 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, catchError, throwError } from 'rxjs';
+import { environment } from '../../assets/config';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 
+
 export class HttpService<T> {
   private _httpOptions: any;
 
+  testMode = environment.testMode;
+   localUrl = environment.localUrl;
+    remoteUrl = environment.remoteUrl;
+
   constructor(public httpClient: HttpClient) { }
+  baseUrl = this.testMode ? this.localUrl : this.remoteUrl;
 
   protected get<T>(url: any, options?: any): Observable<T> {
+    url = this.baseUrl + url;
     return this.httpClient.get<T>(url, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
@@ -19,6 +29,7 @@ export class HttpService<T> {
   }
 
   protected post<T>(url: any, payload: any, options?: any): Observable<T> {
+    url = this.baseUrl + url;
     return this.httpClient.post<T>(url, payload, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
@@ -26,6 +37,7 @@ export class HttpService<T> {
   }
 
   protected filePost(url: any, payload: any, options?: any): Observable<T> {
+    url = this.baseUrl + url;
     return this.httpClient.post<T>(url, payload, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
@@ -33,18 +45,21 @@ export class HttpService<T> {
   }
 
   protected patch<T>(url: any, payload: any, options?: any): Observable<T> {
+    url = this.baseUrl + url;
     return this.httpClient.patch<T>(url, payload, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
     );
   }
   protected put<T>(url: any, payload?: any, options?: any): Observable<T> {
+    url = this.baseUrl + url;
     return this.httpClient.put<T>(url, payload, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
     );
   }
   protected delete<T>(url: any, options?: any): Observable<T> {
+    url = this.baseUrl + url;
     return this.httpClient.delete<T>(url, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
@@ -52,6 +67,7 @@ export class HttpService<T> {
   }
 
   getFile(url: string, options?: any) {
+    url = this.baseUrl + url;
     return this.httpClient
       .get(url, { params: options, responseType: 'blob' })
       .pipe(
