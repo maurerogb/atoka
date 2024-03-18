@@ -4,9 +4,9 @@
       <img src="assets/svg/logo.svg" alt="" class="w-full">
     </div>
 
-    <ul>
+    <ul class="">
       <div class="top-nav">
-        <li class="nav-link" *ngFor="let nav of navList">
+        <li class="nav-link font-display" *ngFor="let nav of navList">
           <a
           [routerLink]="nav.routerLink"
           routerLinkActive
@@ -22,24 +22,31 @@
       </div>
 
       <div class="bottom-nav">
-        <li class="nav-link">
-          <a>
-            <img src="assets/svg/Profile.svg" alt="">
-            <span>Account</span>
+        <li class="nav-link font-display" *ngFor="let nav of buttomNav">
+          <a
+          [routerLink]="nav.routerLink"
+          routerLinkActive
+          #rla="routerLinkActive"
+          [class.activelink]="rla.isActive"
+          [routerLinkActiveOptions]="{ exact: nav.exact || false }"
+          >
+          <img [src]="nav.activeIcon" [class.hidden]="!rla.isActive" alt="" />
+          <img [src]="nav.inactiveIcon" [class.hidden]="rla.isActive" alt="" />
+            <span>{{nav.name}}</span>
           </a>
         </li>
-        <li class="nav-link">
+        <!-- <li class="nav-link font-display">
           <a routerLink="" routerLinkActive="router-link-active">
             <img src="assets/svg/Setting.svg" alt="">
             <span>Settings</span>
           </a>
-        </li>
-        <li class="nav-link">
+        </li> -->
+        <!-- <li class="nav-link font-display">
           <a routerLink="" routerLinkActive="router-link-active">
             <img src="assets/svg/Logout.svg" alt="">
             <span>Logout</span>
           </a>
-        </li>
+        </li> -->
       </div>
     </ul>
   </div>

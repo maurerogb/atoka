@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss'
 })
 export class InputComponent {
+  @Input() control: FormControl = new FormControl();
+  @Input() type: string = 'text';
+  @Input() placeholder: string = '';
+  @Input() readonly: boolean = false;
+  @Input() customClass!: string;
+  @Input() customInputClass!: string;
+  @Input() errorMessage: string = '';
+  @Input() value?: string;
 
 }
