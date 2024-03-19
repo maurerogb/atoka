@@ -1,1 +1,127 @@
-<p>tenant-dashboard works!</p>
+<div class="">
+  <div class="bg-[#002330] rounded-lg flex justify-between">
+    <div class="flex gap-4 items-center px-8 py-4">
+      <div class="flex flex-col gap-2 text-white">
+        <p class="text-2xl font-bold">Welcome back, Goodness!</p>
+        <p class="text-base font-normal">Keep track of tenants and other address rating </p>
+        <app-button
+        buttonText="Add Tenant"
+        buttonStyles="px-8"
+        ></app-button>
+      </div>
+    </div>
+    <div>
+      <img src="assets/images/tenant-dashboard-img.png" alt="" class="w-full">
+    </div>
+  </div>
+
+  <div class="pt-5 lg:pt-10 grid md:grid-cols-[2fr_1fr] gap-8">
+    <div class="big-cards flex flex-col gap-8">
+      <div>
+        <img src="assets/svg/chart.svg" alt="" class="w-full">
+      </div>
+
+      <div class="bg-[#F4FCFF] rounded-lg shadow p-5">
+        <div class="flex justify-between items-center">
+          <p class="text-base font-semibold">Recent Visit</p>
+          <p class="text-xs font-semibold">See more</p>
+        </div>
+      </div>
+    </div>
+    <div class="smaller-cards flex flex-col gap-8">
+      <div class="bg-[#FFF1F0] rounded-lg shadow p-5">
+        <div class="flex justify-between items-center">
+          <p class="text-base font-bold">Notification</p>
+          <p class="text-xs font-semibold">See all</p>
+        </div>
+
+        <p>Today</p>
+
+        <div class="flex flex-col gap-6 mt-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+              <div class="flex flex-col">
+                <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
+                <p class="text-[#71717A] text-[13px]">you have reach your limit</p>
+              </div>
+            </div>
+            <div>
+              <p class="text-[#71717A] text-[13px]">20 mins ago</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+              <div class="flex flex-col">
+                <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
+                <p class="text-[#71717A] text-[13px]">you have reach your limit</p>
+              </div>
+            </div>
+            <div>
+              <p class="text-[#71717A] text-[13px]">20 mins ago</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-[#E4E4E7] rounded-lg shadow p-5">
+        <div class="flex flex-col">
+          <p class="font-bold text-base">Recent Request</p>
+          <p class="text-[#71717A] text-[13px]">Lorem ipsum dolor sit ametis.</p>
+        </div>
+        <div class="flex flex-col mt-2 mb-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+              <div class="flex flex-col">
+                <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
+                <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[#18181B] font-medium text-[13px]">Add Tenant</p>
+              <p class="text-[#71717A] text-[13px]">Austin</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+              <div class="flex flex-col">
+                <p class="text-[#18181B] font-bold text-[13px]">Devon Lane</p>
+                <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[#18181B] font-medium text-[13px]">Add Tenant</p>
+              <p class="text-[#71717A] text-[13px]">Telodo</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+              <div class="flex flex-col">
+                <p class="text-[#18181B] font-bold text-[13px]">Jane Cooper</p>
+                <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[#18181B] font-medium text-[13px]">Add Tenant</p>
+              <p class="text-[#71717A] text-[13px]">New York</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-2 flex gap-4">
+          <p class="text-[#71717A] font-semibold">SEE ALL EMPLOYEE</p>
+          <mat-icon class="text-[#71717A] font-semibold">keyboard_arrow_right</mat-icon>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

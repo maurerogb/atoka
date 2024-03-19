@@ -16,5 +16,6 @@ import { CommonModule } from '@angular/common';
 export class DashboardSidebarComponent {
 
   @Input() navList!: INavItem[];
+  @Input() buttomNav!: INavItem[];
 
 }
