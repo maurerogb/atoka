@@ -6,6 +6,7 @@ import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
 import { BaseResponse } from '../model/BaseResponse';
 import { PersonService } from './person.service';
+import { loginRequest, loginResponse } from '../model/authentication';
 
 
 
@@ -25,6 +26,22 @@ export class AuthenticationService extends HttpService<BaseResponse<any>> {
 
   get token(){
     return this.perspnServ.getUse().title
+  }
+
+  login(user:loginRequest ): Observable<loginResponse>{
+    const url = 'Auth/login';
+    return this.post<loginResponse>(url, user, this.headers);
+
+  }
+
+  validateAddress(): Observable<BaseResponse<any>>{
+    let url = 'ResidenceStartFrom/GetResidenceStart';
+    return this.get<BaseResponse<any>>(url);
+  }
+
+  setLoginInfo(userData: any) : void {
+    localStorage.removeItem('userData')
+   localStorage.setItem('userData',JSON.stringify(userData));
   }
 
   createUser(user: any): Observable<BaseResponse<any>> {

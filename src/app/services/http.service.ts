@@ -1,7 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, catchError, throwError } from 'rxjs';
 import { environment } from '../../assets/config';
+import { loginInfo } from '../model/authentication';
 
 
 
@@ -22,7 +24,7 @@ export class HttpService<T> {
 
   protected get<T>(url: any, options?: any): Observable<T> {
     url = this.baseUrl + url;
-    return this.httpClient.get<T>(url, options).pipe(
+    return this.httpClient.get<T>(url, {'headers':this.header()}).pipe(
       map((body: any) => body),
       catchError(this.handleError)
     );
@@ -30,7 +32,7 @@ export class HttpService<T> {
 
   protected post<T>(url: any, payload: any, options?: any): Observable<T> {
     url = this.baseUrl + url;
-    return this.httpClient.post<T>(url, payload, options).pipe(
+    return this.httpClient.post<T>(url, payload,  {'headers':this.header()}).pipe(
       map((body: any) => body),
       catchError(this.handleError)
     );
@@ -74,6 +76,13 @@ export class HttpService<T> {
         map((body: any) => body),
         catchError(this.handleError)
       );
+  }
+
+  private header  (): HttpHeaders {
+   let user :loginInfo =<loginInfo> JSON.parse (localStorage.getItem('userData') ?? "");
+
+    return new HttpHeaders().set('userId' ,user.userId ).set('Authorization', `Bearer ${user.token}`,)
+
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -1,44 +1,95 @@
 <div class="page-wrapper">
   <div class="grid grid-cols-2 h-screen">
-    <div class="bg-onboarding h-full   text-white py-14 pl-24 pr-12">
-      <img src="assets/svg/logo.svg" alt="logo" />
-      <div id="steps" class="atoka-form-steps pt-9">
-        <form class="pt-10" (ngSubmit)="register()" >
+    <div class="bg-onboarding h-full w-full text-white">
+      <div class="flex  justify-center  h-full ">
+        <div class="pt-[130px]">
+          <img
+            class="h-[100px] w-full mt-[25px]  "
+            src="assets/svg/logo.svg"
+            alt="logo"
+          />
+          <div id="steps" class="atoka-form-steps pl-50 w-[400px] pt-9">
+            <form class=""  [formGroup]="loginfrom">
+              <div class="grid gap-x-4">
+                <div class="control">
+                  <mat-label class="text-sm">User Name</mat-label>
+                  <mat-form-field
+                    class="w-full rounded-xl"
+                    appearance="fill"
+                    floatLabel="always"
+                  >
+                    <input
+                      matInput
+                      placeholder="First name"
+                      type="text" formControlName="username"
+                      name="firstname"
+                      id="firstname"
+                    />
+                    <mat-error>Please enter your username</mat-error>
+                  </mat-form-field>
+                </div>
 
-          <div class="grid   gap-x-4">
-            <div class="control">
-              <mat-label class="text-sm">User Name</mat-label>
-              <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
-                <input matInput placeholder="First name"   type="text" name="firstname" id="firstname">
-                <mat-error>Please enter your first name</mat-error>
-              </mat-form-field>
-            </div>
+                <div class="control">
+                  <mat-label class="text-sm">Password</mat-label>
+                  <mat-form-field
+                    class="w-full rounded-xl mb-3"
+                    appearance="fill"
+                    floatLabel="always"
+                  >
+                    <input
+                      matInput formControlName="password"
+                      placeholder="Password"
+                      type="password"
+                      name="lastname"
+                      id="lastname"
+                    />
+                    <mat-error>Please enter your password</mat-error>
+                  </mat-form-field>
+                  <div class="flex flex-row justify-end text-white">
+                    <!-- <section class="text-white">
+                      <mat-checkbox class="">Remember me</mat-checkbox>
+                    </section> -->
 
-            <div class="control">
-              <mat-label class="text-sm">Password</mat-label>
-              <mat-form-field class="w-full rounded-xl mb-3" appearance="fill" floatLabel="always">
-                <input matInput placeholder="Password"  type="password" name="lastname" id="lastname">
-                <mat-error>Please enter your last name</mat-error>
-              </mat-form-field>
-            </div>
+                    <a
+                      class="text-white"
+                      href="javascript:void(0)"
+                      rel=""
+                    >
+                      Forgot Password?</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- [disabled]="loading"  [disabled]="!loginfrom.valid" -->
+              <div class="flex flex-col items-center mt-8 gap-y-4 ">
+                <button
+
+                  type="button"
+                  mat-flat-button
+                  color="primary "
+                   (click)="register()"
+                >
+                  Sign in
+                  <!-- <mat-spinner class="text-[12px]" *ngIf="loading" ></mat-spinner> -->
+                </button>
+                <div >I don't have an account? <a href="javascript:void(0)" (click)="signup()" class="text-[#DA7B07] font-bold ">Signup</a> </div>
+
+              </div>
+            </form>
           </div>
-          <div class="flex flex-col items-center mt-8 gap-y-4">
-            <button type="button" mat-flat-button color="primary" type="submit"  >Sign in</button>
-            <p class="text-sm">Already have an account? <span class="text-primary font-bold">Login</span></p>
-          </div>
-
-        </form>
-      </div>
-
-    </div>
-
-      <div class="flex items-center mx-56">
-        <img src="assets/svg/logo.svg">
-        <div>
-          <strong>Andrew Alfred</strong>
-          <span>Technical advisor</span>
         </div>
+      </div>
+    </div>
+    <div>
+      <div class="flex flex-col space-y-5 mx-56 my-56">
+        <img class="w-full" src="assets/svg/login.svg" />
+        <div class="w-[300px] h-[100px] gap-4 ml-12 text-center" >
 
+          <p class="font-bold leading-8 text-[#005677]  text-[24px]">Easy Direction</p>
+          <p class="text-[#005677] font-normal text-center  text-[16px]">Get direction and safety to any location in Nigeria</p>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>
