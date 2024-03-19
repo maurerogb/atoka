@@ -1,0 +1,47 @@
+<div class="bg-white font-display min-w-[550px]">
+  <div class="flex justify-between items-center mb-5">
+   <div class="flex mx-auto">
+    <p class=" text-[#003A50] font-bold text-xl !mb-0"> Employee's Details</p>
+   </div>
+
+    <div class="cursor-pointer flex justify-end" (click)="close()">
+      <img src="assets/svg/cancel.svg" alt="">
+    </div>
+  </div>
+  <div class="flex flex-col justify-center items-center gap-4">
+    <div class="w-[147px] h-[147px] rounded-full bg-pink-300">
+    </div>
+    <p class="text-[#003A50 font-semibold]">Employee Profile</p>
+  </div>
+
+  <div class="grid gap-4">
+    <div class="">
+      <p class="text-left  font-semibold">Title</p>
+      <app-input [customClass]="'w-full'" [placeholder]="'Mr/Mrs/Miss'"></app-input>
+    </div>
+    <div class="">
+      <p class="text-left  font-semibold">First Name</p>
+      <app-input [customClass]="'w-full'" [placeholder]="''"></app-input>
+    </div>
+    <div class="">
+      <p class="text-left  font-semibold">Last Name</p>
+      <app-input [customClass]="'w-full'" [placeholder]="''"></app-input>
+    </div>
+    <div class="">
+      <p class="text-left  font-semibold">Gender</p>
+      <app-input [customClass]="'w-full'" [placeholder]="''"></app-input>
+    </div>
+    <div class="">
+      <p class="text-left  font-semibold">Phone Number</p>
+      <app-input [customClass]="'w-full'" [placeholder]="''"></app-input>
+    </div>
+    <div class="">
+      <p class="text-left  font-semibold">Time at Employment</p>
+      <app-input [customClass]="'w-full'" [placeholder]="''"></app-input>
+    </div>
+    <div class="">
+      <p class="text-left  font-semibold">Status</p>
+      <app-input [customClass]="'w-full'" [placeholder]="''"></app-input>
+    </div>
+  </div>
+</div>

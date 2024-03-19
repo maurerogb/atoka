@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { DashboardSidebarComponent } from '../../../../components/dashboard-sidebar/dashboard-sidebar.component';
-import { RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { DashboardNavComponent } from '../../../../components/dashboard-nav/dashboard-nav.component';
 import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-business-account-layout',
@@ -12,6 +13,32 @@ import { CommonModule } from '@angular/common';
   styleUrl: './business-account-layout.component.scss'
 })
 export class BusinessAccountLayoutComponent {
+
+  currentRoute!: string;
+
+  constructor(
+    private router: Router
+    ) { }
+
+    ngOnInit(): void {
+      this.currentRoute = this.extractRoute(this.router.url);
+      console.log(this.currentRoute)
+
+      this.router.events.pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+      ).subscribe((event: NavigationEnd) => {
+        this.currentRoute = this.extractRoute(event.url);
+      });
+    }
+
+    private extractRoute(url: string): string {
+      const parts = url.split('/');
+      if (parts.length === 3 && parts[2] === 'business-account') {
+        return 'dashboard';
+      }
+      return parts[parts.length - 1];
+    }
+
   showNav = false;
   navList = [
     {
@@ -39,7 +66,29 @@ export class BusinessAccountLayoutComponent {
       activeIcon: 'assets/svg/employee.svg',
       inactiveIcon: 'assets/svg/employee.svg',
     }
+
   ];
+
+  bottomNav = [
+    {
+      name: 'Account',
+      routerLink: '/app/business-account/account',
+      activeIcon: 'assets/svg/employee.svg',
+      inactiveIcon: 'assets/svg/employee.svg',
+    },
+    {
+      name: 'Settings',
+      routerLink: '/app/business-account/settings',
+      activeIcon: 'assets/svg/employee.svg',
+      inactiveIcon: 'assets/svg/employee.svg',
+    },
+    {
+      name: 'Logout',
+      routerLink: '/logout',
+      activeIcon: 'assets/svg/employee.svg',
+      inactiveIcon: 'assets/svg/employee.svg',
+    }
+  ]
 
   openNav(){
     this.showNav =!this.showNav

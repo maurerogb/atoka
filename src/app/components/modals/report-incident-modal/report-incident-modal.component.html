@@ -1,4 +1,118 @@
-<div class="bg-white">
-  <p>Report Incident</p>
-  <p>Have any complain about any location! Please report incident here.</p>
+<div class="bg-white font-display w-[590px]">
+  <div class="px-6 flex justify-between">
+    <div class="flex flex-col">
+      <p class="font-Quicksand text-[#003A50] font-bold text-xl">Report Incident</p>
+      <p class="font-semibold text-base">Have any complain about any location! Please report incident here.</p>
+    </div>
+    <div class="cursor-pointer" (click)="close()">
+      <img src="assets/svg/cancel.svg" alt="">
+    </div>
+  </div>
+
+  <form>
+    <div class="grid gap-6">
+      <div class="">
+        <p class="text-left  font-semibold">Location</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter ATOKA or address'"></app-input>
+      </div>
+      <p>Don’t have ATOKA ? <span class="font-semibold cursor-pointer" (click)="toggleDiv()">Enter address manually</span></p>
+      <!-- Enter Address manually -->
+      <div class="grid gap-4" *ngIf="showDiv">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="">
+            <p class="text-left  font-semibold">Country</p>
+            <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+              <mat-select [placeholder]="'Select Country'" class="w-full">
+                <mat-option> Nigeria</mat-option>
+                <mat-option> Ghana</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div>
+            <p class="text-left  font-semibold">State</p>
+            <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+              <mat-select [placeholder]="'Select State'" class="w-full">
+                <mat-option> Lagos</mat-option>
+                <mat-option>Abuja</mat-option>
+              </mat-select>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="text-left  font-semibold">Local Government Area (LGA)</p>
+          <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
+        </div>
+        <div>
+          <p class="text-left  font-semibold">District</p>
+          <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="">
+            <p class="text-left  font-semibold">City</p>
+            <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+              <mat-select [placeholder]="'Select Country'" class="w-full">
+                <mat-option> Nigeria</mat-option>
+                <mat-option> Ghana</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div>
+            <p class="text-left  font-semibold">Home Number</p>
+            <app-input [customClass]="'w-full'" [placeholder]="'Enter Home Number'"></app-input>
+          </div>
+        </div>
+        <div>
+          <p class="text-left  font-semibold">Street Name</p>
+          <app-input [customClass]="'w-full'" [placeholder]="'Enter Street Name'"></app-input>
+        </div>
+        <div>
+          <div class="flex justify-between">
+            <p class="text-left  font-semibold">ATOKA</p>
+            <p class="text-[#DA7B07]">Save location</p>
+          </div>
+          <app-input [customClass]="'w-full'" [placeholder]="'Atoka'"></app-input>
+        </div>
+      </div>
+
+      <div class="">
+        <p class="text-left  font-semibold">Title</p>
+        <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+          <mat-select [placeholder]="'Select Options'" class="w-full">
+            <mat-option> Bad Road</mat-option>
+            <mat-option> Bad Water</mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div class="">
+        <p class="text-left  font-semibold">Priority</p>
+        <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+          <mat-select [placeholder]="'Select Options'" class="w-full">
+            <mat-option> Urgent</mat-option>
+            <mat-option> Not Urgent</mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div>
+        <p class="text-left font-semibold">Meeting Address</p>
+        <div class="border border-[#E6E6E6] rounded-lg">
+          <textarea name="" id="" cols="50" rows="10" class="w-full"></textarea>
+        </div>
+      </div>
+      <div>
+        <p class="text-left  font-semibold">Add picture (optional)</p>
+        <div class="border border-dashed border-[#E6E6E6] rounded-lg p-5 flex mx-auto">
+          <p class="flex gap-4 items-center ">
+            <img src="assets/svg/upload.svg" alt="">
+            Drag file here to upload file or choose file</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center w-full mt-8">
+      <app-button
+      buttonText="Send Report"
+      buttonStyles="px-16 w-full"
+      ></app-button>
+    </div>
+  </form>
 </div>
