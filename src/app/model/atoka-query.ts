@@ -24,3 +24,20 @@ export interface Address {
   latitude?:             string;
   residentDetailId?:     number;
 }
+
+export interface ListItem{
+id?: number;
+name?: string;
+}
+
+
+export interface NewStreetRequest {
+  countryId?:   number;
+  stateId?:     number;
+  lgaId?:       number;
+  cityId?:      number;
+  streetId?:    number;
+  streetName?:  string;
+  houseName?:   string;
+  houseNumber?: string;
+}

@@ -26,6 +26,13 @@ export class ValidateAddressComponent {
 
   constructor(){}
 
+  setHideForm(value:any){
+console.log('value  >>>> ' + value);
+
+    this.hideForm = false;
+
+  }
+
  showForm():boolean {
   if(this.hideForm === false){
     this.hideForm = true;

@@ -1,121 +1,115 @@
-
 @if (hideForm) {
-<form class=""  >
-  <div class="grid grid-cols-2 gap-x-4 ">
-    <div class="control ">
+<div [formGroup]="countryForm">
+
+<form class=" mb-6">
+  <div class="grid grid-cols-2 gap-x-4">
+    <div class="control">
       <mat-label class="text-sm">Country</mat-label>
-      <mat-form-field
-        class="w-full rounded-xl"
-        appearance="fill"
-        floatLabel="always"
-      >
-        <input
-          matInput
-          placeholder="First name"
-          type="text"
-          name="firstname"
-          id="firstname"
-        />
-        <mat-error>Please enter your username</mat-error>
+      <mat-form-field class="w-full rounded-xl">
+
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               formControlName="countryName"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of streetOptions; track option) {
+            <mat-option [value]="option.name">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
       </mat-form-field>
     </div>
 
-    <div class="control ">
+    <div class="control">
       <mat-label class="text-sm">State</mat-label>
-      <mat-form-field
-        class="w-full rounded-xl"
-        appearance="fill"
-        floatLabel="always"
-      >
-        <input
-          matInput
-          placeholder="First name"
-          type="text"
-          name="firstname"
-          id="firstname"
-        />
-        <mat-error>Please enter your username</mat-error>
+      <mat-form-field class="w-full rounded-xl">
+
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               formControlName="stateName"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of streetOptions; track option) {
+            <mat-option [value]="option.name">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
       </mat-form-field>
     </div>
   </div>
-  <div class="grid grid-cols gap-x-4 ">
-    <div class="control ">
+  <div class="grid grid-cols gap-x-4">
+    <div class="control">
       <mat-label class="text-sm">Local Government Area</mat-label>
-      <mat-form-field
-        class="w-full rounded-xl"
-        appearance="fill"
-        floatLabel="always"
-      >
-        <input
-          matInput
-          placeholder="First name"
-          type="text"
-          name="firstname"
-          id="firstname"
-        />
-        <mat-error>Please enter your username</mat-error>
+      <mat-form-field class="w-full rounded-xl">
+
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               formControlName="lgaName"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of streetOptions; track option) {
+            <mat-option [value]="option.name">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
       </mat-form-field>
     </div>
   </div>
-  <div class="grid grid-cols-2 gap-x-4 ">
-    <div class="control ">
+  <div class="grid grid-cols-2 gap-x-4">
+    <div class="control">
       <mat-label class="text-sm">City</mat-label>
-      <mat-form-field
-        class="w-full rounded-xl"
-        appearance="fill"
-        floatLabel="always"
-      >
-        <input
-          matInput
-          placeholder="First name"
-          type="text"
-          name="firstname"
-          id="firstname"
-        />
-        <mat-error>Please enter your username</mat-error>
+      <mat-form-field class="w-full rounded-xl">
+
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               formControlName="cityName"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of streetOptions; track option) {
+            <mat-option [value]="option.name">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
       </mat-form-field>
     </div>
 
-    <div class="control ">
+    <div class="control">
       <mat-label class="text-sm">District</mat-label>
-      <mat-form-field
-        class="w-full rounded-xl"
-        appearance="fill"
-        floatLabel="always"
-      >
-        <input
-          matInput
-          placeholder="First name"
-          type="text"
-          name="firstname"
-          id="firstname"
-        />
-        <mat-error>Please enter your username</mat-error>
+      <mat-form-field class="w-full rounded-xl">
+
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               formControlName="districtName"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of streetOptions; track option) {
+            <mat-option [value]="option.name">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
       </mat-form-field>
     </div>
   </div>
 
-
-  <div class="grid grid-cols-2 gap-x-4 ">
-    <div class="control ">
+  <div class="grid grid-cols-2 gap-x-4">
+    <div class="control">
       <mat-label class="text-sm">Street Name</mat-label>
-      <mat-form-field
-        class="w-full rounded-xl"
-        appearance="fill"
-        floatLabel="always"
-      >
-        <input
-          matInput
-          placeholder="First name"
-          type="text"
-          name="firstname"
-          id="firstname"
-        />
-        <mat-error>Please enter your username</mat-error>
+      <mat-form-field class="w-full rounded-xl">
+
+        <input type="text"
+               placeholder="Pick one"
+               matInput
+               formControlName="streetName"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of streetOptions; track option) {
+            <mat-option [value]="option.name">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
       </mat-form-field>
     </div>
 
-    <div class="control ">
+    <div class="control">
       <mat-label class="text-sm">House Number</mat-label>
       <mat-form-field
         class="w-full rounded-xl"
@@ -123,7 +117,7 @@
         floatLabel="always"
       >
         <input
-          matInput
+          matInput  formControlName="houseNumber"
           placeholder="First name"
           type="text"
           name="firstname"
@@ -132,10 +126,34 @@
         <mat-error>Please enter your username</mat-error>
       </mat-form-field>
     </div>
+
+
   </div>
+  <div class="control">
+    <mat-label class="text-sm">House Name</mat-label>
+    <mat-form-field
+      class="w-full rounded-xl"
+      appearance="fill"
+      floatLabel="always"
+    >
+      <input
+        matInput formControlName="houseName"
+        placeholder="House name"
+        type="text"
+        name="houseName"
+        id="houseName"
+      />
+      <mat-error>Please enter your House Name</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="flex flex-col items-center mt-8 gap-y-4">
 
+
+    <button mat-fab color="primary" type="button" (click)="show()" aria-label="Example icon button with a home icon">
+      Save
+    </button>
+
+  </div>
 </form>
-
-
-
+</div>
 }

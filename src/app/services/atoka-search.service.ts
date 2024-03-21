@@ -21,4 +21,5 @@ export class AtokaSearchService extends HttpService<BaseResponse<any>>{
     return this.get<BaseResponse<Address>>(url);
 
   }
+
 }

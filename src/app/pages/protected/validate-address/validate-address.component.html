@@ -11,25 +11,32 @@
             alt="logo"
           />
           <div
-            class=" text-white h-[100px] gap-4  w-full  mt-6 justify-items-center"
+            class="text-white h-[100px] gap-4 w-full mt-6 justify-items-center"
           >
-            <p class="font-bold text-center text-[24px]">Address Verification</p>
-            <p class="font-normal  pt-0 text-[14px]">
+            <p class="font-bold text-center text-[24px]">
+              Address Verification
+            </p>
+            <p class="font-normal pt-0 text-[14px]">
               Create a secured password
             </p>
           </div>
-          <div class="text-left" >
+          <div class="text-left">
             <!-- [formGroup]="loginfrom" -->
             <div>
               <form class="">
                 <div class="grid gap-x-4">
-
-                    <app-atoka-search></app-atoka-search>
-                  <div class="mt-5 mb-5" >
-                    <a href="javascript:void(0)" class=" text-white" (click)="showForm()" >Don’t have ATOKA ? <b> Enter address manually</b></a>
-
+                  <app-atoka-search></app-atoka-search>
+                  <div class="mt-5 mb-5">
+                    <a
+                      href="javascript:void(0)"
+                      class="text-white"
+                      (click)="showForm()"
+                      >Don’t have ATOKA ? <b> Enter address manually</b></a
+                    >
                   </div>
-                    <app-address-form [hideForm]="hideForm" > </app-address-form>
+                  <app-address-form [hideForm]="hideForm" (showFormState)="setHideForm($event)"> </app-address-form>
+                </div>
+                <div *ngIf="!hideForm">
                   <div class="control">
                     <mat-label class="text-sm"
                       >When did you move to this address?
@@ -54,19 +61,18 @@
                       <mat-error>Please select your date of birth</mat-error>
                     </mat-form-field>
                   </div>
-                </div>
-                <div class="flex flex-col  items-center mt-8 gap-y-4 ">
-                  <button
-class="font-[16px] mb-12"
-                    type="button"
-                    mat-flat-button
-                    color="primary "
-                     (click)="verifyAddress()"
-                  >
-                  Continue
-                    <!-- <mat-spinner class="text-[12px]" *ngIf="loading" ></mat-spinner> -->
-                  </button>
-
+                  <div class="flex flex-col items-center mt-8 gap-y-4">
+                    <button
+                      class="font-[16px] mb-12"
+                      type="button"
+                      mat-flat-button
+                      color="primary "
+                      (click)="verifyAddress()"
+                    >
+                      Continue
+                      <!-- <mat-spinner class="text-[12px]" *ngIf="loading" ></mat-spinner> -->
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
