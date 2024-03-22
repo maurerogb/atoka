@@ -41,3 +41,16 @@ export interface NewStreetRequest {
   houseName?:   string;
   houseNumber?: string;
 }
+
+
+export interface StreetDetails {
+  cityName:       string;
+  cityId:         number;
+  streetName:     string;
+  atokaNumber:    string;
+  houseName:      string;
+  atoka:          string;
+  atokaAddressId: number;
+  oldNumber:      string;
+  fullStreetName: string;
+}

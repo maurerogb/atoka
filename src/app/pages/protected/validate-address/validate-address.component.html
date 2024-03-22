@@ -25,7 +25,7 @@
             <div>
               <form class="">
                 <div class="grid gap-x-4">
-                  <app-atoka-search></app-atoka-search>
+                  <app-atoka-search [addressCode]="addressCode" (returnCode)="setAddressCode($event)"></app-atoka-search>
                   <div class="mt-5 mb-5">
                     <a
                       href="javascript:void(0)"

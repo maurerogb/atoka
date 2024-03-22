@@ -22,13 +22,16 @@ import { AtokaSearchComponent } from '../../../components/atoka-search/atoka-sea
     imports: [CommonModule, AtokaSearchComponent, MatIconModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, AddressFormComponent]
 })
 export class ValidateAddressComponent {
+setAddressCode(value:any) {
+this.addressCode = value
+}
   hideForm : boolean = false;
-
+  addressCode?: string ;
   constructor(){}
 
   setHideForm(value:any){
 console.log('value  >>>> ' + value);
-
+    this.addressCode = value;
     this.hideForm = false;
 
   }

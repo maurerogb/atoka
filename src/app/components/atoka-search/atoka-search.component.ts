@@ -9,7 +9,7 @@ import { AddressFormComponent } from '../address-form/address-form.component';
 import { Observable, Subject } from 'rxjs';
 import { debounce, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Address } from '../../model/atoka-query';
 
 @Component({
@@ -25,12 +25,16 @@ import { Address } from '../../model/atoka-query';
   styleUrl: './atoka-search.component.scss'
 })
 export class AtokaSearchComponent implements OnInit {
+
   atokaSearch = new FormControl('');
   option?: Address[];
   searchInput = new Subject<string>();
   filteredOptions?: Address[];
   packages$!: Address[];
   withRefresh = false;
+
+  @Input() addressCode: string | undefined;
+@Output() returnCode : EventEmitter<string> = new EventEmitter<string>();
   constructor(private atokaServ: AtokaSearchService) { }
 
   ngOnInit() {
@@ -38,8 +42,8 @@ export class AtokaSearchComponent implements OnInit {
       .pipe(debounceTime(1000))
       .subscribe((value: any) => {
         this.search(value);
-
       })
+      this.atokaSearch.patchValue(this.addressCode?? '')
   }
 
   // onSearchInputChange(searchTerm: string) {
@@ -54,6 +58,10 @@ export class AtokaSearchComponent implements OnInit {
         console.log(this.option);
       }
     });
+  }
+
+  setAddressCode(){
+    this.returnCode.emit(this.addressCode)
   }
 
 }
