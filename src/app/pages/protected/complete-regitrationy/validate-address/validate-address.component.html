@@ -1,8 +1,4 @@
-<div class="page-wrapper">
-  <div class="grid grid-cols h-screen center bg-red-600">
-    <div
-      class="bg-onboarding flex h-full text-white py-5 pl-24 pr-12 justify-center"
-    >
+
       <div class="w-[600px] h-full justify-center">
         <div class="mt-5 text-center">
           <img
@@ -11,8 +7,7 @@
             alt="logo"
           />
           <div
-            class="text-white h-[100px] gap-4 w-full mt-6 justify-items-center"
-          >
+            class="text-white h-[100px] gap-4 w-full mt-6 justify-items-center">
             <p class="font-bold text-center text-[24px]">
               Address Verification
             </p>
@@ -22,10 +17,10 @@
           </div>
           <div class="text-left">
             <!-- [formGroup]="loginfrom" -->
-            <div>
+            <div  [formGroup]="validateAddressForm">
               <form class="">
                 <div class="grid gap-x-4">
-                  <app-atoka-search [addressCode]="addressCode" (returnCode)="setAddressCode($event)"></app-atoka-search>
+                  <app-atoka-search  [addressCode]="addressCode" (returnCode)="setAddressCode($event)"></app-atoka-search>
                   <div class="mt-5 mb-5">
                     <a
                       href="javascript:void(0)"
@@ -34,7 +29,7 @@
                       >Don’t have ATOKA ? <b> Enter address manually</b></a
                     >
                   </div>
-                  <app-address-form [hideForm]="hideForm" (showFormState)="setHideForm($event)"> </app-address-form>
+                  <app-address-form [hideForm]="hideForm"  (showFormState)="setHideForm($event)"> </app-address-form>
                 </div>
                 <div *ngIf="!hideForm">
                   <div class="control">
@@ -46,7 +41,7 @@
                       appearance="fill"
                       floatLabel="always"
                     >
-                      <input
+                      <input formControlName="startFrom"
                         (click)="dob.open()"
                         (focus)="dob.open()"
                         placeholder="Select Date"
@@ -74,11 +69,10 @@
                     </button>
                   </div>
                 </div>
+                {{ this.validateAddressForm.value | json }}
               </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+

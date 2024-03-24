@@ -1,6 +1,5 @@
 import { Routes } from "@angular/router";
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { ValidateAddressComponent } from "./validate-address/validate-address.component";
 
 export const PROTECTED_ROUTES: Routes = [
   {
@@ -12,7 +11,7 @@ export const PROTECTED_ROUTES: Routes = [
         redirectTo: 'business-account',
       },
       {
-        path:'validate-address' , component:ValidateAddressComponent,
+        path:'complete-registration' , loadChildren: ()=> import('./complete-regitrationy/complete-regitration.route').then(m=> m.COMPLETE_REGISTRATION_ROUTES),
       },
       {
         path: 'business-account',

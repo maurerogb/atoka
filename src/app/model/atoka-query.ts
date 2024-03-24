@@ -42,7 +42,9 @@ export interface NewStreetRequest {
   houseNumber?: string;
 }
 
-
+export interface MoveInDate {
+  startFrom: string
+}
 export interface StreetDetails {
   cityName:       string;
   cityId:         number;
