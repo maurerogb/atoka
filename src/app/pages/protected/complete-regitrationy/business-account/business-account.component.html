@@ -6,12 +6,12 @@
     src="assets/svg/directionpost.svg"
     alt="logo"
   />
-  <div class="text-white h-[100px]  gap-4 w-full mt-6 justify-items-center">
+  <div class="text-[#005677] h-[100px]  gap-4 w-full mt-6 justify-items-center">
     <p class="font-bold text-center text-[24px]">
-      Address Verification
+      Business Account
     </p>
     <p class="font-normal pt-0 text-[14px]">
-      Create a secured password
+      Please select the account type that suite you.
     </p>
   </div>
   <div class="text-left">
@@ -95,10 +95,75 @@
               <mat-error>Please enter your username</mat-error>
             </mat-form-field>
           </div>
-          <mat-checkbox color="#fff"  class="text-sm -mt-2 -ml-2 text-cyan-50">By signing up you agree to our <span class="text-accent font-semibold">Terms & Conditions</span> and <span class="text-accent font-semibold">Privacy Policy</span>.</mat-checkbox>
-
+          <div class="grid grid-cols gap-x-4">
+            <div class="control">
+          <mat-checkbox (change)="uploadDocument($event.checked)" color="primary" class="text-sm -mt-2 -ml-2 text-cyan-50"><span class=" font-thin"> Tick if your Business Registered with CAC</span> </mat-checkbox>
+            </div>
+          </div>
 
         </div>
+
+        <div class="grid grid-cols gap-x-4 mt-6 mb-6" *ngIf="uploadCAC">
+          <div class="control">
+            <mat-label class="text-sm">Business registration number* </mat-label>
+            <mat-form-field
+              class="w-full rounded-xl"
+              appearance="fill"
+              floatLabel="always"
+            >
+              <input
+                matInput
+                placeholder="Email official Email Address"
+                type="text"
+                name="firstname"
+                id="firstname"
+              />
+              <mat-error>Please enter your username</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="control">
+            <mat-label>Upload Certificate of Incorporation (CAC) for Goodness oil & gas Ltd*</mat-label>
+            <img for="file-upload" src="../../../../../assets/svg/upload-file.svg" class="custom-file-upload" alt="">
+
+
+          </div>
+        </div>
+
+        <div class="grid grid-cols gap-x-4 mt-6 mb-6" >
+          <div class="control">
+            <mat-label>Upload your business Logo</mat-label>
+            <img src="../../../../../assets/svg/upload-file.svg" class="" alt="">
+          </div>
+        </div>
+        <div class="control">
+          <mat-label class="text-sm">What role do you play at {{businessName}}?</mat-label>
+          <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
+            <mat-select [placeholder]="'Select Role'" formControlName="accountType">
+              <mat-option [value]="1">Individual Account </mat-option>
+              <mat-option [value]="2">Business Account</mat-option>
+              <mat-option [value]="3">Public Sector Account</mat-option>
+            </mat-select>
+            <mat-error>Please select your gender</mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class="grid gap-x-4">
+          <app-atoka-search [labelName]="labelName
+          " [addressCode]="addressCode" (returnCode)="setAddressCode($event)"></app-atoka-search>
+          <div class="mt-5 mb-5 text-center">
+            <a href="javascript:void(0)" class="primary"
+              (click)="showForm()"
+              >Don’t have ATOKA ? <b> Enter address manually</b></a
+            >
+          </div>
+          <app-address-form [hideForm]="hideForm"  (showFormState)="setHideForm($event)"> </app-address-form>
+        </div>
+
+        <mat-checkbox   class="text-sm -mt-2 -ml-2 "> <span class=" text-primary">By signing up you agree to our </span>
+           <a href="javascript:void(0)" class="font-[12px]  " >Terms & Conditions </a> and <a href="javascript:void(0)" class="font-[12px]  " >Privacy Policy </a> </mat-checkbox>
+
     </form>
   </div>
 

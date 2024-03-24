@@ -11,14 +11,43 @@ import { MatInputModule } from "@angular/material/input";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSelectModule } from "@angular/material/select";
 import { RouterModule } from "@angular/router";
+import { AtokaSearchComponent } from "../../../../components/atoka-search/atoka-search.component";
+import { AddressFormComponent } from "../../../../components/address-form/address-form.component";
 
 @Component({
-  selector: 'app-business-account',
-  standalone: true,
-  imports: [MatIconModule, CommonModule, ReactiveFormsModule, RouterModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatProgressSpinnerModule],
-templateUrl: './business-account.component.html',
-  styleUrl: './business-account.component.scss'
+    selector: 'app-business-account',
+    standalone: true,
+    templateUrl: './business-account.component.html',
+    styleUrl: './business-account.component.scss',
+    imports: [MatIconModule, CommonModule, ReactiveFormsModule, RouterModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatProgressSpinnerModule, AtokaSearchComponent, AddressFormComponent]
 })
 export class BusinessAccountComponent {
+uploadCAC: boolean = false;
+labelName: string = "Address (Head Office)"
+addressCode: string = "";
+hideForm: boolean = false;
+businessName: string = "";
+
+  uploadDocument(value:boolean):void {
+         this.uploadCAC= value;
+  }
+  showForm(){
+    if (this.hideForm === false) {
+      this.hideForm = true;
+    }
+    else {
+      this.hideForm = false;
+    }
+    console.log(this.hideForm);
+    return this.hideForm;
+  }
+
+  setHideForm(event:any){
+    this.addressCode =event
+  }
+
+  setAddressCode(event:any){
+    this.addressCode = event;
+  }
 
 }

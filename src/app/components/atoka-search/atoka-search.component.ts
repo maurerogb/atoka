@@ -33,6 +33,7 @@ export class AtokaSearchComponent implements OnInit {
   packages$!: Address[];
   withRefresh = false;
 
+  @Input() labelName:string | undefined;
   @Input() addressCode: string | undefined;
 @Output() returnCode : EventEmitter<string> = new EventEmitter<string>();
   constructor(private atokaServ: AtokaSearchService) { }

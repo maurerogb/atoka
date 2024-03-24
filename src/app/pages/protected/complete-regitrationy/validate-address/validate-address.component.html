@@ -7,7 +7,7 @@
             alt="logo"
           />
           <div
-            class="text-white h-[100px] gap-4 w-full mt-6 justify-items-center">
+            class=" h-[100px] gap-4 w-full mt-6 justify-items-center">
             <p class="font-bold text-center text-[24px]">
               Address Verification
             </p>
@@ -20,11 +20,12 @@
             <div  [formGroup]="validateAddressForm">
               <form class="">
                 <div class="grid gap-x-4">
-                  <app-atoka-search  [addressCode]="addressCode" (returnCode)="setAddressCode($event)"></app-atoka-search>
+                  <app-atoka-search [labelName]="labelName
+                  " [addressCode]="addressCode" (returnCode)="setAddressCode($event)"></app-atoka-search>
                   <div class="mt-5 mb-5">
                     <a
-                      href="javascript:void(0)"
-                      class="text-white"
+                      href="javascript:void(0)" class="primary"
+
                       (click)="showForm()"
                       >Don’t have ATOKA ? <b> Enter address manually</b></a
                     >

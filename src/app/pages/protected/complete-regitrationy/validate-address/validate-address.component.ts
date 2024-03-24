@@ -29,6 +29,7 @@ export class ValidateAddressComponent implements OnInit {
   hideForm: boolean = false;
   addressCode?: string;
   validateAddressForm!: FormGroup
+  labelName: string ='Address Code'
 
   constructor(private regitrationServ: RegistrationService, private router: Router, private fb: FormBuilder, private personServ: PersonService) { }
 
