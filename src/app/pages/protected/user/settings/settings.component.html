@@ -1,0 +1,77 @@
+<div class="grid gap-6">
+  <!-- Personl Information -->
+  <div class="flex flex-col gap-4">
+    <p class="text-[#003A50] font-bold text-xl">Personal Information</p>
+    <div
+      class="border border-[#00739F] grid grid-cols-2 gap-4 rounded-lg p-5 w-[500px]"
+    >
+      <div class="flex flex-col gap-3">
+        <p class="font-semibold text-base text-[#003A50]">Goodness Olatobi</p>
+        <p class="text-[#003A50]">Full Name</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <p class="font-semibold text-base text-[#003A50]">+234 7089 7654 777</p>
+        <p class="text-[#003A50]">Phone Number</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <p class="font-semibold text-base text-[#003A50]">
+          Goo**************12&#64;gmail.com
+        </p>
+        <p class="text-[#003A50]">Email Address</p>
+      </div>
+    </div>
+  </div>
+  <!-- Settings -->
+  <div class="flex flex-col gap-4">
+    <p class="text-[#003A50] font-bold text-xl">Settings</p>
+    <div
+      class="border border-[#00739F] flex flex-col gap-6 rounded-lg p-5 w-[500px]"
+    >
+      <div class="flex justify-between">
+        <p>Allow all Notification</p>
+        <div>
+          <mat-slide-toggle
+            (click)="$event.stopPropagation()"
+            color="primary"
+          ></mat-slide-toggle>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <p>Notify me for any update</p>
+        <div>
+          <mat-slide-toggle
+            (click)="$event.stopPropagation()"
+            color="primary"
+          ></mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Security -->
+  <div class="flex flex-col gap-4">
+    <p class="text-[#003A50] font-bold text-xl">Security</p>
+    <div
+      class="border border-[#00739F] grid gap-4 rounded-lg p-5 w-[500px]"
+    >
+      <div class="flex justify-between">
+        <div class="flex flex-col">
+          <p class="font-semibold text-base text-[#003A50]">Change Password</p>
+          <p class="text-[#003A50]">reset your password</p>
+        </div>
+        <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer" (click)="changePassword()">keyboard_arrow_right</mat-icon>
+      </div>
+      <div class="flex justify-between">
+        <p class="font-semibold text-base text-[#003A50]">Change ATOKA address</p>
+        <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer">keyboard_arrow_right</mat-icon>
+      </div>
+      <div class="flex justify-between">
+        <p class="font-semibold text-base text-[#003A50]">Change Employment Status</p>
+        <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer">keyboard_arrow_right</mat-icon>
+      </div>
+      <div class="flex justify-between">
+        <p class="font-semibold text-base text-[#003A50]">Change Account Type</p>
+        <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer">keyboard_arrow_right</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

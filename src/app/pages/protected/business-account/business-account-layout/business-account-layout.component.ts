@@ -71,12 +71,6 @@ export class BusinessAccountLayoutComponent {
 
   bottomNav = [
     {
-      name: 'Account',
-      routerLink: '/app/business-account/account',
-      activeIcon: 'assets/svg/employee.svg',
-      inactiveIcon: 'assets/svg/employee.svg',
-    },
-    {
       name: 'Settings',
       routerLink: '/app/business-account/settings',
       activeIcon: 'assets/svg/employee.svg',

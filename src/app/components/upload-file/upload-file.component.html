@@ -1,0 +1,16 @@
+<div class="border border-dashed border-[#BBBBBB] rounded-lg p-5 flex justify-center">
+  <input
+          type="file"
+          #fileUpload
+          class="hidden"
+          (change)="uploadFile($event)"
+        />
+        <button (click)="fileUpload.click()"  class=" flex gap-2 text-sm font-medium">
+          <img src="assets/svg/upload.svg" alt=""/>
+          <span *ngIf="file.value">{{
+            file.value
+          }}</span>
+          <span *ngIf="!file.value" class="font-medium text-[#6941C6]">Click to upload <span class="text-black">or drag
+            and drop</span></span>
+        </button>
+</div>

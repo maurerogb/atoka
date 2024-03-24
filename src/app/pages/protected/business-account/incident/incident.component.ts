@@ -8,6 +8,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { ViewIncidentComponent } from '../../../../components/modals/view-incident/view-incident.component';
 @Component({
   selector: 'app-incident',
   standalone: true,
@@ -54,5 +55,14 @@ export class IncidentComponent {
 
   onDateRangeInput(){
 
+  }
+
+  showIncident(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.maxHeight = '90vh';
+    let dialogRef = this.matDialog.open(
+      ViewIncidentComponent,
+      dialogConfig
+    );
   }
 }
