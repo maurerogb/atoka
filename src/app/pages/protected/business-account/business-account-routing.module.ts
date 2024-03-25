@@ -5,7 +5,6 @@ import { BusinessAccountLayoutComponent } from './business-account-layout/busine
 import { LocationComponent } from './location/location.component';
 import { IncidentComponent } from './incident/incident.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { AccountBusinessComponent } from './account-business/account-business.component';
 import { BusinessSettingsComponent } from './business-settings/business-settings.component';
 
 const routes: Routes = [
@@ -16,7 +15,6 @@ const routes: Routes = [
     {path: 'location', component: LocationComponent},
     {path: 'incident', component: IncidentComponent},
     {path: 'employees', component: EmployeesComponent},
-    {path: 'account', component: AccountBusinessComponent},
     {path: 'settings', component: BusinessSettingsComponent}
   ]
 }

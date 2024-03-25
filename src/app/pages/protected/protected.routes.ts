@@ -25,6 +25,10 @@ export const PROTECTED_ROUTES: Routes = [
         path: 'user',
         loadChildren: () => import('./user/user.module').then(m => m.UserModule),
       },
+      {
+        path: 'public-service',
+        loadChildren: () => import('./public-service/public-service.module').then(m => m.PublicServiceModule),
+      },
 
     ]
   }
