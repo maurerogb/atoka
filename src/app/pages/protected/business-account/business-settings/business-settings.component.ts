@@ -3,13 +3,25 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ChangePasswordComponent } from '../../../../components/modals/change-password/change-password.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AccountComponent } from './account/account.component';
+import { BranchComponent } from './branch/branch.component';
+import { MyDetailsComponent } from './my-details/my-details.component';
+import { NotificationComponent } from './notification/notification.component';
+import { SecurityComponent } from './security/security.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-business-settings',
   standalone: true,
   imports: [
     MatSlideToggleModule,
-    MatIconModule
+    MatIconModule,
+    AccountComponent,
+    BranchComponent,
+    MyDetailsComponent,
+    NotificationComponent,
+    SecurityComponent,
+    MatTabsModule,
   ],
   templateUrl: './business-settings.component.html',
   styleUrl: './business-settings.component.scss'

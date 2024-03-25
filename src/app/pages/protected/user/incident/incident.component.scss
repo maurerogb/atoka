@@ -1,0 +1,58 @@
+.date-holder {
+  @apply flex items-center relative
+}
+
+.custom-date-input {
+  @apply absolute left-10 top-10;
+  position: absolute !important;
+  width: 0 !important;
+}
+
+.sort-button img {
+  @apply w-6 h-6
+}
+.sort-button {
+  @apply px-4 py-3 border whitespace-nowrap border-[#D6F5FFD9] border-solid rounded-lg bg-[#F3FCFF] flex gap-2 items-center text-[#000000] text-sm font-medium
+}
+
+table{
+  width: 100%;
+}
+.table-holder thead > tr > th {
+  @apply font-bold py-6 px-6 text-sm text-white bg-[#0C394B] whitespace-nowrap font-display border-solid border-b-[#BAE5F44F] border-b;
+}
+
+.table-holder tbody > tr > td {
+  @apply pb-5 pt-8 text-center font-medium font-display text-sm border-b border-solid border-b-[#BAE5F44F];
+}
+
+.table-holder table > thead > tr:first-child th:first-child {
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+}
+.table-holder table > thead > tr:first-child th:last-child {
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+}
+.status{
+  border-radius: 24px;
+  display: flex;
+  padding: 6px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: white;
+
+  &.successful{
+    background: #1F932D;
+  }
+  &.draft {
+    background: #CA8828;
+  }
+  &.failed {
+    background: #D83A3A;
+  }
+  &.pending {
+    background: #0090C7;
+  }
+}

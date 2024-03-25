@@ -99,7 +99,7 @@
               <button mat-menu-item (click)="removeEmployee()">
                 Remove Employee
               </button>
-              <button mat-menu-item>Reject Employee</button>
+              <button mat-menu-item (click)="rejectEmployee()">Reject Employee</button>
             </mat-menu>
           </div>
           <p class="text-sm font-normal">
@@ -119,9 +119,11 @@
               <img src="assets/svg/more.svg" alt="" />
             </button>
             <mat-menu #menu2="matMenu">
-              <button mat-menu-item>View</button>
-              <button mat-menu-item>Remove Employee</button>
-              <button mat-menu-item>Reject Employee</button>
+              <button mat-menu-item (click)="employeeDetails()">View</button>
+              <button mat-menu-item (click)="removeEmployee()">
+                Remove Employee
+              </button>
+              <button mat-menu-item (click)="rejectEmployee()">Reject Employee</button>
             </mat-menu>
           </div>
           <p class="text-sm font-normal">
@@ -141,9 +143,11 @@
               <img src="assets/svg/more.svg" alt="" />
             </button>
             <mat-menu #menu2="matMenu">
-              <button mat-menu-item>View</button>
-              <button mat-menu-item>Remove Employee</button>
-              <button mat-menu-item>Reject Employee</button>
+              <button mat-menu-item (click)="employeeDetails()">View</button>
+              <button mat-menu-item (click)="removeEmployee()">
+                Remove Employee
+              </button>
+              <button mat-menu-item (click)="rejectEmployee()">Reject Employee</button>
             </mat-menu>
           </div>
           <p class="text-sm font-normal">
@@ -163,9 +167,11 @@
               <img src="assets/svg/more.svg" alt="" />
             </button>
             <mat-menu #menu2="matMenu">
-              <button mat-menu-item>View</button>
-              <button mat-menu-item>Remove Employee</button>
-              <button mat-menu-item>Reject Employee</button>
+              <button mat-menu-item (click)="employeeDetails()">View</button>
+              <button mat-menu-item (click)="removeEmployee()">
+                Remove Employee
+              </button>
+              <button mat-menu-item (click)="rejectEmployee()">Reject Employee</button>
             </mat-menu>
           </div>
           <p class="text-sm font-normal">
