@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { Routes } from "@angular/router";
 
 export const PUBLIC_ROUTES: Routes = [
@@ -7,7 +8,11 @@ export const PUBLIC_ROUTES: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'register',
+        redirectTo: 'signin',
+      },
+      {
+        path: 'signin', component: LoginComponent
+        //loadChildren: () => import('./registration/registration.route').then(m => m.REGISTRATION_ROUTES)
       },
       {
         path: 'register',
