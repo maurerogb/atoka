@@ -1,13 +1,13 @@
 <div class="control">
-
+  <mat-label>{{labelName}}</mat-label>
   <mat-form-field class="w-full rounded-xl">
-    <mat-label>Address</mat-label>
+
     <input type="text"
            placeholder="Pick one"
            matInput
            [formControl]="atokaSearch"
            [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="setAddressCode()">
+    <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="setAddressCode($event)">
       @for (option of filteredOptions; track option) {
         <mat-option [value]="option.atoka">{{option.atoka}}</mat-option>
       }

@@ -2,14 +2,14 @@ import { AtokaSearchService } from './../../services/atoka-search.service';
 import { CommonModule } from '@angular/common';
 
 import { AsyncPipe } from '@angular/common';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddressFormComponent } from '../address-form/address-form.component';
 import { Observable, Subject } from 'rxjs';
 import { debounce, debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Address } from '../../model/atoka-query';
 
 @Component({
@@ -33,6 +33,7 @@ export class AtokaSearchComponent implements OnInit {
   packages$!: Address[];
   withRefresh = false;
 
+  @Input() labelName:string | undefined;
   @Input() addressCode: string | undefined;
 @Output() returnCode : EventEmitter<string> = new EventEmitter<string>();
   constructor(private atokaServ: AtokaSearchService) { }
@@ -43,8 +44,16 @@ export class AtokaSearchComponent implements OnInit {
       .subscribe((value: any) => {
         this.search(value);
       })
-      this.atokaSearch.patchValue(this.addressCode?? '')
+      // this.atokaSearch.patchValue(this.addressCode?? '')
   }
+
+ngOnChanges(changes: SimpleChanges): void {
+  //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+  //Add '${implements OnChanges}' to the class.
+  console.log(this.addressCode);
+
+  this.atokaSearch.patchValue(this.addressCode?? '')
+}
 
   // onSearchInputChange(searchTerm: string) {
   //   this.searchInput.next(searchTerm);
@@ -52,6 +61,7 @@ export class AtokaSearchComponent implements OnInit {
 
 
   search(value: any) {
+    if(value !== ''){
     this.atokaServ.searchAtoka(value).subscribe({
       next: (data: any) => {
         this.filteredOptions = data.data;
@@ -59,8 +69,11 @@ export class AtokaSearchComponent implements OnInit {
       }
     });
   }
+  }
 
-  setAddressCode(){
+  setAddressCode(e: MatAutocompleteSelectedEvent){
+    console.log("dfff ?? ",e.option.value);
+ this.addressCode = e.option.value
     this.returnCode.emit(this.addressCode)
   }
 

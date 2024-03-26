@@ -55,8 +55,6 @@ export class AddressFormComponent implements OnInit {
     this.callStateSearch()
   }
 
-
-
   save() {
     const form =this.countryForm.value;
    let req: NewStreetRequest={
@@ -67,23 +65,18 @@ export class AddressFormComponent implements OnInit {
      stateId: this.stateId,
      houseName: form.houseName,
      lgaId:this.lgaId,
-     houseNumber:form.houseNumber
+     houseNumber:form.houseNumber,
+
    }
    console.log(req);
    console.log(this.countryForm.value);
-    this.showFormState.emit(this.newAddressCode);
 
     this.countryServ.saveAddress(req).subscribe(res => {
       next:{
-        console.log(res);
-
+        console.log('res', res);
+         this.showFormState.emit(res.data);
       }
     })
-
-
-
-
-
   }
 
   createForm() {
