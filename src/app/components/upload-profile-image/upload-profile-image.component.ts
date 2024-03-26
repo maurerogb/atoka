@@ -15,6 +15,7 @@ export class UploadProfileImageComponent {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
 
+
       reader.onload = (_event: any) => {
         this.image.patchValue(_event.target.result);
       };

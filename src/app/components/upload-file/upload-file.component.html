@@ -5,11 +5,11 @@
           class="hidden"
           (change)="uploadFile($event)"
         />
-        <button (click)="fileUpload.click()"  class=" flex gap-2 text-sm font-medium">
-          <img src="assets/svg/upload.svg" alt=""/>
-          <span *ngIf="file.value">{{
-            file.value
+        <button (click)="fileUpload.click()"  class=" flex gap-2 text-sm font-medium break-words">
+          <img *ngIf="!file.value" src="assets/svg/upload.svg" alt=""/>
+          <span *ngIf="file.value" class="break-words">{{
+            fileName
           }}</span>
-          <span *ngIf="!file.value" class="">Drag file here to upload document or <span class="font-bold text-[#6941C6]">choose file</span></span>
+          <span *ngIf="!file.value" class="">Drag file here to upload {{fileType}} or <span class="font-bold text-[#6941C6]">choose file</span></span>
         </button>
 </div>

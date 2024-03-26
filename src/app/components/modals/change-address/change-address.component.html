@@ -1,1 +1,117 @@
-<p>change-address works!</p>
+<div class="bg-white rounded-lg p-5 mt-5 max-w-[556px]">
+  <p class="text-[#003A50] font-semibold text-xl lg:text-[32px]">Change Address</p>
+  <div class="flex flex-col hidden">
+    <p class="font-semibold text-base">Kindly enter your email address to receive OTP code</p>
+    <div class="p-2">
+      <p class="text-left  font-semibold">Email Address</p>
+      <app-input [customClass]="'w-full'" [placeholder]="'Enter your email address'"></app-input>
+    </div>
+
+    <p class="flex justify-center !mt-4">Or use phone number</p>
+
+    <div class="p-2">
+      <p class="text-left  font-semibold">Phone Number</p>
+      <app-input [customClass]="'w-full'" [placeholder]="'Enter your phone number'"></app-input>
+    </div>
+    <div class="flex justify-center mt-5">
+      <app-button
+      buttonText="Next"
+      buttonStyles="w-[368px]"
+      ></app-button>
+    </div>
+  </div>
+
+  <div>
+    <p class="font-semibold text-base text-[#003A50]">Enter New Address</p>
+    <div class="flex flex-col">
+      <div class="p-2">
+        <p class="text-left  font-semibold">Property Address</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter your email address'"></app-input>
+      </div>
+      <p class="flex justify-center mt-5 font-display">Don’t have ATOKA ? <span class="font-semibold cursor-pointer text-[#003A50]" (click)="toggleDiv()">Enter address manually</span></p>
+
+    <div class="grid gap-4 p-2" *ngIf="showDiv">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="">
+          <p class="text-left  font-semibold">Country</p>
+          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+            <mat-select [placeholder]="'Select Country'" class="w-full">
+              <mat-option> Nigeria</mat-option>
+              <mat-option> Ghana</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div>
+          <p class="text-left  font-semibold">State</p>
+          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+            <mat-select [placeholder]="'Select State'" class="w-full">
+              <mat-option> Lagos</mat-option>
+              <mat-option>Abuja</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="text-left  font-semibold">Local Government Area (LGA)</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
+      </div>
+      <div>
+        <p class="text-left  font-semibold">District</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="">
+          <p class="text-left  font-semibold">City</p>
+          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+            <mat-select [placeholder]="'Select Country'" class="w-full">
+              <mat-option> Nigeria</mat-option>
+              <mat-option> Ghana</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div>
+          <p class="text-left  font-semibold">Home Number</p>
+          <app-input [customClass]="'w-full'" [placeholder]="'Enter Home Number'"></app-input>
+        </div>
+      </div>
+      <div>
+        <p class="text-left  font-semibold">Street Name</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter Street Name'"></app-input>
+      </div>
+      <div>
+        <div class="flex justify-between">
+          <p class="text-left  font-semibold">ATOKA</p>
+          <p class="text-[#DA7B07]">Save location</p>
+        </div>
+        <app-input [customClass]="'w-full'" [placeholder]="'Atoka'"></app-input>
+      </div>
+    </div>
+
+      <div class="flex justify-center mt-5">
+        <app-button
+        buttonText="Save"
+        buttonStyles="w-[368px]"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- address sent successfully  -->
+<div class="max-w-[556px] hidden">
+  <p class="text-[#003A50] font-semibold text-xl lg:text-[32px]">Change Address</p>
+  <div class="flex justify-center">
+    <img src="assets/svg/success-thumb.svg" alt="">
+  </div>
+  <p class="text-base font-semibold text-[#003A50]"> Change address Link Sent</p>
+  <p>A change address link has been sent to your email address</p>
+</div>
+<!-- password changed successfully  -->
+<div class="max-w-[556px] hidden">
+  <p class="text-[#003A50] font-semibold text-xl lg:text-[32px]">Change Address</p>
+  <div class="flex justify-center">
+    <img src="assets/svg/success-thumb.svg" alt="">
+  </div>
+  <p class="text-base font-semibold text-[#003A50]"> Address Changed Successfully!</p>
+  <p class=" flex justify-center">You’ve successfully changed your address</p>
+</div>

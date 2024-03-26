@@ -72,12 +72,6 @@ export class TenantLayoutComponent {
 
   bottomNav = [
     {
-      name: 'Account',
-      routerLink: '/app/tenant/account',
-      activeIcon: 'assets/svg/employee.svg',
-      inactiveIcon: 'assets/svg/employee.svg',
-    },
-    {
       name: 'Settings',
       routerLink: '/app/tenant/settings',
       activeIcon: 'assets/svg/employee.svg',

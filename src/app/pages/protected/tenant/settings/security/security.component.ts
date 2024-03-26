@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { ChangePasswordComponent } from '../../../../../components/modals/change-password/change-password.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { ChangeAddressComponent } from '../../../../../components/modals/change-address/change-address.component';
 import { ChangeEmploymentStatusComponent } from '../../../../../components/modals/change-employment-status/change-employment-status.component';
+import { ChangePasswordComponent } from '../../../../../components/modals/change-password/change-password.component';
 
 @Component({
   selector: 'app-security',
