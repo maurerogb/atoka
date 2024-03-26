@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-upload-file',
@@ -15,6 +15,10 @@ export class UploadFileComponent {
 
   newfile: File | undefined;
   @Input() file: FormControl = new FormControl();
+  @Input() fileType! : any;
+
+  fileName : any;
+
 
   uploadFile(event: any) {
     console.log(this.newfile?.name);

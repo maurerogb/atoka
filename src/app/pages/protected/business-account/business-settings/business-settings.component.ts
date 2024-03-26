@@ -19,9 +19,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     AccountComponent,
     BranchComponent,
     MyDetailsComponent,
-    NotificationComponent,
     SecurityComponent,
     MatTabsModule,
+    NotificationComponent
   ],
   templateUrl: './business-settings.component.html',
   styleUrl: './business-settings.component.scss'

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../../components/button/button.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ViewIncidentComponent } from '../tenant-modals/view-incident/view-incident.component';
 
 @Component({
   selector: 'app-incident',
@@ -49,5 +50,13 @@ export class IncidentComponent {
 
   onDateRangeInput(){
 
+  }
+  showIncident(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.maxHeight = '90vh';
+    let dialogRef = this.matDialog.open(
+      ViewIncidentComponent,
+      dialogConfig
+    );
   }
 }

@@ -4,6 +4,7 @@ import { InputComponent } from '../../input/input.component';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../button/button.component';
+import { UploadFileComponent } from '../../upload-file/upload-file.component';
 
 @Component({
   selector: 'app-report-incident-modal',
@@ -12,7 +13,8 @@ import { ButtonComponent } from '../../button/button.component';
     CommonModule,
     InputComponent,
     MatSelectModule,
-    ButtonComponent
+    ButtonComponent,
+    UploadFileComponent
   ],
   templateUrl: './report-incident-modal.component.html',
   styleUrl: './report-incident-modal.component.scss'
