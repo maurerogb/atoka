@@ -18,7 +18,7 @@ export const COMPLETE_REGISTRATION_ROUTES: Routes = [
       }
       ,
        {
-        path:'business-registration' , component:BusinessAccountComponent,
+        path:'business' , component:BusinessAccountComponent,
       },
     ]
   }

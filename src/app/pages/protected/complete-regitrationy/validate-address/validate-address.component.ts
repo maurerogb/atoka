@@ -64,27 +64,25 @@ export class ValidateAddressComponent implements OnInit {
   }
 
   verifyAddress() {
-
     const moveInDate: any =   this.validateAddressForm.value;
-
-
      console.log(moveInDate);
-
-
     this.regitrationServ.movedInOn(moveInDate).subscribe({
       next: (res) => {
         console.log("reds", res);
+        if(  this.personServ.getPerson().accountTypeId == 0){
+          this.router.navigate(['/user'])
+        }
       if(  this.personServ.getPerson().accountTypeId == 2){
-        this.router.navigate(['/business-registration'])
+        this.router.navigate(['/app/complete-registration/business'])
       }
       if(  this.personServ.getPerson().accountTypeId == 2 && false){
         this.router.navigate(['/business-registration'])
       }
       if(  this.personServ.getPerson().accountTypeId == 1){
-        this.router.navigate(['/tenant'])
+        this.router.navigate(['/app/tenant'])
       }
       if(  this.personServ.getPerson().accountTypeId == 3){
-        this.router.navigate(['/user'])
+        this.router.navigate(['/app/user'])
       }
       }
     })

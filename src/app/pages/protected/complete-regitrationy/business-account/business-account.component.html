@@ -124,8 +124,7 @@
 
           <div class="control">
             <mat-label>Upload Certificate of Incorporation (CAC) for Goodness oil & gas Ltd*</mat-label>
-            <img for="file-upload" src="../../../../../assets/svg/upload-file.svg" class="custom-file-upload" alt="">
-
+            <app-upload-file></app-upload-file>
 
           </div>
         </div>
@@ -133,13 +132,13 @@
         <div class="grid grid-cols gap-x-4 mt-6 mb-6" >
           <div class="control">
             <mat-label>Upload your business Logo</mat-label>
-            <img src="../../../../../assets/svg/upload-file.svg" class="" alt="">
+            <app-upload-file></app-upload-file>
           </div>
         </div>
         <div class="control">
           <mat-label class="text-sm">What role do you play at {{businessName}}?</mat-label>
           <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
-            <mat-select [placeholder]="'Select Role'" formControlName="accountType">
+            <mat-select [placeholder]="'Select Role'" >
               <mat-option [value]="1">Individual Account </mat-option>
               <mat-option [value]="2">Business Account</mat-option>
               <mat-option [value]="3">Public Sector Account</mat-option>

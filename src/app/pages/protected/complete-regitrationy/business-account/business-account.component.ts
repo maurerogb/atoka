@@ -13,13 +13,15 @@ import { MatSelectModule } from "@angular/material/select";
 import { RouterModule } from "@angular/router";
 import { AtokaSearchComponent } from "../../../../components/atoka-search/atoka-search.component";
 import { AddressFormComponent } from "../../../../components/address-form/address-form.component";
+import { UploadFileComponent } from "../../../../components/upload-file/upload-file.component";
+import { UploadProfileImageComponent } from "../../../../components/upload-profile-image/upload-profile-image.component";
 
 @Component({
     selector: 'app-business-account',
     standalone: true,
     templateUrl: './business-account.component.html',
     styleUrl: './business-account.component.scss',
-    imports: [MatIconModule, CommonModule, ReactiveFormsModule, RouterModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatProgressSpinnerModule, AtokaSearchComponent, AddressFormComponent]
+    imports: [MatIconModule, CommonModule, ReactiveFormsModule, RouterModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatProgressSpinnerModule, AtokaSearchComponent, AddressFormComponent, UploadFileComponent, UploadProfileImageComponent]
 })
 export class BusinessAccountComponent {
 uploadCAC: boolean = false;
