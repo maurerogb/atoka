@@ -13,6 +13,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class UploadFileComponent {
 
+  newfile: File | undefined;
   @Input() file: FormControl = new FormControl();
   @Input() fileType! : any;
 
@@ -20,11 +21,14 @@ export class UploadFileComponent {
 
 
   uploadFile(event: any) {
+    console.log(this.newfile?.name);
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      this.fileName = event.target.files[0].name
+      this.newfile = event.target.files[0];
+      console.log(this.newfile?.name);
 
       reader.onload = (_event: any) => {
+
         this.file.patchValue(_event.target.result);
       };
 

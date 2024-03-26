@@ -6,17 +6,15 @@ import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
 import { BaseResponse } from '../model/BaseResponse';
 import { PersonService } from './person.service';
+import { loginRequest, loginResponse } from '../model/authentication';
 
 
-const testMode = true;
-const remoteUrl = 'http://dstatoka-001-site7.htempurl.com/api/'
-const localUrl = 'https://localhost:5001/api/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService extends HttpService<BaseResponse<any>> {
-  baseUrl = '';
+
 
   constructor(private http: HttpClient, private perspnServ: PersonService) {
     super(http);
@@ -30,14 +28,29 @@ export class AuthenticationService extends HttpService<BaseResponse<any>> {
     return this.perspnServ.getUse().title
   }
 
+  login(user:loginRequest ): Observable<loginResponse>{
+    const url = 'Auth/login';
+    return this.post<loginResponse>(url, user, this.headers);
+
+  }
+
+  validateAddress(): Observable<BaseResponse<any>>{
+    let url = 'ResidenceStartFrom/GetResidenceStart';
+    return this.get<BaseResponse<any>>(url);
+  }
+
+  setLoginInfo(userData: any) : void {
+    localStorage.removeItem('userData')
+   localStorage.setItem('userData',JSON.stringify(userData));
+  }
+
   createUser(user: any): Observable<BaseResponse<any>> {
     let userId = localStorage.getItem('userId');
     console.log(userId);
     user.userId = userId
     console.log(user);
 
-    this.baseUrl = testMode ? localUrl : remoteUrl;
-    const url =   this.baseUrl+'Auth/register2'
+    const url =    'Auth/register2'
     return this.post<BaseResponse<any>>(url, user, this.headers);
   }
 

@@ -33,6 +33,11 @@ ngOnInit(): void {
   this.createForm();
 }
 
+login(){
+  this.router.navigate(['/signin']);
+}
+
+
   register(): void {
     const formdata = this.personalDetailsfrom.value;
 console.log(formdata);

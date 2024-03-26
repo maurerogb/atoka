@@ -11,6 +11,9 @@ export const PROTECTED_ROUTES: Routes = [
         redirectTo: 'business-account',
       },
       {
+        path:'complete-registration' , loadChildren: ()=> import('./complete-regitrationy/complete-regitration.route').then(m=> m.COMPLETE_REGISTRATION_ROUTES),
+      },
+      {
         path: 'business-account',
         loadChildren: () => import('./business-account/business-account.module').then(m => m.BusinessAccountModule),
       },
