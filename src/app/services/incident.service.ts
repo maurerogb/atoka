@@ -19,15 +19,9 @@ export class IncidentService extends HttpService<BaseResponse<any>> {
     localStorage.getItem('userId');
    }
 
-  getIncident() {
-    const url = ``
-  }
-  // searchAtoka(search:any ): Observable<BaseResponse<Address>>{
-  //   const url = `AtokaAddressDetail?atokaCode=${search}`;
-  //   console.log(url);
-
-  //   return this.get<BaseResponse<Address>>(url);
-
+  // getIncident() {
+  //   const url = ``
   // }
+
 
 }
