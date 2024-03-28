@@ -1,1 +1,72 @@
-<p>notification works!</p>
+<div class="p-5">
+  <div class="border-b py-2 mt-4">
+    <p class="text-lg font-medium">Notification Settings</p>
+    <p>
+      We may still send you important notifications about your account outside
+      of your notification settings.
+    </p>
+  </div>
+
+  <div
+    [formGroup]="notificationForm"
+    class="border-y border-y-[#EAECF0] mt-4 lg:mt-8">
+    <div class="flex flex-col gap-4 max-w-[500px] p-3">
+      <p class="font-semibold">General notification</p>
+      <div class="flex justify-between">
+        <p class="text-[#003A50] font-semibold text-base">
+          Allow all Notification
+        </p>
+        <mat-slide-toggle
+          (change)="onChange($event)"
+          formControlName="allowAllNotification"
+          color="primary"
+        ></mat-slide-toggle>
+      </div>
+      <div class="flex justify-between">
+        <p class="text-[#003A50] font-semibold text-base">
+          Notify me for any updates
+        </p>
+        <mat-slide-toggle
+          (change)="onChange($event)"
+          formControlName="notifyMe"
+          color="primary"
+        ></mat-slide-toggle>
+      </div>
+    </div>
+
+    <div class="max-w-[500px] p-3">
+      <div class="flex justify-between">
+        <div>
+          <p class="font-semibold">Reminders</p>
+          <p class="max-w-[250px]">These are notifications to remind you of updates you might have missed.</p>
+        </div>
+        <div>
+          <div class="flex gap-1">
+            <mat-slide-toggle
+          (change)="onChange($event)"
+          formControlName="push"
+          color="primary"
+        ></mat-slide-toggle>
+        <p>Push</p>
+          </div>
+          <div class="flex gap-1">
+            <mat-slide-toggle
+          (change)="onChange($event)"
+          formControlName="email"
+          color="primary"
+        ></mat-slide-toggle>
+        <p>Email</p>
+          </div>
+          <div class="flex gap-1">
+            <mat-slide-toggle
+          (change)="onChange($event)"
+          formControlName="sms"
+          color="primary"
+        ></mat-slide-toggle>
+        <p>SMS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

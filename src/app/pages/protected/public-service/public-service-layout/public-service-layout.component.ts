@@ -67,25 +67,19 @@ export class PublicServiceLayoutComponent {
     {
       name: 'Employees',
       routerLink: '/app/public-service/employees',
-      activeIcon: 'assets/svg/incident.svg',
-      inactiveIcon: 'assets/svg/incident.svg',
+      activeIcon: 'assets/svg/employee.svg',
+      inactiveIcon: 'assets/svg/employee.svg',
     },
     {
       name: 'Urban Planning',
       routerLink: '/app/public-service/urban-planning',
-      activeIcon: 'assets/svg/incident.svg',
-      inactiveIcon: 'assets/svg/incident.svg',
+      activeIcon: 'assets/svg/urban-planning.svg',
+      inactiveIcon: 'assets/svg/urban-planning.svg',
     }
 
   ];
 
   bottomNav = [
-    {
-      name: 'Account',
-      routerLink: '/app/public-service/account',
-      activeIcon: 'assets/svg/account.svg',
-      inactiveIcon: 'assets/svg/Profile.svg',
-    },
     {
       name: 'Settings',
       routerLink: '/app/public-service/settings',
