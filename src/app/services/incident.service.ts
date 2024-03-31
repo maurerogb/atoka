@@ -19,9 +19,10 @@ export class IncidentService extends HttpService<BaseResponse<any>> {
     localStorage.getItem('userId');
    }
 
-  // getIncident() {
-  //   const url = ``
-  // }
+  getIncident(userId: string) {
+    const url = `IncidentReport/GetUserReportedIncident/${userId}`
+    return this.get<BaseResponse<any>>(url)
+  }
 
 
 }

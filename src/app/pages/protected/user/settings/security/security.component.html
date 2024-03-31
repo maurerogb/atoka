@@ -1,1 +1,46 @@
-<p>security works!</p>
+<div class="p-5">
+  <div class="border-b py-2 mt-4">
+    <p class="text-lg font-medium">Security Settings</p>
+    <p>
+      We may still send you important notifications about your account outside
+      of your notification settings.
+    </p>
+  </div>
+  <div class="flex flex-col gap-4 max-w-[804px] mt-8">
+    <div class="flex justify-between items-center border-b border-b-[#EAECF0]">
+      <div class="flex flex-col">
+        <p class="font-semibold text-base text-[#003A50]">Change Password</p>
+        <p class="text-[#003A50]">reset your password</p>
+      </div>
+      <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer" (click)="changePassword()"
+        >keyboard_arrow_right</mat-icon
+      >
+    </div>
+    <div class="flex justify-between items-center border-b border-b-[#EAECF0]">
+      <div class="flex flex-col">
+        <p class="font-semibold text-base text-[#003A50]">Change ATOKA Address</p>
+        <p class="text-[#003A50]">reset your password</p>
+      </div>
+      <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer" (click)="changeAddress()"
+        >keyboard_arrow_right</mat-icon
+      >
+    </div>
+    <div class="flex justify-between items-center border-b border-b-[#EAECF0]">
+      <div class="flex flex-col">
+        <p class="font-semibold text-base text-[#003A50]">Change Employment Status</p>
+        <p class="text-[#003A50]">reset your password</p>
+      </div>
+      <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer" (click)="changeEmployment()"
+        >keyboard_arrow_right</mat-icon
+      >
+    </div>
+    <div class="flex justify-between items-center border-b border-b-[#EAECF0]">
+      <div class="flex flex-col">
+        <p class="font-semibold text-base text-[#003A50]">Change Account Type</p>
+        <p class="text-[#003A50]">reset your password</p>
+      </div>      <mat-icon class="text-[#71717A] text-3xl font-medium cursor-pointer"
+        >keyboard_arrow_right</mat-icon
+      >
+    </div>
+  </div>
+</div>

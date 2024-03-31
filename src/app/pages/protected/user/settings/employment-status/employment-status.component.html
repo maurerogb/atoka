@@ -1,1 +1,100 @@
-<p>employment-status works!</p>
+<div class="">
+  <div class="border-b py-2 mt-4">
+    <p class="text-lg font-medium">Employment Status Settings </p>
+    <p>We may still send you important notifications about your account outside of your notification settings.</p>
+  </div>
+  <div class="bg-white rounded-lg p-5 w-[556px] flex flex-col gap-4 mt-5">
+    <div class="">
+      <p class="text-left  font-semibold">Employment Status</p>
+      <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+        <mat-select [placeholder]="'Select employment type'" class="w-full">
+          <mat-option> Trader</mat-option>
+          <mat-option> Transporter</mat-option>
+          <mat-option> Bike Riders</mat-option>
+          <mat-option> Teacher</mat-option>
+        </mat-select>
+      </div>
+    </div>
+    <div>
+      <p class="text-left  font-semibold">Place of work</p>
+      <app-input [customClass]="'w-full'"></app-input>
+    </div>
+    <div>
+      <p class="text-left  font-semibold">Employment Start Date</p>
+      <app-input [customClass]="'w-full'"></app-input>
+    </div>
+    <div>
+      <p class="text-left  font-semibold">Contact Person</p>
+      <app-input [customClass]="'w-full'"></app-input>
+    </div>
+    <div>
+      <p class="text-left  font-semibold">Business phone Number</p>
+      <app-input [customClass]="'w-full'"></app-input>
+    </div>
+    <div>
+      <p class="text-left  font-semibold">Business Address</p>
+      <app-input [customClass]="'w-full'"></app-input>
+    </div>
+    <p class="flex justify-center mt-5 font-display">Don’t have ATOKA ? <span class="font-semibold cursor-pointer text-[#003A50]" (click)="toggleDiv()">Enter address manually</span></p>
+
+    <div class="grid gap-4 p-2" *ngIf="showDiv">
+      <p class="flex justify-center">Great! could you please verify details below?</p>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="">
+          <p class="text-left  font-semibold">Country</p>
+          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+            <mat-select [placeholder]="'Select Country'" class="w-full">
+              <mat-option> Nigeria</mat-option>
+              <mat-option> Ghana</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div>
+          <p class="text-left  font-semibold">State</p>
+          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+            <mat-select [placeholder]="'Select State'" class="w-full">
+              <mat-option> Lagos</mat-option>
+              <mat-option>Abuja</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="text-left  font-semibold">Local Government Area (LGA)</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
+      </div>
+      <div>
+        <p class="text-left  font-semibold">District</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="">
+          <p class="text-left  font-semibold">City</p>
+          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
+            <mat-select [placeholder]="'Select Country'" class="w-full">
+              <mat-option> Nigeria</mat-option>
+              <mat-option> Ghana</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div>
+          <p class="text-left  font-semibold">Home Number</p>
+          <app-input [customClass]="'w-full'" [placeholder]="'Enter Home Number'"></app-input>
+        </div>
+      </div>
+      <div>
+        <p class="text-left  font-semibold">Street Name</p>
+        <app-input [customClass]="'w-full'" [placeholder]="'Enter Street Name'"></app-input>
+      </div>
+    </div>
+
+    <div>
+      <app-button
+      buttonText ="Continue"
+      buttonStyles="w-[525px]"
+      ></app-button>
+    </div>
+  </div>
+
+
+</div>

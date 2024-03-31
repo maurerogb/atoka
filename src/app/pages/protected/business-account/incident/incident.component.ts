@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { ViewIncidentComponent } from '../../../../components/modals/view-incident/view-incident.component';
+import { IncidentService } from '../../../../services/incident.service';
 @Component({
   selector: 'app-incident',
   standalone: true,
@@ -27,10 +28,13 @@ import { ViewIncidentComponent } from '../../../../components/modals/view-incide
 export class IncidentComponent {
   filterForm!: FormGroup;
   date: any;
+  data:any;
+  userId!: any
 
   constructor(
     private matDialog: MatDialog,
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    private incidentService : IncidentService
   ){
 
   }
@@ -40,6 +44,9 @@ export class IncidentComponent {
       start_date: '',
       end_date: '',
     });
+
+    this.getAllIncident();
+    this.userId = localStorage.getItem('userId');
   }
 
 
@@ -64,5 +71,13 @@ export class IncidentComponent {
       ViewIncidentComponent,
       dialogConfig
     );
+  }
+
+
+
+  getAllIncident(){
+    this.incidentService.getIncident( '288d0eed-d5a0-4348-9cb7-9f6bbe3ac487').subscribe((res:any)=>{
+      this.data = res
+    })
   }
 }

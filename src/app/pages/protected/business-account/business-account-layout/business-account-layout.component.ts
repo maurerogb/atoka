@@ -73,14 +73,14 @@ export class BusinessAccountLayoutComponent {
     {
       name: 'Settings',
       routerLink: '/app/business-account/settings',
-      activeIcon: 'assets/svg/employee.svg',
-      inactiveIcon: 'assets/svg/employee.svg',
+      activeIcon: 'assets/svg/Setting.svg',
+      inactiveIcon: 'assets/svg/Setting.svg',
     },
     {
       name: 'Logout',
-      routerLink: '/logout',
-      activeIcon: 'assets/svg/employee.svg',
-      inactiveIcon: 'assets/svg/employee.svg',
+      routerLink: '/',
+      activeIcon: 'assets/svg/Logout.svg',
+      inactiveIcon: 'assets/svg/Logout.svg',
     }
   ]
 

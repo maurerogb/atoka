@@ -1,1 +1,55 @@
-<p>account works!</p>
+<div class="p-5">
+  <div class="border-b py-2 mt-4">
+    <p class="text-lg font-medium">Account Settings </p>
+    <p>We may still send you important notifications about your account outside of your notification settings.</p>
+  </div>
+
+  <div class="border border-[#CCEFFC] rounded-lg p-5 mt-5 lg:mt-8">
+    <div class="flex justify-between border-b border-b-[#EAECF0] pb-4">
+      <div>
+        <p class="text-base font-semibold">Account Type</p>
+        <p>Business Account</p>
+      </div>
+      <app-button
+      buttonText="Edit"
+      buttonStyles="px-8"
+      ></app-button>
+    </div>
+    <div class="flex flex-col gap-4 py-5 px-6 mt-8">
+      <div class="grid grid-cols-2">
+        <p class="text-[#005677] font-semibold">Name</p>
+        <div class="flex gap-3">
+          <app-input></app-input>
+          <app-input></app-input>
+        </div>
+      </div>
+      <div class="grid grid-cols-2">
+        <p class="text-[#005677] font-semibold">Email Address</p>
+        <app-input></app-input>
+      </div>
+      <div class="grid grid-cols-2">
+        <p class="text-[#005677] font-semibold">Role</p>
+        <app-input></app-input>
+      </div>
+      <div class="grid grid-cols-2">
+        <p class="text-[#005677] font-semibold">Country</p>
+        <app-input></app-input>
+      </div>
+      <div class="grid grid-cols-2 items-center">
+        <p class="text-[#005677] font-semibold">ATOKA</p>
+        <div>
+          <app-input></app-input>
+          <p class="flex justify-start pt-2 text-[#00ADEF] font-semibold cursor-pointer">Change Address</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 items-center">
+        <p class="text-[#005677] font-semibold">Phone number</p>
+        <div>
+          <app-input></app-input>
+          <p class="flex justify-start pt-2 text-[#00ADEF] font-semibold cursor-pointer">Change Phone Number</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
