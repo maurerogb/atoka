@@ -30,6 +30,7 @@ export class IncidentComponent {
   date: any;
   data:any;
   userId!: any
+  dateSelected: boolean = false;
 
   constructor(
     private matDialog: MatDialog,
@@ -44,6 +45,7 @@ export class IncidentComponent {
       start_date: '',
       end_date: '',
     });
+    console.log(this.filterForm.value.start_date)
 
     this.getAllIncident();
     this.userId = localStorage.getItem('userId');
@@ -61,23 +63,25 @@ export class IncidentComponent {
   }
 
   onDateRangeInput(){
-
+    this.dateSelected = true;
+    console.log(`${this.filterForm.value.start_date} + start`, `${this.filterForm.value.end_date} + end`)
   }
 
-  showIncident(){
+  showIncident(item: any){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxHeight = '90vh';
     let dialogRef = this.matDialog.open(
       ViewIncidentComponent,
-      dialogConfig
-    );
+      dialogConfig.data = item,
+      );
+      console.log(dialogConfig.data)
   }
 
 
 
   getAllIncident(){
-    this.incidentService.getIncident( '288d0eed-d5a0-4348-9cb7-9f6bbe3ac487').subscribe((res:any)=>{
-      this.data = res
+    this.incidentService.getIncident( this.userId).subscribe((res:any)=>{
+      this.data = res.data
     })
   }
 }

@@ -10,7 +10,7 @@
         <!-- date picker -->
         <div class="date-holder">
           <button class="sort-button" (click)="picker.open()">
-            <span>{{ date ||'Sort by Date'}}</span>
+            <span>Sort by Date</span>
             <img src="assets/svg/calendar.svg" alt="">
           </button>
           <mat-date-range-input class="custom-date-input" [rangePicker]="picker">
@@ -51,15 +51,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr *ngFor="let item of data">
           <td>
-            <div class="flex gap-4 items-center cursor-pointer" (click)="showIncident()">
+            <div class="flex gap-4 items-center cursor-pointer" (click)="showIncident(item)">
               <div class="bg-[#F2FCF2] p-4 rounded-full w-[69px] h-[69px]">
                 <img src="assets/svg/info_green.svg" alt="" class="w-full">
               </div>
               <div class="flex flex-col gap-2">
                 <p class="font-bold text-base text-[#003A50]">LE2345678909</p>
-                <p class="max-w-[191px]">Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
+                <p class="max-w-[191px]">{{item.location || 'N/A'}}</p>
               </div>
             </div>
           </td>
@@ -67,106 +67,16 @@
             <p class="font-bold text-[#666666]">Urgent</p>
           </td>
           <td>
-            <p class="font-bold text-[#666666]">May 29 , 2:30pm</p>
+            <p class="font-bold text-[#666666]">{{item.incidentDate | date}}</p>
           </td>
           <td>
             <p class="font-bold text-[#666666]">
-              Bad Road leading to accident
+              {{item.incidentType || 'N/A'}}
             </p>
           </td>
           <td>
             <p class="status successful">
               <span class="font-semibold">Successful</span>
-              <span><img src="assets/svg/badge.svg" alt=""></span>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="flex gap-4 items-center">
-              <div class="bg-[#F2FCF2] p-4 rounded-full w-[69px] h-[69px]">
-                <img src="assets/svg/info_red.svg" alt="" class="w-full">
-              </div>
-              <div class="flex flex-col gap-2">
-                <p class="font-bold text-base text-[#003A50]">LE2345678909</p>
-                <p class="max-w-[191px]">Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">Urgent</p>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">May 29 , 2:30pm</p>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">
-              Bad Road leading to accident
-            </p>
-          </td>
-          <td>
-            <p class="status draft">
-              <span class="font-semibold">Draft</span>
-              <span><img src="assets/svg/badge.svg" alt=""></span>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="flex gap-4 items-center">
-              <div class="bg-[#F2FCF2] p-4 rounded-full w-[69px] h-[69px]">
-                <img src="assets/svg/info_red.svg" alt="" class="w-full">
-              </div>
-              <div class="flex flex-col gap-2">
-                <p class="font-bold text-base text-[#003A50]">LE2345678909</p>
-                <p class="max-w-[191px]">Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">Not Serious</p>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">May 29 , 2:30pm</p>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">
-              Bad Road leading to accident
-            </p>
-          </td>
-          <td>
-            <p class="status pending">
-              <span class="font-semibold">Pending</span>
-              <span><img src="assets/svg/badge.svg" alt=""></span>
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="flex gap-4 items-center">
-              <div class="bg-[#F2FCF2] p-4 rounded-full w-[69px] h-[69px]">
-                <img src="assets/svg/info_red.svg" alt="" class="w-full">
-              </div>
-              <div class="flex flex-col gap-2">
-                <p class="font-bold text-base text-[#003A50]">LE2345678909</p>
-                <p class="max-w-[191px]">Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">Urgent</p>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">May 29 , 2:30pm</p>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">
-              Bad Road leading to accident
-            </p>
-          </td>
-          <td>
-            <p class="status failed">
-              <span class="font-semibold">Failed</span>
               <span><img src="assets/svg/badge.svg" alt=""></span>
             </p>
           </td>

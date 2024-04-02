@@ -1,28 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BaseResponse } from '../model/BaseResponse';
-import { PersonRequest, PersonalData } from '../model/personaldatadto';
 import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class IncidentService extends HttpService<BaseResponse<any>> {
+export class DashboardService extends HttpService<BaseResponse<any>> {
+
 
   constructor(private http: HttpClient) {
     super(http);
   }
 
-  getUserId(userId: any) : any {
 
-    localStorage.getItem('userId');
-   }
-
-  getIncident(userId: string) {
-    const url = `IncidentReport/GetUserReportedIncident`
+  getRecentVisit(userId: string) {
+    const url = `AddressDirectory`
     return this.get<BaseResponse<any>>(url, userId)
   }
-
-
 }

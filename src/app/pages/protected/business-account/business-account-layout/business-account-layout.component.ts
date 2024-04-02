@@ -78,7 +78,7 @@ export class BusinessAccountLayoutComponent {
     },
     {
       name: 'Logout',
-      routerLink: '/',
+      routerLink: '/signin',
       activeIcon: 'assets/svg/Logout.svg',
       inactiveIcon: 'assets/svg/Logout.svg',
     }
