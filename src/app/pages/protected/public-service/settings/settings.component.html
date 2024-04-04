@@ -1,1 +1,32 @@
-<p>settings works!</p>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start"  animationDuration="0ms">
+  <mat-tab label="My Details" class="">
+      <ng-template matTabContent>
+        <app-my-details></app-my-details>
+      </ng-template>
+  </mat-tab>
+  <mat-tab label="Account">
+      <ng-template matTabContent>
+        <app-account></app-account>
+      </ng-template>
+  </mat-tab>
+  <mat-tab label="Claim Property">
+      <ng-template matTabContent>
+        <app-claim-property></app-claim-property>
+      </ng-template>
+  </mat-tab>
+  <mat-tab label="Employment Status">
+      <ng-template matTabContent>
+        <app-employment-status></app-employment-status>
+      </ng-template>
+  </mat-tab>
+  <mat-tab label="Notification">
+      <ng-template matTabContent>
+        <app-notification></app-notification>
+      </ng-template>
+  </mat-tab>
+  <mat-tab label="Security">
+      <ng-template matTabContent>
+        <app-security></app-security>
+      </ng-template>
+  </mat-tab>
+</mat-tab-group>
