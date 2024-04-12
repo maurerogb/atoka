@@ -17,6 +17,8 @@ export class PersonService extends HttpService<PersonRequest> {
     super(http);
   }
 
+
+
   getOccupants(person: PersonRequest): Observable<BaseResponse<PersonalData>> {
     // this.baseUrl = testMode ? localUrl : remoteUrl;
     const url = 'OccupantDetails/Create-User-Profile'
@@ -33,29 +35,29 @@ export class PersonService extends HttpService<PersonRequest> {
   return <PersonRequest> JSON.parse( localStorage.getItem('personalData')?? "");
 }
 
-setPerson(person: any) : void {
-  localStorage.removeItem('personalData')
- localStorage.setItem('personalData',JSON.stringify(person));
-}
+// setPerson(person: any) : void {
+//   localStorage?.removeItem('personalData')
+//  localStorage.setItem('personalData',JSON.stringify(person));
+// }
 
-setUserId(userId: any) : void {
-  localStorage.removeItem('userId')
- localStorage.setItem('userId',userId);
-}
+// setUserId(userId: any) : void {
+//   localStorage.removeItem('userId')
+//  localStorage.setItem('userId',userId);
+// }
 
 
-getUserId(userId: any) : any {
+// getUserId(userId: any) : any {
 
- localStorage.getItem('userId');
-}
+//  localStorage.getItem('userId');
+// }
 
-getUse() : PersonalData {
-  return <PersonalData> JSON.parse( localStorage.getItem('personalData')?? "");
-}
+// getUse() : any {
+//   return    localStorage.getItem('personalData');
+// }
 
-removePerson(){
-  localStorage.removeItem('personalData')
-}
+// removePerson(){
+//   localStorage.removeItem('personalData')
+// }
 
 
 }

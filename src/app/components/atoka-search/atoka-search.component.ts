@@ -35,7 +35,7 @@ export class AtokaSearchComponent implements OnInit {
 
   @Input() labelName:string | undefined;
   @Input() addressCode: string | undefined;
-@Output() returnCode : EventEmitter<string> = new EventEmitter<string>();
+  @Output() returnCode : EventEmitter<string> = new EventEmitter<string>();
   constructor(private atokaServ: AtokaSearchService) { }
 
   ngOnInit() {
@@ -72,7 +72,7 @@ ngOnChanges(changes: SimpleChanges): void {
   }
 
   setAddressCode(e: MatAutocompleteSelectedEvent){
-    console.log("dfff ?? ",e.option.value);
+
  this.addressCode = e.option.value
     this.returnCode.emit(this.addressCode)
   }

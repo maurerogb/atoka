@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 
 import { PersonRequest, PersonalData } from '../model/personaldatadto';
 import { HttpService } from './http.service';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { BaseResponse } from '../model/BaseResponse';
 import { PersonService } from './person.service';
-import { loginRequest, loginResponse } from '../model/authentication';
+import { loginInfo, loginRequest, loginResponse } from '../model/authentication';
+import { Router } from '@angular/router';
 
 
 
@@ -14,23 +15,24 @@ import { loginRequest, loginResponse } from '../model/authentication';
   providedIn: 'root'
 })
 export class AuthenticationService extends HttpService<BaseResponse<any>> {
+  private currentUserSource = new ReplaySubject<loginInfo>(1);
+    currentUser$ = this.currentUserSource;
 
-
-  constructor(private http: HttpClient, private perspnServ: PersonService) {
+  constructor(private http: HttpClient, private route: Router) {
     super(http);
   }
 
-  get userId():any {
-    return this.perspnServ.getUserId;
-  }
+  // get userId():any {
+  //   return this.perspnServ.getUserId;
+  // }
 
-  get token(){
-    return this.perspnServ.getUse().title
-  }
+  // get token(){
+  //   return this.perspnServ?.getUse()?.title
+  // }
 
   login(user:loginRequest ): Observable<loginResponse>{
     const url = 'Auth/login';
-    return this.post<loginResponse>(url, user, this.headers);
+    return this.post<loginResponse>(url, user);
 
   }
 
@@ -43,6 +45,11 @@ export class AuthenticationService extends HttpService<BaseResponse<any>> {
     localStorage.removeItem('userData')
    localStorage.setItem('userData',JSON.stringify(userData));
   }
+  getCurrentUser(){
+   const user:loginInfo = <loginInfo>JSON.parse( localStorage.getItem('userData') ?? "");
+    this.currentUserSource.next(user)
+
+  }
 
   createUser(user: any): Observable<BaseResponse<any>> {
     let userId = localStorage.getItem('userId');
@@ -51,11 +58,10 @@ export class AuthenticationService extends HttpService<BaseResponse<any>> {
     console.log(user);
 
     const url =    'Auth/register2'
-    return this.post<BaseResponse<any>>(url, user, this.headers);
+    return this.post<BaseResponse<any>>(url, user);
   }
-
-   headers = new HttpHeaders({
-    Authorization: `Bearer ${this.token}`,
-    'userId': this.userId
-  });
+logout(){
+  localStorage.removeItem('userData')
+this.route.navigate(['/sigin']);
+}
 }

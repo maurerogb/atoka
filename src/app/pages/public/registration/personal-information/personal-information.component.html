@@ -82,7 +82,8 @@
       <mat-label class="text-sm">Select Account Type</mat-label>
       <mat-form-field class="w-full rounded-xl" appearance="fill" floatLabel="always">
         <mat-select [placeholder]="'Select Account'" formControlName="accountType">
-          <mat-option [value]="1">Individual Account </mat-option>
+          <mat-option [value]="0">Individual Account </mat-option>
+          <mat-option [value]="1">Property Owner/Manager Account </mat-option>
           <mat-option [value]="2">Business Account</mat-option>
           <mat-option [value]="3">Public Sector Account</mat-option>
         </mat-select>

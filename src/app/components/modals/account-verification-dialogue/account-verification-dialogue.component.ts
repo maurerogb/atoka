@@ -55,13 +55,13 @@ export class AccountVerificationDialogueComponent {
   ) {}
 
   resendOTP(){
-    const pdata = this.personServ.getPerson();
+    const pdata: any = {};// this.personServ.getPerson();
     this.identifer = (pdata.valideOption === 'Phone') ? pdata.phoneNumber : pdata.emailAddress ;
     this.personServ.getGenerateOTP(this.identifer).subscribe({
       next:(responses: BaseResponse<any>) => {
         if(responses.responseCode === ResponseCode.Success){
           this.currentState = this.states.OTP;
-        this.personServ.setPerson(pdata);
+       // this.personServ.setPerson(pdata);
         }else{
          // this.currentState = this.states.Default;
           this.message = responses.description;
@@ -74,7 +74,7 @@ export class AccountVerificationDialogueComponent {
   }
 
   optionSelected(option: VerificationOption) {
- const pdata = this.personServ.getPerson();
+ const pdata: any = {};// this.personServ.getPerson();
  this.verificationOption.setValue(option);
 
  console.log(this.verificationOption.value);
@@ -86,7 +86,7 @@ export class AccountVerificationDialogueComponent {
 
         this.currentState = this.states.OTP;
         pdata.valideOption = this.verificationOptionLabel;
-        this.personServ.setPerson(pdata);
+      //  this.personServ.setPerson(pdata);
         }else{
           this.currentState = this.states.Default;
           this.message = responses.description;
@@ -103,7 +103,7 @@ export class AccountVerificationDialogueComponent {
     if (this.otp.value.length !== 6) {
       this.message ="Provide 6 digit token sent to you."
       return;}
-     const pd = this.personServ.getPerson();
+     const pd: any = {};// = this.personServ.getPerson();
       pd.otp = this.otp.value;
       console.log("data before=> ",  pd.otp);
       this.personServ.getOccupants(pd).subscribe((resp)=> {
@@ -115,14 +115,14 @@ export class AccountVerificationDialogueComponent {
 
         if(resp.responseCode == ResponseCode.Success){
         console.log("data after => ", resp);
-        this.personServ.setUserId(resp.data.userIdentifer);
-        this.personServ.setPerson(resp.data);
-          this.currentState = this.states.Success;
-          this.personServ.removePerson()
-        }else{
-          this.message = resp.description;
-          this.currentState = this.states.OTP;
-        }
+        // this.personServ.setUserId(resp.data.userIdentifer);
+        // this.personServ.setPerson(resp.data);
+        //   this.currentState = this.states.Success;
+        //   this.personServ.removePerson()
+        // }else{
+        //   this.message = resp.description;
+        //   this.currentState = this.states.OTP;
+         }
 
       });
       this.currentState = this.states.OTP;
