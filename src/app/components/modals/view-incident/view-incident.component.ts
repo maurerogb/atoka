@@ -10,12 +10,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewIncidentComponent {
 
-  emitToParent = new EventEmitter<any>();
 
   constructor(
    public dialogRef: MatDialogRef<ViewIncidentComponent>,
-   @Inject(MAT_DIALOG_DATA) public data: any,
-  ){}
+   @Inject(MAT_DIALOG_DATA)
+   public data: any,
+  ){
+
+    console.log(data)
+  }
 
   close() {
    this.dialogRef.close();

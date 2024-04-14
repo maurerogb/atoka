@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { ViewIncidentComponent } from '../../../../components/modals/view-incident/view-incident.component';
+import { IncidentService } from '../../../../services/incident.service';
 @Component({
   selector: 'app-incident',
   standalone: true,
@@ -27,10 +28,14 @@ import { ViewIncidentComponent } from '../../../../components/modals/view-incide
 export class IncidentComponent {
   filterForm!: FormGroup;
   date: any;
+  data:any;
+  userId!: any
+  dateSelected: boolean = false;
 
   constructor(
     private matDialog: MatDialog,
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    private incidentService : IncidentService
   ){
 
   }
@@ -40,6 +45,10 @@ export class IncidentComponent {
       start_date: '',
       end_date: '',
     });
+    console.log(this.filterForm.value.start_date)
+
+    this.getAllIncident();
+    this.userId = localStorage.getItem('userId');
   }
 
 
@@ -54,15 +63,25 @@ export class IncidentComponent {
   }
 
   onDateRangeInput(){
-
+    this.dateSelected = true;
+    console.log(`${this.filterForm.value.start_date} + start`, `${this.filterForm.value.end_date} + end`)
   }
 
-  showIncident(){
+  showIncident(item: any){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxHeight = '90vh';
     let dialogRef = this.matDialog.open(
       ViewIncidentComponent,
-      dialogConfig
-    );
+      dialogConfig.data = item,
+      );
+      console.log(dialogConfig.data)
+  }
+
+
+
+  getAllIncident(){
+    this.incidentService.getIncident( this.userId).subscribe((res:any)=>{
+      this.data = res.data
+    })
   }
 }
