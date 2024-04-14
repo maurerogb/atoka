@@ -34,7 +34,6 @@ ngOnInit(): void {
   //Add 'implements OnInit' to the class.
 
   this.baseUrl = this.testMode ? this.localUrl : this.remoteUrl;
-  this.initializeUploader();
 
   console.log(this.baseUrl);
 
@@ -54,33 +53,7 @@ fileOverBase(e: any): void {
   this.hasBaseDropZoneOver = e;
 }
 
-initializeUploader(){
-  // this.uploader = new FileUploader({
-  //   url: this.baseUrl+'OccupantDetails/UploadPhoto',
-  //   authToken:'bearer '+ this.userServ.token,
-  //   allowedFileType:['image'],
-  //   removeAfterUpload: true,
-  //   isHTML5:true,
-  //   autoUpload: true,
-  //   maxFileSize: (10 * 1024* 1024),
-  // })
 
-  // userId:this.userServ.userId;
-
-  // this.uploader.onAfterAddingFile= (file)=>{
-  //    file.withCredentials = false;
-  // }
-
-  // this.uploader.onSuccessItem= (item, response, status, headers) => {
-
-  //   if(response){
-  //     const photo = JSON.parse(response);
-  //     console.log(photo);
-
-  //   }
-  // }
-
-  }
 
   @Input() image: FormControl = new FormControl();
 

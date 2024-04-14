@@ -4,6 +4,7 @@ import { PersonalData, PersonRequest } from './../model/personaldatadto';
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { Observable } from 'rxjs';
+import { ListItem } from '../model/atoka-query';
 
 
 
@@ -30,15 +31,21 @@ export class PersonService extends HttpService<PersonRequest> {
     return this.http.get<BaseResponse<PersonRequest>>(url);
   }
 
+  getAccountTypes(): Observable<BaseResponse<ListItem[]>> {
+    // this.baseUrl = testMode ? localUrl : remoteUrl;
+    const url = `DocumentType/GetAccountTypes`
+    return this.http.get<BaseResponse<ListItem[]>>(url);
+  }
+
 
  getPerson() : PersonRequest {
   return <PersonRequest> JSON.parse( localStorage.getItem('personalData')?? "");
 }
 
-// setPerson(person: any) : void {
-//   localStorage?.removeItem('personalData')
-//  localStorage.setItem('personalData',JSON.stringify(person));
-// }
+setPerson(person: any) : void {
+  localStorage?.removeItem('personalData')
+ localStorage.setItem('personalData',JSON.stringify(person));
+}
 
 // setUserId(userId: any) : void {
 //   localStorage.removeItem('userId')
@@ -55,9 +62,9 @@ export class PersonService extends HttpService<PersonRequest> {
 //   return    localStorage.getItem('personalData');
 // }
 
-// removePerson(){
-//   localStorage.removeItem('personalData')
-// }
+removePerson(){
+  localStorage.removeItem('personalData')
+}
 
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loader',
@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class LoaderComponent {
 
-  isLoading = false;
+  @Input() isLoading = false;
 
   showLoading(loading: boolean): void {
     this.isLoading = loading;

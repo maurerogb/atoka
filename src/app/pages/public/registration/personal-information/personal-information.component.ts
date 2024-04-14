@@ -13,25 +13,44 @@ import { MatDialog } from '@angular/material/dialog';
 import { AccountVerificationDialogueComponent } from '../../../../components/modals/account-verification-dialogue/account-verification-dialogue.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PersonRequest } from '../../../../model/personaldatadto';
+import { PersonService } from '../../../../services/person.service';
+import { ListItem } from '../../../../model/atoka-query';
+import { ResponseCode } from '../../../../model/enums';
+import { LoaderComponent } from '../../../../components/loader/loader.component';
 
 @Component({
   standalone: true,
-  imports: [MatIconModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule],
+  imports: [MatIconModule, MatFormFieldModule, ReactiveFormsModule,
+    MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule,
+     MatNativeDateModule, MatDatepickerModule, LoaderComponent],
   templateUrl: './personal-information.component.html',
   styleUrl: './personal-information.component.scss'
 })
 export class PersonalInformationComponent implements OnInit {
 [x: string]: any;
   personalDetailsfrom!: FormGroup;
+  accountTypes:ListItem[] =[];
+  isLoading = false;
 
-  constructor(private dialog: MatDialog, private router: Router,private fb:FormBuilder) { }
+  constructor(private dialog: MatDialog, private router: Router,
+    private fb:FormBuilder, private personServ: PersonService) { }
 
 ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
   //Add 'implements OnInit' to the class.
 
   this.createForm();
+
+  this.personServ.getAccountTypes().subscribe({
+    next: resp => {
+      if(resp.responseCode === ResponseCode.Success){
+        this.accountTypes =resp.data
+      }
+    }
+  })
 }
+
+
 
 login(){
   this.router.navigate(['/signin']);
@@ -39,6 +58,7 @@ login(){
 
 
   register(): void {
+
     const formdata = this.personalDetailsfrom.value;
 console.log(formdata);
 
