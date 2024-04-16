@@ -1,163 +1,162 @@
 <div class="">
-  <div class="bg-[#002330] rounded-lg flex justify-between">
-    <div class="flex gap-4 items-center px-8 py-4">
-      <div class="rounded-[50%] bg-[#ECFFFD] w-[94px] h-[94px] flex items-center justify-center mx-auto">
-        <p class="text-[#002330] font-bold text-xl">GOG</p>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="w-[250px] md:w-[350px] bg-white rounded-lg shadow-md p-5">
+      <div class="flex justify-between items-center">
+        <p>Total number of Employee</p>
+        <p>
+          <img src="assets/svg/more.svg" alt="" />
+        </p>
       </div>
-      <div class="flex flex-col gap-2 text-white">
-        <p class="font-semibold text-sm">Welcome</p>
-        <p class="text-2xl font-bold">Goodness Oil & Gas Ltd</p>
-        <p class="text-base font-normal">Keep track of tenants and other address rating </p>
+      <div class="flex justify-between mt-4">
+        <div class="flex flex-col gap-3">
+          <p class="font-bold text-2xl">100K</p>
+          <p class="flex">
+            <span class="text-[#027A48] font-medium flex"><img src="assets/svg/arrow-up.svg" alt="" /> 12%</span>
+            vs last month
+          </p>
+        </div>
+
+        <div>
+          <img src="assets/svg/chart_green.svg" alt="" />
+        </div>
       </div>
     </div>
-    <div>
-      <img src="assets/images/card-img-1.svg" alt="" class="w-full">
+    <div class="w-[250px] md:w-[350px] bg-white rounded-lg shadow-md p-5">
+      <div class="flex justify-between items-center">
+        <p>Pending Request</p>
+        <p>
+          <img src="assets/svg/more.svg" alt="" />
+        </p>
+      </div>
+      <div class="flex justify-between mt-4">
+        <div class="flex flex-col gap-3">
+          <p class="font-bold text-2xl">00</p>
+          <p class="flex">
+            <span class="text-[#B42318] font-medium flex"><img src="assets/svg/arrow-down.svg" alt="" /> 12%</span>
+            vs last month
+          </p>
+        </div>
+
+        <div>
+          <img src="assets/svg/chart_red.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="w-[250px] md:w-[350px] bg-white rounded-lg shadow-md p-5">
+      <div class="flex justify-between items-center">
+        <p>Incident Reported</p>
+        <p>
+          <img src="assets/svg/more.svg" alt="" />
+        </p>
+      </div>
+      <div class="flex justify-between mt-4">
+        <div class="flex flex-col gap-3">
+          <p class="font-bold text-2xl">100K</p>
+          <p class="flex">
+            <span class="text-[#027A48] font-medium flex"><img src="assets/svg/arrow-up.svg" alt="" /> 2%</span>
+            vs last month
+          </p>
+        </div>
+
+        <div>
+          <img src="assets/svg/chart_green.svg" alt="" />
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="pt-5 lg:pt-10 grid md:grid-cols-[2fr_1fr] gap-8">
-    <div class="big-cards flex flex-col gap-8">
-      <div>
-        <img src="assets/svg/chart.svg" alt="" class="w-full">
-      </div>
-
-      <div class="bg-[#F4FCFF] rounded-lg shadow p-5">
-        <div class="flex justify-between items-center">
-          <p class="text-base font-semibold">Recent Visit</p>
-          <p class="font-bold cursor-pointer">See more</p>
-        </div>
-        <div class="table-holder mt-5">
-          <table class="table-auto">
-            <thead>
-              <tr class="!rounded-lg">
-                <th>Location Name</th>
-                <th>Status</th>
-                <th>Date</th>
-                <th> </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of visit">
-                <td>
-                  <div class="">
-                    <div class="flex flex-col gap-2">
-                      <p class="font-bold text-base text-[#003A50]">{{item.groupName}}</p>
-                      <p class="truncate max-w-[180px]">{{item.address[0].address}}</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p class="status successful">
-                    <span class="font-semibold">Successful</span>
-                    <span><img src="assets/svg/badge.svg" alt=""></span>
-                  </p>
-                </td>
-                <td>
-                  <p class="font-bold text-[#666666] !text-center">{{item.address[0].createdOn |date}}</p>
-                </td>
-                <td>
-                  <p class="font-extrabold text-2xl cursor-pointer">...</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+  <div class="grid md:grid-cols-[57%_38%] gap-6 pt-5 lg:pt-10">
+    <div>
+      <img src="assets/svg/chart.svg" alt="" class="w-full">
     </div>
-    <div class="smaller-cards flex flex-col gap-8">
-      <div class="bg-[#FFF1F0] rounded-lg shadow p-5">
-        <div class="flex justify-between items-center">
-          <p class="text-base font-bold">Notification</p>
-          <p class="text-xs font-semibold">See all</p>
-        </div>
-
-        <p>Today</p>
-
-        <div class="flex flex-col gap-6 mt-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
-              <div class="flex flex-col">
-                <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
-                <p class="text-[#71717A] text-[13px]">you have reach your limit</p>
-              </div>
-            </div>
-            <div>
-              <p class="text-[#71717A] text-[13px]">20 mins ago</p>
-            </div>
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
-              <div class="flex flex-col">
-                <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
-                <p class="text-[#71717A] text-[13px]">you have reach your limit</p>
-              </div>
-            </div>
-            <div>
-              <p class="text-[#71717A] text-[13px]">20 mins ago</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="bg-[#E4E4E7] rounded-lg shadow p-5">
+    <div class="bg-[#E4E4E7] rounded-lg shadow p-5">
+      <div class="flex justify-between items-center">
         <div class="flex flex-col">
           <p class="font-bold text-base">Recent Request</p>
-          <p class="text-[#71717A] text-[13px]">Lorem ipsum dolor sit ametis.</p>
+          <p class="text-[#71717A] text-[13px]">Shows all request received in the past week</p>
         </div>
-        <div class="flex flex-col mt-2 mb-4">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
-              <div class="flex flex-col">
-                <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
-                <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
-              </div>
-            </div>
+        <p class="text-[#DA7B07] font-semibold cursor-pointer text-xs flex justify-end" (click)="goToEmployeePage()">SEE ALL EMPLOYEE</p>
+      </div>
+      <div class="flex flex-col mt-2 mb-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/avatar-1.png" alt="" class="w-fit">
             <div class="flex flex-col">
-              <p class="text-[#18181B] font-medium text-[13px]">Add Tenant</p>
-              <p class="text-[#71717A] text-[13px]">Austin</p>
+              <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
+              <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
             </div>
           </div>
-
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
-              <div class="flex flex-col">
-                <p class="text-[#18181B] font-bold text-[13px]">Devon Lane</p>
-                <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
-              </div>
-            </div>
-            <div class="flex flex-col">
-              <p class="text-[#18181B] font-medium text-[13px]">Add Tenant</p>
-              <p class="text-[#71717A] text-[13px]">Telodo</p>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <img src="assets/images/avatar-1.png" alt="" class="w-fit">
-              <div class="flex flex-col">
-                <p class="text-[#18181B] font-bold text-[13px]">Jane Cooper</p>
-                <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
-              </div>
-            </div>
-            <div class="flex flex-col">
-              <p class="text-[#18181B] font-medium text-[13px]">Add Tenant</p>
-              <p class="text-[#71717A] text-[13px]">New York</p>
-            </div>
+          <div class="flex flex-col cursor-pointer">
+            <p class="text-[#0090C7] font-medium text-[13px]">Add Tenant</p>
+            <p class="text-[#71717A] text-[13px]">View Details</p>
           </div>
         </div>
 
-        <div class="mt-2 flex gap-4">
-          <p class="text-[#71717A] font-semibold">SEE ALL EMPLOYEE</p>
-          <mat-icon class="text-[#71717A] font-semibold">keyboard_arrow_right</mat-icon>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+            <div class="flex flex-col">
+              <p class="text-[#18181B] font-bold text-[13px]">Devon Lane</p>
+              <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
+            </div>
+          </div>
+          <div class="flex flex-col cursor-pointer">
+            <p class="text-[#0090C7] font-medium text-[13px]">Add Tenant</p>
+            <p class="text-[#71717A] text-[13px]">View Details</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+            <div class="flex flex-col">
+              <p class="text-[#18181B] font-bold text-[13px]">Jane Cooper</p>
+              <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
+            </div>
+          </div>
+          <div class="flex flex-col cursor-pointer">
+            <p class="text-[#0090C7] font-medium text-[13px]">Add Tenant</p>
+            <p class="text-[#71717A] text-[13px]">View Details</p>
+          </div>
         </div>
       </div>
-
     </div>
+  </div>
 
+  <div class="pt-5 lg:pt-10 pr-5">
+    <div class="">
+      <div class="flex justify-between items-center">
+        <p class="text-base font-semibold">Recent Reported Visit</p>
+        <p class="font-bold cursor-pointer text-[#00739F]">View All</p>
+      </div>
+      <div class="table-holder mt-5">
+        <table class="table-auto">
+          <thead>
+            <tr class="!rounded-lg">
+              <th>Atoka Code</th>
+              <th>Location Name</th>
+              <th>Date</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of visit">
+              <td>
+                <p class="font-bold text-[#666666] !text-center">Atoka Code</p>
+              </td>
+              <td>
+                <p class="font-bold text-[#666666] !text-center truncate ">{{item.address.substring(0, 20)}}</p>
+              </td>
+              <td>
+                <p class="font-bold text-[#666666] !text-center">{{item.visitationDate |date}}</p>
+              </td>
+              <td>
+                <p class="font-extrabold text-2xl cursor-pointer">...</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

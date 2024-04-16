@@ -79,7 +79,7 @@ export class TenantLayoutComponent {
     },
     {
       name: 'Logout',
-      routerLink: '/logout',
+      routerLink: '/signin',
       activeIcon: 'assets/svg/employee.svg',
       inactiveIcon: 'assets/svg/employee.svg',
     }

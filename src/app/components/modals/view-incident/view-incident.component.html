@@ -18,14 +18,14 @@
       <p class="font-bold text-base text-[#003A50]">Location</p>
       <p class="flex flex-col justify-end">LE2345678909
         <span class="max-w-[250px]">
-          {{data.incidentLocation}}
+          {{data.incidentLocation || 'N/A'}}
         </span>
       </p>
     </div>
     <div class="flex justify-between">
       <p class="font-bold text-base text-[#003A50]">Date</p>
       <p class="">
-       {{data.incidentDate}}
+       {{data.incidentDate | date}}
       </p>
     </div>
     <div class="flex justify-between">
@@ -38,7 +38,7 @@
     <div class="flex justify-between">
       <p class="font-bold text-base text-[#003A50]">Incident type</p>
       <p>
-        Bad Road leading to accident
+        {{data.incidentType || 'N/A'}}
       </p>
     </div>
     <div class="flex justify-between">
