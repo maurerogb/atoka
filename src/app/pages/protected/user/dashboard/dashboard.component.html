@@ -4,10 +4,6 @@
       <div class="flex flex-col gap-2 text-white">
         <p class="text-2xl font-bold">Welcome back, Goodness!</p>
         <p class="text-base font-normal">Keep track of tenants and other address rating </p>
-        <app-button
-        buttonText="Add Tenant"
-        buttonStyles="px-8"
-        ></app-button>
       </div>
     </div>
     <div>
@@ -24,7 +20,43 @@
       <div class="bg-[#F4FCFF] rounded-lg shadow p-5">
         <div class="flex justify-between items-center">
           <p class="text-base font-semibold">Recent Visit</p>
-          <p class="text-xs font-semibold">See more</p>
+          <p class="font-bold cursor-pointer">See more</p>
+        </div>
+        <div class="table-holder mt-5">
+          <table class="table-auto">
+            <thead>
+              <tr class="!rounded-lg">
+                <th>Location Name</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of visit">
+                <td>
+                  <div class="">
+                    <div class="flex flex-col gap-2">
+                      <p class="font-bold text-base text-[#003A50]">{{item.groupName}}</p>
+                      <p class="truncate max-w-[180px]">{{item.address[0].address}}</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <p class="status successful">
+                    <span class="font-semibold">Successful</span>
+                    <span><img src="assets/svg/badge.svg" alt=""></span>
+                  </p>
+                </td>
+                <td>
+                  <p class="font-bold text-[#666666] !text-center">{{item.address[0].createdOn |date}}</p>
+                </td>
+                <td>
+                  <p class="font-extrabold text-2xl cursor-pointer">...</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -115,10 +147,10 @@
           </div>
         </div>
 
-        <div class="mt-2 flex gap-4">
+        <!-- <div class="mt-2 flex gap-4 cursor-pointer" (click)="goToEmployeePage()">
           <p class="text-[#71717A] font-semibold">SEE ALL EMPLOYEE</p>
           <mat-icon class="text-[#71717A] font-semibold">keyboard_arrow_right</mat-icon>
-        </div>
+        </div> -->
       </div>
 
     </div>

@@ -1,16 +1,10 @@
 <meta http-equiv="cache-control" content="no-cache" />
 <meta http-equiv="expires" content="0" />
 <meta http-equiv="pragma" content="no-cache" />
-<div class="layout bg-[#FAFEFF] font-display">
-  <header class="w-full">
-    <app-dashboard-nav (buttonToogle)="openNav()" title="{{currentRoute | titlecase}}"></app-dashboard-nav>
-  </header>
-  <aside class="w-full" [ngClass]="showNav ? 'left-0' : 'left-[-300px]'">
-    <app-dashboard-sidebar [navList]="navList" [buttomNav]="bottomNav"></app-dashboard-sidebar>
-  </aside>
-  <main>
-    <div class="max-w-screen-xl mx-auto ">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
+<div class="layout font-display">
+  <app-dashboard-nav (buttonToogle)="openNav()" title="{{currentRoute | titlecase}} " class="!bg-white"></app-dashboard-nav>
+  <app-dashboard-sidebar [navList]="navList" [buttomNav]="bottomNav"></app-dashboard-sidebar>
+  <div class="p-10 lg:ml-auto lg:w-[calc(100%-270px)] bg-[#F3F4F6]">
+    <router-outlet></router-outlet>
+  </div>
 </div>

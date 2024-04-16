@@ -44,10 +44,8 @@
       <thead>
         <tr class="!rounded-lg">
           <th>Location</th>
-          <th>Priority</th>
           <th>Entry Date</th>
           <th>Incident Type</th>
-          <th>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -59,12 +57,9 @@
               </div>
               <div class="flex flex-col gap-2">
                 <p class="font-bold text-base text-[#003A50]">LE2345678909</p>
-                <p class="max-w-[191px]">{{item.location || 'N/A'}}</p>
+                <p class="max-w-[191px]">{{item.incidentLocation || 'N/A'}}</p>
               </div>
             </div>
-          </td>
-          <td>
-            <p class="font-bold text-[#666666]">Urgent</p>
           </td>
           <td>
             <p class="font-bold text-[#666666]">{{item.incidentDate | date}}</p>
@@ -72,12 +67,6 @@
           <td>
             <p class="font-bold text-[#666666]">
               {{item.incidentType || 'N/A'}}
-            </p>
-          </td>
-          <td>
-            <p class="status successful">
-              <span class="font-semibold">Successful</span>
-              <span><img src="assets/svg/badge.svg" alt=""></span>
             </p>
           </td>
         </tr>

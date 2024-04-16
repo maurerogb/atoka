@@ -11,6 +11,7 @@ import { RejectEmployeeComponent } from '../../../../components/modals/reject-em
 import { EmployeeService } from '../../../../services/employee.service';
 import { CommonModule } from '@angular/common';
 import { Route, Router } from '@angular/router';
+import { SettingsService } from '../../../../services/settings.service';
 @Component({
   selector: 'app-employees',
   standalone: true,
@@ -23,11 +24,13 @@ export class EmployeesComponent {
   userId : any
   selected = false;
   employees : any;
-  seeMore = false
+  seeMore = false;
+  details : any;
 
   constructor( private matDialog : MatDialog,
   private employeeService : EmployeeService,
-  private router : Router
+  private router : Router,
+  private settingService : SettingsService
 
     ){
 
@@ -36,6 +39,7 @@ export class EmployeesComponent {
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId');
     this.getAllEmployees();
+    this.getUserDetails()
   }
 
 
@@ -90,6 +94,12 @@ export class EmployeesComponent {
      } else {
       this.employees = res.data.slice(0, 4);
      }
+    })
+  }
+
+  getUserDetails(){
+    this.settingService.getUserDetails(this.userId).subscribe((res : any) => {
+      this.details = res.data
     })
   }
 

@@ -1,0 +1,92 @@
+<div class="pb-5 lg:pb-10">
+  <div class="flex flex-col gap-4 md:flex-row justify-between mb-5">
+    <form [formGroup]="filterForm">
+      <div class="flex flex-col justify-between gap-4 md:flex-row ">
+        <!-- search -->
+        <div class="border border-[#D6F5FFD9] pl-4 pr-12 flex gap-4 items-center bg-[#F3FCFF]  rounded-lg">
+          <img src="assets/svg/Search.svg" alt="">
+          <input type="text" placeholder="Search" class="py-2 outline-none border-none !bg-inherit">
+        </div>
+        <!-- date picker -->
+        <div class="date-holder">
+          <button class="sort-button" (click)="picker.open()">
+            <span>Sort by Date</span>
+            <img src="assets/svg/calendar.svg" alt="">
+          </button>
+          <mat-date-range-input class="custom-date-input" [rangePicker]="picker">
+            <input matStartDate formControlName="start_date" placeholder="Start date">
+            <input matEndDate (dateChange)="onDateRangeInput()" formControlName="end_date" placeholder="End date">
+          </mat-date-range-input>
+
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </div>
+      </div>
+    </form>
+    <app-button buttonText="Add Branch" (click)="addBranch()" [buttonStyles]="'px-10'"></app-button>
+  </div>
+  <div class="mt-5">
+    <div class="border border-[#EAECF0] rounded-lg p-5 bg-white w-[587px]">
+      <p class="text-[#003A50] font-bold">Head Office</p>
+      <div class="">
+        <div class="bg-[#F5F4F7] rounded-lg p-5 mt-5">
+          <p class="font-semibold text-[#003A50]">LE2345678909</p>
+          <p>Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
+        </div>
+
+        <div class="flex gap-4 items-center mt-5">
+          <div>
+            <img src="assets/images/avatar-img.png" alt="" />
+          </div>
+          <p>You currently have 20 employees at this business location.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5 lg:mt-10">
+    <p class="text-base font-semibold">Branch Registered business address</p>
+    <div class="table-holder mt-5 bg-white rounded-md">
+      <table class="table-auto">
+        <thead>
+          <tr class="!rounded-lg">
+            <th>Street name</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+            <th>City</th>
+            <th>House Number</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Atoka Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p class="font-bold text-[#666666] !text-center truncate">Etiebets place, 21 shomolu Avenue</p>
+            </td>
+            <td>
+              <p class="font-bold text-[#666666] !text-center">LON 23344</p>
+            </td>
+            <td>
+              <p class="font-bold text-[#666666] !text-center">LAN 23344</p>
+            </td>
+            <td>
+              <p class="font-bold text-[#666666] !text-center">Ikoyi</p>
+            </td>
+            <td>
+              <p class="font-bold text-[#666666] !text-center">NO 23</p>
+            </td>
+            <td>
+              <p class="font-bold text-[#666666] !text-center">Lagos</p>
+            </td>
+            <td>
+              <p class="font-bold text-[#666666] !text-center">Nigeria</p>
+            </td>
+            <td>
+              <p class="font-bold text-[#666666] !text-center">LE2345678909</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
