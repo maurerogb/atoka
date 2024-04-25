@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PublicServiceLayoutComponent } from './public-service-layout/public-service-layout.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 // import { AccountComponent } from './account/account.component';
 import { IncidentComponent } from './incident/incident.component';
 import { LocationComponent } from './location/location.component';

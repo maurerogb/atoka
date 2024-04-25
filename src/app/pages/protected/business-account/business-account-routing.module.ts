@@ -7,6 +7,7 @@ import { IncidentComponent } from './incident/incident.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { BusinessSettingsComponent } from './business-settings/business-settings.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { BranchComponent } from './branch/branch.component';
 
 const routes: Routes = [
   {path: '', component: BusinessAccountLayoutComponent,
@@ -17,7 +18,8 @@ const routes: Routes = [
     {path: 'incident', component: IncidentComponent},
     {path: 'employees', component: EmployeesComponent},
     {path: 'settings', component: BusinessSettingsComponent},
-    {path: 'employee-list', component: EmployeeListComponent}
+    {path: 'employee-list', component: EmployeeListComponent},
+    {path: 'branch', component: BranchComponent}
   ]
 }
 ];

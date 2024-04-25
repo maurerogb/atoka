@@ -77,7 +77,7 @@ export class UserLayoutComponent {
     },
     {
       name: 'Logout',
-      routerLink: '/logout',
+      routerLink: '/signin',
       activeIcon: 'assets/svg/Logout.svg',
       inactiveIcon: 'assets/svg/Logout.svg',
     }

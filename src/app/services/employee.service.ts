@@ -17,4 +17,8 @@ export class EmployeeService extends HttpService<BaseResponse<any>> {
     const url = `PlaceOfWork/GetAll`
     return this.get<BaseResponse<any>>(url, userId)
   }
+  getEmployeeDetails(userId: string, id : string){
+    const url = `PlaceOfWork/GetByOccupantId/${id}`
+    return this.get<BaseResponse<any>>(url, userId)
+  }
 }
