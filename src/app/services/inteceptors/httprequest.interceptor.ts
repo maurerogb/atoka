@@ -18,6 +18,8 @@ export const httprequestInterceptor: HttpInterceptorFn = (req, next) => {
 
   let user:loginInfo = <loginInfo> JSON.parse(cuser);
 
+  let userId : any = user ? user.userId : localStorage.getItem('userId');
+
   if (
     !/^(http|https):/i.test(req.url) &&
     !req.url.includes('assets')
@@ -32,7 +34,7 @@ export const httprequestInterceptor: HttpInterceptorFn = (req, next) => {
           url: baseUrl + req.url,
           setHeaders: {
             Authorization: `Bearer ${user.token}`,
-            'userId': user.userId
+            'userId': userId
           },
         });
       } else {

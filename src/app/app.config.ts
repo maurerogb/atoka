@@ -8,10 +8,11 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { httprequestInterceptor } from './services/inteceptors/httprequest.interceptor';
 import { provideToastr } from 'ngx-toastr';
 import { errorInterceptor } from './services/inteceptors/error.interceptor';
+import { loaderInterceptor } from './services/inteceptors/loader.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideNoopAnimations(), provideNoopAnimations(),
-    provideHttpClient(withInterceptors([httprequestInterceptor, errorInterceptor])),
-    BrowserModule, provideClientHydration(), provideToastr( {closeButton:true})
+  provideHttpClient(withInterceptors([httprequestInterceptor, errorInterceptor, loaderInterceptor])),
+    BrowserModule, provideClientHydration(), provideToastr({ closeButton: true })
   ]
 };

@@ -1,15 +1,59 @@
 
-<div class="atoka-form-header">
+<div class="atoka-form-header space-y-2">
   <div class="atoka-form-header-icon">
     <mat-icon svgIcon="password" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
   </div>
-  <h1>Upload profile picture</h1>
-  <small>Please upload a profile picture for easy identification.</small>
+  <div class=" text-[#003A50] font-[700] text-[42px] ">Upload profile picture</div>
+  <div class="text-[18px] font-[400] text-[#003A50] ">Please upload a profile picture for easy identification.</div>
 </div>
 <form class="pt-10 max-w-md mx-auto">
 
   <div class="flex justify-center items-center">
-    <app-upload-profile-image></app-upload-profile-image>
+
+    <div class=" w-[428px] h-[126px] rounded-lg py-3">
+      <div class="flex flex-col mx-auto gap-4">
+       @if (uploadedImage) {
+        <div class="flex mx-auto">
+          <img [src]="imageURL"  [alt]="uploadedImage.name" class="w-full rounded-[50%] cursor-pointer h-[200px]" (click)="imageUpload.click()" />
+        </div>
+       } @else {
+        <div class="flex mx-auto">
+          <img src="./../../../../../assets/svg/image-upload.svg" alt="" class="w-full cursor-pointer h-[200px]" (click)="imageUpload.click()" />
+        </div>
+       }
+        <div class="flex justify-center flex-col">
+          <input
+            type="file"
+            #imageUpload
+            class="hidden"
+            (change)="uploadPhoto($event)"
+          />
+
+            <a href="javascript:void(0)" (click)="imageUpload.click()"  class=" w-full justify-center text-center text-[16px] text-[#9CA3AF]">
+           Drag file here to upload document <strong class="font-bold ">or choose file </strong>
+            </a>
+            <!-- <small class="mt-0 text-center">SVG, PNG, JPG or GIF (max. 800x400px)</small> -->
+
+            @if (uploadedImage) {
+            <div class="flex flex-col items-center mt-8 gap-y-4">
+              <div class="flex flex-col w-full items-center mt-8 gap-y-4">
+                <a href="javascript:void(0)"
+                  class="  bg-primary p-3 w-[50%] text-center text-[#fff] font-bold rounded-[10px]"
+
+                  color="primary "
+                  (click)="saveProfilePicture()"
+                >
+                  Save
+
+                  <!-- <mat-spinner class="text-[12px]" *ngIf="loading" ></mat-spinner> -->
+                </a>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      </div>
+    <!-- <app-upload-profile-image></app-upload-profile-image> -->
 <!--
     <app-upload-profile-image></app-upload-profile-image> -->
   </div>

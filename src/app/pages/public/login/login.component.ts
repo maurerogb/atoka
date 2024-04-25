@@ -15,6 +15,7 @@ import { jwtDecode } from 'jwt-decode';
 import { Router, RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
+import { LoadingService } from '../../../services/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   loginfrom!: FormGroup<any>;
   loading: boolean = false;
-  constructor(private fb: FormBuilder, private authService: AuthenticationService, private router: Router) { }
+  constructor(private fb: FormBuilder, private authService: AuthenticationService, private router: Router, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -56,8 +57,10 @@ export class LoginComponent implements OnInit {
       password: value.password,
       rememberMe: false
     }
+
     this.authService.login(login).subscribe({
       next: res => {
+
         if (res.responseCode === ResponseCode.Success) {
 
           const decodedResp: any = jwtDecode(res.token ?? "")
@@ -77,7 +80,8 @@ export class LoginComponent implements OnInit {
 
           this.authService.validateAddress().subscribe({
             next: res2 => {
-              if (res2.responseCode == ResponseCode.Success)
+
+              if (res2.responseCode == ResponseCode.Success) {
                 if (!res2.data) {
                   this.router.navigate(['/app/complete-registration/validate-address']);
                   return;
@@ -106,8 +110,7 @@ export class LoginComponent implements OnInit {
                   }
 
                 }
-
-
+              }
             }
           })
 

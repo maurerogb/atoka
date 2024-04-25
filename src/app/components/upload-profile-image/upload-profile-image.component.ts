@@ -58,6 +58,10 @@ fileOverBase(e: any): void {
   @Input() image: FormControl = new FormControl();
 
   uploadPhoto(event: any) {
+
+    console.log(event.target.files[0]);
+
+
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
 

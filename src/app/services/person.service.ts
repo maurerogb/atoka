@@ -37,6 +37,14 @@ export class PersonService extends HttpService<PersonRequest> {
     return this.http.get<BaseResponse<ListItem[]>>(url);
   }
 
+  uploadProfilePhoto(file: any): Observable<any> {
+    // this.baseUrl = testMode ? localUrl : remoteUrl;
+    const url = `OccupantDetails/Upload-Profile-Photo`
+    return this.filePost(url, file);
+
+
+  }
+
 
  getPerson() : PersonRequest {
   return <PersonRequest> JSON.parse( localStorage.getItem('personalData')?? "");
