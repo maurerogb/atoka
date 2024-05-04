@@ -11,7 +11,9 @@
         <div class="flex flex-col gap-3">
           <p class="font-bold text-2xl">100K</p>
           <p class="flex">
-            <span class="text-[#027A48] font-medium flex"><img src="assets/svg/arrow-up.svg" alt="" /> 12%</span>
+            <span class="text-[#027A48] font-medium flex"
+              ><img src="assets/svg/arrow-up.svg" alt="" /> 12%</span
+            >
             vs last month
           </p>
         </div>
@@ -32,7 +34,9 @@
         <div class="flex flex-col gap-3">
           <p class="font-bold text-2xl">00</p>
           <p class="flex">
-            <span class="text-[#B42318] font-medium flex"><img src="assets/svg/arrow-down.svg" alt="" /> 12%</span>
+            <span class="text-[#B42318] font-medium flex"
+              ><img src="assets/svg/arrow-down.svg" alt="" /> 12%</span
+            >
             vs last month
           </p>
         </div>
@@ -53,7 +57,9 @@
         <div class="flex flex-col gap-3">
           <p class="font-bold text-2xl">100K</p>
           <p class="flex">
-            <span class="text-[#027A48] font-medium flex"><img src="assets/svg/arrow-up.svg" alt="" /> 2%</span>
+            <span class="text-[#027A48] font-medium flex"
+              ><img src="assets/svg/arrow-up.svg" alt="" /> 2%</span
+            >
             vs last month
           </p>
         </div>
@@ -67,20 +73,27 @@
 
   <div class="grid md:grid-cols-[57%_38%] gap-6 pt-5 lg:pt-10">
     <div>
-      <img src="assets/svg/chart.svg" alt="" class="w-full">
+      <img src="assets/svg/chart.svg" alt="" class="w-full" />
     </div>
     <div class="bg-[#E4E4E7] rounded-lg shadow p-5">
       <div class="flex justify-between items-center">
         <div class="flex flex-col">
           <p class="font-bold text-base">Recent Request</p>
-          <p class="text-[#71717A] text-[13px]">Shows all request received in the past week</p>
+          <p class="text-[#71717A] text-[13px]">
+            Shows all request received in the past week
+          </p>
         </div>
-        <p class="text-[#DA7B07] font-semibold cursor-pointer text-xs flex justify-end" (click)="goToEmployeePage()">SEE ALL EMPLOYEE</p>
+        <p
+          class="text-[#DA7B07] font-semibold cursor-pointer text-xs flex justify-end"
+          (click)="goToEmployeePage()"
+        >
+          SEE ALL EMPLOYEE
+        </p>
       </div>
       <div class="flex flex-col mt-2 mb-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+            <img src="assets/images/avatar-1.png" alt="" class="w-fit" />
             <div class="flex flex-col">
               <p class="text-[#18181B] font-bold text-[13px]">Jenny Wilson</p>
               <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
@@ -94,7 +107,7 @@
 
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+            <img src="assets/images/avatar-1.png" alt="" class="w-fit" />
             <div class="flex flex-col">
               <p class="text-[#18181B] font-bold text-[13px]">Devon Lane</p>
               <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
@@ -108,7 +121,7 @@
 
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <img src="assets/images/avatar-1.png" alt="" class="w-fit">
+            <img src="assets/images/avatar-1.png" alt="" class="w-fit" />
             <div class="flex flex-col">
               <p class="text-[#18181B] font-bold text-[13px]">Jane Cooper</p>
               <p class="text-[#71717A] text-[13px]">w.lawson&#64;example.com</p>
@@ -133,22 +146,34 @@
         <table class="table-auto">
           <thead>
             <tr class="!rounded-lg">
+              <th>Host Name</th>
               <th>Atoka Code</th>
-              <th>Location Name</th>
+              <th>Addess</th>
               <th>Date</th>
-              <th> </th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of visit">
               <td>
-                <p class="font-bold text-[#666666] !text-center">Atoka Code</p>
+                <p class="font-bold text-[#666666] !text-left">
+                  {{ item.hostFirstName + " " + item.hostLastName }}
+                </p>
               </td>
               <td>
-                <p class="font-bold text-[#666666] !text-center truncate ">{{item.address.substring(0, 20)}}</p>
+                <p class="font-bold text-[#666666] !text-left">
+                  {{ item.atokaCode }}
+                </p>
               </td>
               <td>
-                <p class="font-bold text-[#666666] !text-center">{{item.visitationDate |date}}</p>
+                <p class="font-bold text-[#666666] !text-left truncate">
+                  {{ item.completeAddress }}
+                </p>
+              </td>
+              <td>
+                <p class="font-bold text-[#666666] !text-left">
+                  {{ item.visitationDate | date }}
+                </p>
               </td>
               <td>
                 <p class="font-extrabold text-2xl cursor-pointer">...</p>

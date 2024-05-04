@@ -20,7 +20,7 @@ export class ProfilePictureComponent {
   uploadedImage: any;
   uploader: FileUploader | undefined
   baseUrl: string = '';
-  constructor(private personServ: PersonService,private toastr: ToastrService) { }
+  constructor(private personServ: PersonService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -45,7 +45,7 @@ export class ProfilePictureComponent {
   saveProfilePicture() {
     let formdata = new FormData();
 
-    let userId:any = localStorage.getItem('userId');
+    let userId: any = localStorage.getItem('userId');
     formdata.append('ProfilePhoto', this.uploadedImage)
     formdata.append('userId', userId)
     console.log(formdata);
@@ -53,19 +53,13 @@ export class ProfilePictureComponent {
     this.personServ.uploadProfilePhoto(formdata).subscribe({
       next: resp => {
         console.log('uploaded ..', resp);
-        if(resp.responseCode == ResponseCode.Success){
+        if (resp.responseCode == ResponseCode.Success) {
           console.log(resp.responseCode);
 
-          this.toastr.show(resp.description,'Success')
+          this.toastr.show(resp.description, 'Success')
         }
-
-
-
       }
     })
-
-
-
 
   }
 

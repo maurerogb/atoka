@@ -16,14 +16,14 @@ import { Router, RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
 import { LoadingService } from '../../../services/loading.service';
+import { AddressSearchComponent } from "../../../components/address-search/address-search.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatIconModule, CommonModule, ReactiveFormsModule, RouterModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatProgressSpinnerModule],
-
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  imports: [MatIconModule, CommonModule, ReactiveFormsModule, RouterModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatProgressSpinnerModule, AddressSearchComponent]
 })
 export class LoginComponent implements OnInit {
 
@@ -113,10 +113,6 @@ export class LoginComponent implements OnInit {
               }
             }
           })
-
-
-
-
 
         } else {
           console.log("res", res);

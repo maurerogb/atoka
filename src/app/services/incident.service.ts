@@ -14,14 +14,22 @@ export class IncidentService extends HttpService<BaseResponse<any>> {
     super(http);
   }
 
-  getUserId(userId: any) : any {
+  getUserId(userId: any): any {
 
     localStorage.getItem('userId');
-   }
-
-  getIncident(userId: string) {
+  }
+  getIncidentTypes() {
+    const url = `IncidentReport/IncidentType`
+    return this.get<BaseResponse<any>>(url)
+  }
+  getIncident() {
     const url = `IncidentReport/GetUserReportedIncident`
-    return this.get<BaseResponse<any>>(url, userId)
+    return this.get<BaseResponse<any>>(url)
+  }
+
+  GetAllReportedIncident() {
+    const url = `IncidentReport/GetAllReportedIncident`
+    return this.get<BaseResponse<any>>(url)
   }
 
 

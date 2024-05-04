@@ -37,7 +37,7 @@ export class IncidentComponent {
     private matDialog: MatDialog,
     private fb: FormBuilder,
     private incidentService: IncidentService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.filterForm = this.fb.group({
@@ -91,7 +91,13 @@ export class IncidentComponent {
   }
 
   getAllIncident() {
-    this.incidentService.getIncident(this.userId).subscribe((res: any) => {
+    this.incidentService.getIncident().subscribe((res: any) => {
+      this.data = res.data;
+    });
+  }
+
+  GetAllReportedIncident() {
+    this.incidentService.GetAllReportedIncident().subscribe((res: any) => {
       this.data = res.data;
     });
   }

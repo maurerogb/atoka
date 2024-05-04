@@ -1,5 +1,4 @@
-
-table{
+table {
   width: 100%;
 }
 .table-holder thead > tr > th {
@@ -7,7 +6,7 @@ table{
 }
 
 .table-holder tbody > tr > td {
-  @apply pb-5 pt-8  font-medium font-display text-sm border-b border-solid border-b-[#BAE5F44F];
+  @apply pb-2 pt-3  font-medium font-display text-sm border-b border-solid border-b-[#BAE5F44F];
 }
 
 .table-holder table > thead > tr:first-child th:first-child {
@@ -18,10 +17,10 @@ table{
   border-top-right-radius: 9px;
   border-bottom-right-radius: 9px;
 }
-.table-holder tbody > tr > td:first-child  {
+.table-holder tbody > tr > td:first-child {
   padding-left: 4px;
 }
-.status{
+.status {
   border-radius: 24px;
   display: flex;
   padding: 6px 10px;
@@ -30,16 +29,16 @@ table{
   gap: 8px;
   color: white;
 
-  &.successful{
-    background: #1F932D;
+  &.successful {
+    background: #1f932d;
   }
   &.draft {
-    background: #CA8828;
+    background: #ca8828;
   }
   &.failed {
-    background: #D83A3A;
+    background: #d83a3a;
   }
   &.pending {
-    background: #0090C7;
+    background: #0090c7;
   }
 }

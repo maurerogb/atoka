@@ -3,6 +3,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { DashboardService } from '../../../../services/dashboard.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { SecureVisitAddress } from '../../../../model/secure-visit';
+import { IncidentService } from '../../../../services/incident.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,24 +20,32 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
   userId: any;
   visit: any
-  constructor(
-    private dashboardService : DashboardService,
-    private router : Router
-  ){}
+  incidents?: any[]
+  constructor(private incidentService: IncidentService,
+    private dashboardService: DashboardService,
+    private router: Router
+  ) { }
 
-  ngOnInit(): void{
-    this.userId = localStorage.getItem('userId');
-    this.getRecentVisit()
+  ngOnInit(): void {
+    this.getIncident()
+    this.getAllReportedIncident()
   }
 
-  getRecentVisit(){
-    this.dashboardService.getRecentVisit(this.userId).subscribe((res: any)=>{
-      this.visit = res.data.slice(0,3)
+  getIncident() {
+    this.incidentService.getIncident().subscribe((res) => {
+      this.visit = res.data
       console.log(res)
     })
   }
 
-  goToEmployeePage(){
+
+  getAllReportedIncident() {
+    this.incidentService.GetAllReportedIncident().subscribe((res: any) => {
+      this.incidents = res.data;
+    });
+  }
+
+  goToEmployeePage() {
     this.router.navigateByUrl('/app/business-account/employees')
   }
 
