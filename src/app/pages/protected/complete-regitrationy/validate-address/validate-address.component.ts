@@ -16,6 +16,11 @@ import { AtokaSearchComponent } from '../../../../components/atoka-search/atoka-
 import { RegistrationService } from '../../../../services/registration.service';
 import { MoveInDate } from '../../../../model/atoka-query';
 import { PersonService } from '../../../../services/person.service';
+import { loginInfo } from '../../../../model/authentication';
+import { AuthenticationService } from '../../../../services/authentication.service';
+import { take } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ProccessComletedprivatedialogComponent } from '../../../../components/modals/proccess-comletedprivatedialog/proccess-comletedprivatedialog.component';
 
 @Component({
   selector: 'app-validate-address',
@@ -29,17 +34,36 @@ export class ValidateAddressComponent implements OnInit {
   hideForm: boolean = false;
   addressCode?: string;
   validateAddressForm!: FormGroup
-  labelName: string ='Address Code'
+  labelName: string = 'Address Code';
+  currentUserData?: loginInfo;
 
-  constructor(private regitrationServ: RegistrationService, private router: Router, private fb: FormBuilder, private personServ: PersonService) { }
+  constructor(private regitrationServ: RegistrationService, private router: Router,
+    private fb: FormBuilder, private authServ: AuthenticationService, private dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-
+    this.getCurrentUserData();
     this.validateAddressForm = this.fb.group({
-      startFrom:['',Validators.required]
+      startFrom: ['', Validators.required]
     })
+  }
+
+  getCurrentUserData() {
+
+    this.currentUserData = <loginInfo>JSON.parse(localStorage.getItem('userData') ?? "");
+    console.log('currentUserData  ', this.currentUserData);
+
+    // console.log('currentUserData  ??? ')
+    // this.authServ.currentUser$.pipe(take(1)).subscribe({
+    //   next: (data: loginInfo) => {
+    //     this.currentUserData = data;
+    //     console.log('currentUserData  ', data);
+
+    //   }
+    // })
+
   }
 
   setAddressCode(value: any) {
@@ -64,29 +88,47 @@ export class ValidateAddressComponent implements OnInit {
   }
 
   verifyAddress() {
-    const moveInDate: any =   this.validateAddressForm.value;
-     console.log(moveInDate);
+
+    const moveInDate: any = this.validateAddressForm.value;
+    console.log(this.currentUserData?.hasBusinessInfo);
     this.regitrationServ.movedInOn(moveInDate).subscribe({
       next: (res) => {
         console.log("reds", res);
-        if(  this.personServ.getPerson().accountTypeId == 0){
-          this.router.navigate(['/user'])
+        if (this.currentUserData?.accountTypeId == 0) {
+          this.callDalog('/app/user')
+          this.router.navigate(['/app/user'])
         }
-      if(  this.personServ.getPerson().accountTypeId == 2){
-        this.router.navigate(['/app/complete-registration/business'])
-      }
-      if(  this.personServ.getPerson().accountTypeId == 2 && false){
-        this.router.navigate(['/business-registration'])
-      }
-      if(  this.personServ.getPerson().accountTypeId == 1){
-        this.router.navigate(['/app/tenant'])
-      }
-      if(  this.personServ.getPerson().accountTypeId == 3){
-        this.router.navigate(['/app/user'])
-      }
-      }
-    })
+        if (this.currentUserData?.accountTypeId == 2 && this.currentUserData?.hasBusinessInfo == '1') {
+          this.callDalog('/app/complete-registration/business')
 
+        }
+        if (this.currentUserData?.accountTypeId == 2 && this.currentUserData?.hasBusinessInfo == '0') {
+          this.callDalog('/business-account')
+        }
+        if (this.currentUserData?.accountTypeId == 1) {
+          this.callDalog('/app/tenant')
+        }
+        if (this.currentUserData?.accountTypeId == 3) {
+          this.callDalog('/app/user')
+        }
+      }
+
+    })
   }
+
+  callDalog(routr: string): void {
+    const dialogRef = this.dialog.open(ProccessComletedprivatedialogComponent, {
+      data: 'Michael',
+      width: '40%',
+      position: { top: '200px', left: '30.5%', right: '0', bottom: '0' },
+      hasBackdrop: true,
+      backdropClass: 'backdrop',
+      disableClose: true,
+    });
+
+    dialogRef.afterClosed().subscribe(result => result && this.router.navigate([routr]));
+  }
+
+
 
 }
