@@ -1,0 +1,111 @@
+<div class="grid gap-4">
+  <div class="border border-[#7568C8] p-5 flex flex-col gap-4 rounded-lg">
+    <!-- This div is hidden when a location is selected -->
+    <div class="flex gap-4" *ngIf="!selected">
+      <div>
+        <img src="assets/images/avatar-img.png" alt="" />
+      </div>
+      <p>
+        Select property to know the number of tenant leaving in that location.
+      </p>
+    </div>
+
+    <div class="flex justify-between">
+      <div class="w-1/2">
+        <app-atoka-search (addressInfo)="getAddress($event)"></app-atoka-search>
+
+        <!-- <div class="border border-[#7AD3F0D9] rounded-lg p-4 w-full">
+          <mat-select [placeholder]="'Select Address'" class="w-full">
+            <mat-option (click)="selectedAddress()"> LE2345678909</mat-option>
+            <mat-option> Not Urgent</mat-option>
+          </mat-select>
+        </div> -->
+      </div>
+      <div class="flex gap-4">
+        <app-button
+          buttonText="Add Branch"
+          buttonStyles="w-full px-8"
+          (click)="addBranch()"
+        ></app-button>
+        <app-button
+          buttonText="Add Employee"
+          (click)="addEmployee()"
+          buttonStyles="bg-white border border-[#7AD3F0D9] !text-[#7AD3F0D9] w-full px-8"
+        ></app-button>
+      </div>
+    </div>
+
+    <app-address-card
+      [showResidenceCount]="false"
+      [address]="addressInfo"
+    ></app-address-card>
+    <!-- Show this div when a location is selected -->
+    <!-- <div *ngIf="selected">
+      <div class="bg-[#00ADEF] rounded-lg p-5 text-white w-[342px] mt-5">
+        <p class="font-semibold">LE2345678909</p>
+        <p>Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
+      </div>
+
+      <div class="flex gap-4 items-center mt-5">
+        <div>
+          <img src="assets/images/avatar-img.png" alt="" />
+        </div>
+        <p>You currently have 20 employees at this business location.</p>
+      </div>
+    </div> -->
+  </div>
+
+  <div>
+    @if (pendingEmployee.length > 0) {
+    <div class="mt-4">
+      <p class="text-[#003A50] font-bold text-base">Pending request</p>
+
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        @for (item of pendingEmployee; track item) {
+        <app-request-card
+          [details]="item"
+          [confirmStatus]="item.confirmationStatus"
+        ></app-request-card>
+        }
+      </div>
+    </div>
+  }
+    <div class="mt-4">
+      @if (pendingEmployee.length > 0) {
+      <div class="flex justify-between">
+
+        <p class="text-[#003A50] font-bold text-base">Employees List</p>
+        <p
+          class="text-[#00ADEF] font-bold cursor-pointer"
+          (click)="(seeMore); goToEmployeeList()"
+        >
+          See more
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <div  *ngFor="let employee of approvedEmployee">
+
+          <app-request-card
+          [details]="employee"
+          [confirmStatus]="employee.confirmationStatus"
+        ></app-request-card>
+        </div>
+      </div>
+    }
+    </div>
+  </div>
+  <!-- Empty State -->
+
+  <div class="flex mx-auto hidden">
+    <div class="flex flex-col">
+      <div>
+        <img src="assets/images/add-employee.png" alt="" />
+      </div>
+      <app-button
+        buttonText="Add Employee"
+        buttonStyles="w-[311px]"
+      ></app-button>
+    </div>
+  </div>
+</div>

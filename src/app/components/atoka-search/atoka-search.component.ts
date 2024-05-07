@@ -74,7 +74,8 @@ export class AtokaSearchComponent implements OnInit {
 
   setAddressCode(e: MatAutocompleteSelectedEvent) {
 
-    this.addressInfo.emit(this.filteredOptions?.find(a => a.atoka == e.option.value))
+    this.addressInfo.emit(
+      this.filteredOptions?.find(a => a.atoka == e.option.value))
 
     this.addressCode = e.option.value
     this.returnCode.emit(this.addressCode)

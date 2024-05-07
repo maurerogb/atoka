@@ -18,12 +18,14 @@ import { AddressCardComponent } from "../../../../components/address-card/addres
 import { AtokaSearchComponent } from "../../../../components/atoka-search/atoka-search.component";
 import { AtokaSearchService } from '../../../../services/atoka-search.service';
 import { Address } from '../../../../model/atoka-query';
+import { RequestCardComponent } from "../../../../components/request-card/request-card.component";
+import { Employee } from '../../../../model/businessInfo';
 @Component({
-  selector: 'app-employees',
-  standalone: true,
-  templateUrl: './employees.component.html',
-  styleUrl: './employees.component.scss',
-  imports: [MatSelectModule, ButtonComponent, MatMenuModule, CommonModule, AddressCardComponent, AtokaSearchComponent]
+    selector: 'app-employees',
+    standalone: true,
+    templateUrl: './employees.component.html',
+    styleUrl: './employees.component.scss',
+    imports: [MatSelectModule, ButtonComponent, MatMenuModule, CommonModule, AddressCardComponent, AtokaSearchComponent, RequestCardComponent]
 })
 export class EmployeesComponent {
 
@@ -32,10 +34,11 @@ export class EmployeesComponent {
   employees: any;
   seeMore = false;
   details: any;
-  allApprovedEmployee: any;
-  notApprovedEmployee: any;
+  approvedEmployee:  Employee[] = [];
+  pendingEmployee:  Employee[] = [];
   allByBusiness: any;
-  addressInfo?: Address
+  addressInfo?: Address;
+
 
   constructor(private matDialog: MatDialog,
     private employeeService: EmployeeService,
@@ -48,28 +51,22 @@ export class EmployeesComponent {
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId');
-    this.getAllEmployees();
-    this.getUserDetails()
+
+    this.getUserDetails();
+    this.getallNotAppprovedEmployees();
+    this.getAllAppprovedEmployees();
   }
 
   getAddress(value: Address) {
-    console.log(">>>>>>>>>>>>", value);
     this.addressInfo = value;
-    // this.atokaServ.searchAtoka(value).subscribe({
-    //   next: (data: any) => {
-    //     // this.filteredOptions = data.data;
-    //     if (data.ResponseCode == ResponseCode.Success && data.data)
-    //       = data.data[0]
-    //     console.log('this.addressInfo', data.data[0]);
-    //   }
-    // });
-
   }
 
   getAllAppprovedEmployees(): void {
     this.employeeService.GetAllApprovedColleagues("").subscribe(data => {
       if (data.responseCode == ResponseCode.Success) {
-        this.allApprovedEmployee = data.data
+        this.approvedEmployee = data.data
+        console.log('allApprovedEmployee',data.data);
+
       }
     })
   }
@@ -77,7 +74,8 @@ export class EmployeesComponent {
   getallNotAppprovedEmployees(): void {
     this.employeeService.GetAllNotApprovedColleagues("").subscribe(data => {
       if (data.responseCode == ResponseCode.Success) {
-        this.getallNotAppprovedEmployees = data.data
+        this.pendingEmployee = data.data
+        console.log('getallNotAppprovedEmployees', data.data);
       }
     })
   }
@@ -134,15 +132,15 @@ export class EmployeesComponent {
     );
   }
 
-  getAllEmployees() {
-    this.employeeService.getAllEmployees(this.userId).subscribe((res: any) => {
-      if (this.seeMore) {
-        this.employees = res.data
-      } else {
-        this.employees = res.data.slice(0, 4);
-      }
-    })
-  }
+  // getAllEmployees() {
+  //   this.employeeService.getAllEmployees(this.userId).subscribe((res: any) => {
+  //     if (this.seeMore) {
+  //       this.employees = res.data
+  //     } else {
+  //       this.employees = res.data.slice(0, 4);
+  //     }
+  //   })
+  // }
 
   getUserDetails() {
     this.settingService.getUserDetails(this.userId).subscribe((res: any) => {
