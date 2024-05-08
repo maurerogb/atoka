@@ -36,3 +36,10 @@ export interface Employee {
   approvedOn: string;
   approvedBy: string;
 }
+
+
+export enum ApprovalStatus {
+  APROVED='APROVED',
+  REJECTED='REJECTED',
+  PENDING = 'PENDING',
+}

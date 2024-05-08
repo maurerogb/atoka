@@ -52,7 +52,12 @@ export class EmployeesComponent {
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId');
 
-    this.getUserDetails();
+    // this.getUserDetails();
+    this.getallNotAppprovedEmployees();
+    this.getAllAppprovedEmployees();
+  }
+
+  refreshCards(){
     this.getallNotAppprovedEmployees();
     this.getAllAppprovedEmployees();
   }

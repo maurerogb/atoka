@@ -11,18 +11,19 @@
       <p class="max-w-[314px]">Are you sure you want to remove this Employee from your business?</p>
     </div>
   </div>
-
-  <div class="">
-    <app-input [customClass]="'w-full'" [placeholder]="'Reason for removing employee'"></app-input>
+{{ form.value| json }}
+  <div class="" [formGroup]="form">
+    <input class=" p-4 rounded-lg bg-[#FCFCFC] focus:bg-[white] outline-0 border-[#E6E6E6] border-solid border focus:border-[#979797] font-poppins text-[15px] w-full" formControlName="reason" [placeholder]="'Reason for removing employee'"/>
   </div>
 
   <div class="flex gap-4 justify-center mt-5 lg:mt-8">
     <app-button
     buttonText="Remove employee"
     buttonStyles="px-8"
+    (click)="removeEmployee($event)"
     ></app-button>
     <app-button
-    buttonText="Cancel request"
+    buttonText="Cancel "
     (click)="close()"
     buttonStyles="bg-white border border-[#7AD3F0D9] !text-[#7AD3F0D9] w-full px-8"
     ></app-button>

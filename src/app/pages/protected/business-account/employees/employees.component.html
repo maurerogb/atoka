@@ -63,7 +63,7 @@
       <div class="grid grid-cols-2 gap-4 mt-4">
         @for (item of pendingEmployee; track item) {
         <app-request-card
-          [details]="item"
+          [details]="item"  (requestUpdate)="refreshCards()"
           [confirmStatus]="item.confirmationStatus"
         ></app-request-card>
         }
@@ -71,7 +71,7 @@
     </div>
   }
     <div class="mt-4">
-      @if (pendingEmployee.length > 0) {
+      @if (approvedEmployee.length > 0) {
       <div class="flex justify-between">
 
         <p class="text-[#003A50] font-bold text-base">Employees List</p>
@@ -86,7 +86,7 @@
       <div class="grid grid-cols-2 gap-4 mt-4">
         <div  *ngFor="let employee of approvedEmployee">
 
-          <app-request-card
+          <app-request-card (requestUpdate)="refreshCards()"
           [details]="employee"
           [confirmStatus]="employee.confirmationStatus"
         ></app-request-card>

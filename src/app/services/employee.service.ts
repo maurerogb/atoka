@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { BaseResponse } from '../model/BaseResponse';
 import { HttpClient } from '@angular/common/http';
+import { ApprovalStatus } from '../model/businessInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,18 @@ export class EmployeeService extends HttpService<BaseResponse<any>> {
 
   constructor(private http: HttpClient) {
     super(http);
+  }
+
+
+  getApprovalStatus() {
+    const url = `PlaceOfWork/GetConfirmStatusTypes`
+    return this.get<BaseResponse<any>>(url)
+  }
+
+
+  updateConfirmationRequest(id: any, status: ApprovalStatus) {
+    const url = `PlaceOfWork/EmployerDecission/${status}/pow/${id}`
+    return this.put<BaseResponse<any>>(url)
   }
 
 

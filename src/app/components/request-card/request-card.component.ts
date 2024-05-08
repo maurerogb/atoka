@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ApprovalStatus } from './../../model/businessInfo';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RemoveEmployeeComponent } from '../modals/remove-employee/remove-employee.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EmployeeDetailsComponent } from '../modals/employee-details/employee-details.component';
@@ -13,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ButtonComponent } from '../button/button.component';
 import { Employee } from '../../model/businessInfo';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ResponseCode } from '../../model/enums';
 
 @Component({
   selector: 'app-request-card',
@@ -25,7 +27,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class RequestCardComponent implements OnInit {
   @Input() confirmStatus?: string
   @Input() details?: Employee;
-  employeeForm?: FormGroup
+  employeeForm?: FormGroup;
+  public approvalStatus?= ApprovalStatus.APROVED
+  public pendingRequest?= ApprovalStatus.PENDING
+
+  @Output() requestUpdate:  EventEmitter<string> = new EventEmitter<string>();
+
   constructor(private matDialog: MatDialog,
     private employeeService: EmployeeService,
     private router: Router, private atokaServ: AtokaSearchService,
@@ -36,25 +43,19 @@ export class RequestCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    // this.employeeForm = this.fb.group({
-    //   surname: this.details?.surname,
-    //   firstName: this.details?.firstName,
-    //   middleName: this.details?.middleName,
-    //   title: this.details?.title,
-    //   gender: this.details?.gender,
-    //   dateOfBirth: this.details?.dateOfBirth,
-    //   phoneNumber: this.details?.phoneNumber,
-    //   ocupation: this.details?.ocupation,
-    //   imageUrl: this.details?.imageUrl,
-    //   emailAddress: this.details?.emailAddress,
-    //   placeOfWorkId: this.details?.placeOfWorkId,
-    //   employmentStartDate: this.details?.employmentStartDate,
-    //   confirmationStatus: this.details?.confirmationStatus,
+
+    // this.employeeService.getApprovalStatus().subscribe({
+    //   next: status => {
+    //     console.log(status.data);
+    //   }
+
     // })
 
+
+
   }
+
+
 
   employeeDetails() {
     const dialogConfig = new MatDialogConfig();
@@ -64,12 +65,42 @@ export class RequestCardComponent implements OnInit {
 
     );
   }
+
+  approveRequest(details?: Employee){
+
+    this.employeeService.updateConfirmationRequest(details?.placeOfWorkId, ApprovalStatus.APROVED )
+    .subscribe({
+      next: (res) => {
+        if(res.responseCode == ResponseCode.Success){
+
+          this.requestUpdate.emit(res.data)
+
+        }
+      }
+    })
+  }
+
+  rejectRequest(details?: Employee){
+
+    this.employeeService.updateConfirmationRequest(details?.placeOfWorkId, ApprovalStatus.REJECTED )
+    .subscribe({
+      next: (res) => {
+        if(res.responseCode == ResponseCode.Success){
+
+          this.requestUpdate.emit(res.data)
+
+        }
+      }
+    })
+
+
+  }
   removeEmployee() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxHeight = '90vh';
     let dialogRef = this.matDialog.open(
       RemoveEmployeeComponent,
-      dialogConfig
+      { data: this.details },
     );
   }
   rejectEmployee() {
