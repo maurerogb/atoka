@@ -17,6 +17,11 @@ export const Regex = {
 }
 
 
+export enum ApprovalStatus {
+  APROVED='APROVED',
+  REJECTED='REJECTED',
+  PENDING = 'PENDING',
+}
 export enum ResponseCode  {
   Success = 0,
   Error=10,

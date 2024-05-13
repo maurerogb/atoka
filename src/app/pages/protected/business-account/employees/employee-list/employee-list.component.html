@@ -1,1 +1,72 @@
-<p>employee-list works!</p>
+<div class="pb-5 lg:pb-10">
+  <div class="mb-8" >
+    <button   (click)="goback()"   class="!font-[#002330] text-[14px] font-[700] " >Back</button>
+  </div>
+  <div class="flex flex-col gap-4 md:flex-row justify-between mb-5">
+
+        <!-- search -->
+        <div class="border border-[#D6F5FFD9] pl-4 pr-12 flex gap-4 items-center bg-[#F3FCFF]  rounded-lg">
+          <img src="assets/svg/Search.svg" alt="">
+          <input type="text" placeholder="Search" class="py-2 outline-none border-none !bg-inherit">
+        </div>
+        <!-- date picker -->
+        <div class="date-holder">
+          <button class="sort-button" (click)="picker.open()">
+            <span>Sort by Date</span>
+            <img src="assets/svg/calendar.svg" alt="">
+          </button>
+          <mat-date-range-input class="custom-date-input" [rangePicker]="picker">
+            <input matStartDate   placeholder="Start date">
+            <input matEndDate (dateChange)="onDateRangeInput()"   placeholder="End date">
+          </mat-date-range-input>
+
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </div>
+  </div>
+
+
+  <div class="mt-5 lg:mt-10">
+    <div class="table-holder mt-5 bg-white rounded-md">
+      <table class="table-auto">
+        <thead>
+          <tr class="!rounded-lg ">
+            <th>Employee name</th>
+            <th>Phone No.</th>
+            <th>Entry Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of employees; track $index) {
+            <tr>
+              <td class="pl-[15px]">
+                <p class="font-bold text-[#666666] !text-left pl-[15px]">{{item.employeeName}}</p>
+              </td>
+              <td>
+                <p class="font-bold text-[#666666] !text-left ">{{item.businessPhoneNo}}</p>
+              </td>
+              <td>
+                <p class="font-bold text-[#666666] !text-left">{{item.employmentStartDate | date}}</p>
+              </td>
+              <td>
+                <p class="font-bold text-[#666666] !text-left ">{{item.confirmationStatus}}</p>
+              </td>
+
+              <td class="">
+                <div class="w-full flex">
+                  <!-- <img class="justify-start" src="assets/svg/trash.svg" alt=""> -->
+                <img class="justify-start" (click)="deleteEmployee()" src="assets/svg/trash.svg" alt="">
+
+                <button class="justify-end" (click)="viewDetails()" >View</button>
+
+                </div>
+              </td>
+            </tr>
+          }
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

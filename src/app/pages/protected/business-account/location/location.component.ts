@@ -12,14 +12,15 @@ import { BrowserModule } from '@angular/platform-browser';
 export class LocationComponent {
   display: any;
   center: google.maps.LatLngLiteral = {
-      lat: 22.2736308,
-      lng: 70.7512555
+      lat:  6.455284,
+      lng:3.410702
   };
-  zoom = 6;
+  zoom = 15;
 
-  options: google.maps.MapOptions = {
-    center: {lat: 7.455542, lng:  10.462354},
-    zoom: 100
-  };
+  circleCenter: google.maps.LatLngLiteral = { lat:  6.455284,
+    lng:3.410702};
+  radius = 3;
+
+
 
 }

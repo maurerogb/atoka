@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA ,  MatDialogClose} from '@angular/material/dialog';
 import { InputComponent } from '../../input/input.component';
 import { ButtonComponent } from '../../button/button.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     InputComponent,
+MatDialogClose,
     ButtonComponent, ReactiveFormsModule, CommonModule
   ],
   templateUrl: './remove-employee.component.html',

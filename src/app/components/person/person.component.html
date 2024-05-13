@@ -1,0 +1,21 @@
+<div class="flex gap-4 rounded-[10px] bg-[#003A50]">
+  <div class="m-4">
+    <img
+      [src]="details?.imageUrl"
+      class="w-[100px] h-[100px] border border-[#195bdf] rounded-full"
+      alt=""
+    />
+  </div>
+  <div class="w-[428px] h-[126px] rounded-lg py-3">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col text-[#ffffff]">
+        <div class="pt-5">
+          <div class="font-bold text-[16px] text-left text-2xl">
+            {{ details?.firstName | uppercase }} {{ details?.middleName | uppercase }}  {{ details?.surname  | uppercase  }}
+          </div>
+          <p>{{ details?.emailAddress }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

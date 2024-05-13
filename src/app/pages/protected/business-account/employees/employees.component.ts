@@ -20,12 +20,13 @@ import { AtokaSearchService } from '../../../../services/atoka-search.service';
 import { Address } from '../../../../model/atoka-query';
 import { RequestCardComponent } from "../../../../components/request-card/request-card.component";
 import { Employee } from '../../../../model/businessInfo';
+import { PersonComponent } from "../../../../components/person/person.component";
 @Component({
     selector: 'app-employees',
     standalone: true,
     templateUrl: './employees.component.html',
     styleUrl: './employees.component.scss',
-    imports: [MatSelectModule, ButtonComponent, MatMenuModule, CommonModule, AddressCardComponent, AtokaSearchComponent, RequestCardComponent]
+    imports: [MatSelectModule, ButtonComponent, MatMenuModule, CommonModule, AddressCardComponent, AtokaSearchComponent, RequestCardComponent, PersonComponent]
 })
 export class EmployeesComponent {
 
@@ -147,11 +148,11 @@ export class EmployeesComponent {
   //   })
   // }
 
-  getUserDetails() {
-    this.settingService.getUserDetails(this.userId).subscribe((res: any) => {
-      this.details = res.data
-    })
-  }
+  // getUserDetails() {
+  //   this.settingService.getUserDetails(this.userId).subscribe((res: any) => {
+  //     this.details = res.data
+  //   })
+  // }
 
   goToEmployeeList() {
     this.router.navigateByUrl('/app/business-account/employee-list')

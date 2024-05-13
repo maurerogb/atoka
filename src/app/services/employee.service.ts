@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { BaseResponse } from '../model/BaseResponse';
 import { HttpClient } from '@angular/common/http';
-import { ApprovalStatus } from '../model/businessInfo';
+import { ApprovalStatus } from '../model/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +19,14 @@ export class EmployeeService extends HttpService<BaseResponse<any>> {
     return this.get<BaseResponse<any>>(url)
   }
 
-
   updateConfirmationRequest(id: any, status: ApprovalStatus) {
     const url = `PlaceOfWork/EmployerDecission/${status}/pow/${id}`
     return this.put<BaseResponse<any>>(url)
+  }
+
+  deleteEmployRecord(data: any) {
+    const url = `PlaceOfWork/RemoveEmployee`
+    return this.put<BaseResponse<any>>(url, data)
   }
 
 

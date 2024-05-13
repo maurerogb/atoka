@@ -27,11 +27,7 @@
           buttonStyles="w-full px-8"
           (click)="addBranch()"
         ></app-button>
-        <app-button
-          buttonText="Add Employee"
-          (click)="addEmployee()"
-          buttonStyles="bg-white border border-[#7AD3F0D9] !text-[#7AD3F0D9] w-full px-8"
-        ></app-button>
+
       </div>
     </div>
 
@@ -56,6 +52,8 @@
   </div>
 
   <div>
+
+
     @if (pendingEmployee.length > 0) {
     <div class="mt-4">
       <p class="text-[#003A50] font-bold text-base">Pending request</p>

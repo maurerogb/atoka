@@ -1,7 +1,7 @@
-import { ApprovalStatus } from './../../model/businessInfo';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RemoveEmployeeComponent } from '../modals/remove-employee/remove-employee.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogClose } from '@angular/material/dialog';
 import { EmployeeDetailsComponent } from '../modals/employee-details/employee-details.component';
 import { RejectEmployeeComponent } from '../modals/reject-employee/reject-employee.component';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ButtonComponent } from '../button/button.component';
 import { Employee } from '../../model/businessInfo';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ResponseCode } from '../../model/enums';
+import { ApprovalStatus, ResponseCode } from '../../model/enums';
 
 @Component({
   selector: 'app-request-card',
@@ -27,11 +27,12 @@ import { ResponseCode } from '../../model/enums';
 export class RequestCardComponent implements OnInit {
   @Input() confirmStatus?: string
   @Input() details?: Employee;
+  reasonForDelete?: string;
   employeeForm?: FormGroup;
-  public approvalStatus?= ApprovalStatus.APROVED
-  public pendingRequest?= ApprovalStatus.PENDING
+  public approvalStatus? = ApprovalStatus.APROVED
+  public pendingRequest? = ApprovalStatus.PENDING
 
-  @Output() requestUpdate:  EventEmitter<string> = new EventEmitter<string>();
+  @Output() requestUpdate: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private matDialog: MatDialog,
     private employeeService: EmployeeService,
@@ -66,35 +67,46 @@ export class RequestCardComponent implements OnInit {
     );
   }
 
-  approveRequest(details?: Employee){
+  approveRequest(details?: Employee) {
 
-    this.employeeService.updateConfirmationRequest(details?.placeOfWorkId, ApprovalStatus.APROVED )
-    .subscribe({
-      next: (res) => {
-        if(res.responseCode == ResponseCode.Success){
+    this.employeeService.updateConfirmationRequest(details?.placeOfWorkId, ApprovalStatus.APROVED)
+      .subscribe({
+        next: (res) => {
+          if (res.responseCode == ResponseCode.Success) {
 
-          this.requestUpdate.emit(res.data)
+            this.requestUpdate.emit(res.data)
 
+          }
         }
-      }
-    })
+      })
   }
 
-  rejectRequest(details?: Employee){
-
-    this.employeeService.updateConfirmationRequest(details?.placeOfWorkId, ApprovalStatus.REJECTED )
-    .subscribe({
-      next: (res) => {
-        if(res.responseCode == ResponseCode.Success){
-
-          this.requestUpdate.emit(res.data)
-
+  rejectRequest(details?: Employee) {
+    this.employeeService.updateConfirmationRequest(details?.placeOfWorkId, ApprovalStatus.REJECTED)
+      .subscribe({
+        next: (res) => {
+          if (res.responseCode == ResponseCode.Success) {
+            this.requestUpdate.emit(res.data)
+          }
         }
-      }
-    })
-
-
+      })
   }
+
+  deleteEmployee() {
+    let data = {
+      'placeOfWorkId': this.details?.placeOfWorkId,
+      'reason': this.reasonForDelete
+    }
+    this.employeeService.deleteEmployRecord(data)
+      .subscribe({
+        next: (res) => {
+          if (res.responseCode == ResponseCode.Success) {
+            this.requestUpdate.emit(res.data)
+          }
+        }
+      })
+  }
+
   removeEmployee() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxHeight = '90vh';
@@ -102,7 +114,14 @@ export class RequestCardComponent implements OnInit {
       RemoveEmployeeComponent,
       { data: this.details },
     );
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.reasonForDelete = result;
+      console.log(result);
+      this.deleteEmployee();
+    })
   }
+
   rejectEmployee() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxHeight = '90vh';

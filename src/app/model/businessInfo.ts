@@ -35,11 +35,9 @@ export interface Employee {
   confirmationStatus: string;
   approvedOn: string;
   approvedBy: string;
+  homeAddress: string;
+  addressCode: string;
+  employeeName:string;
 }
 
 
-export enum ApprovalStatus {
-  APROVED='APROVED',
-  REJECTED='REJECTED',
-  PENDING = 'PENDING',
-}
