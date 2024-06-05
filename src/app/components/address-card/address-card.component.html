@@ -1,20 +1,20 @@
 @if (address!=null ) {
 <div>
-  <div class="bg-[#00ADEF] rounded-lg p-5 text-white w-[342px] ">
-    <p class="font-semibold">{{ address?.atoka }}</p>
+  <div class="bg-[#00ADEF] rounded-lg p-5 text-white  ">
+    <p class="font-semibold">{{ address.atoka }}</p>
     <p>
       {{
-        address?.oldNumber +
+        address.oldNumber +
           " " +
-          address?.stateName +
+          address.stateName +
           ", " +
-          address?.cityName +
+          address.cityName +
           ", " +
-          address?.lga +
+          address.lga +
           ", " +
-          address?.stateName +
+          address.stateName +
           " " +
-          address?.countries
+          address.countries
       }}
     </p>
   </div>

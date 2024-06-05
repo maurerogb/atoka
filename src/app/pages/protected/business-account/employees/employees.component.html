@@ -27,18 +27,20 @@
           buttonStyles="w-full px-8"
           (click)="addBranch()"
         ></app-button>
-        <app-button
+        <!-- <app-button
           buttonText="Add Employee"
           (click)="addEmployee()"
           buttonStyles="bg-white border border-[#7AD3F0D9] !text-[#7AD3F0D9] w-full px-8"
-        ></app-button>
+        ></app-button> -->
       </div>
     </div>
+<div class="w-[342px]">
 
-    <app-address-card
-      [showResidenceCount]="false"
-      [address]="addressInfo"
-    ></app-address-card>
+  <app-address-card   
+    [showResidenceCount]="false"
+    [address]="addressInfo"
+  ></app-address-card>
+</div>
     <!-- Show this div when a location is selected -->
     <!-- <div *ngIf="selected">
       <div class="bg-[#00ADEF] rounded-lg p-5 text-white w-[342px] mt-5">

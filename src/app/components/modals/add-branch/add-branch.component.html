@@ -1,85 +1,46 @@
-<div class="bg-white rounded-lg p-5 mt-5 max-w-[556px]">
+<div class="bg-white rounded-lg p-5 mt-0 max-w-[556px]">
   <div class="flex flex-col">
-    <p class="text-[#003A50] font-bold text-xl">Add Branch</p>
-    <p class="font-semibold text-base">Claim the ownership of your property now and prevent others from claiming or using it as theirs.</p>
+    <p class="text-[#003A50] font-bold text-xl mb-3">Add Branch</p>
+    <p class=" text-base">If your business has other branches, add branches here.</p>
   </div>
   <div class="flex flex-col gap-4">
-    <div class="p-2">
+    <!-- <div class="p-2">
       <p class="text-left  font-semibold">Branch Address</p>
       <app-input [customClass]="'w-full'" [placeholder]="'Enter ATOKA or address'"></app-input>
+    </div> -->
+    <div class="p-2 space-y-5 mt-3">
+      <app-address-search [includeVerify]="true" (result)="getAddress($event)" class=" items-start"
+        [lebel]="'Branch address'"></app-address-search>
     </div>
-    <p class="flex justify-center mt-5 font-display">Don’t have ATOKA ? <span class="font-semibold cursor-pointer text-[#003A50]" (click)="toggleDiv()">Enter address manually</span></p>
+    <div class=" flex-row mx-auto gap-4 items-center">
+      @if(addressResult){
+      <app-address-card [address]="addressResult"> </app-address-card>
+      }
 
-    <div class="grid gap-4 p-2" *ngIf="showDiv">
-      <div class="grid grid-cols-2 gap-4">
-        <div class="">
-          <p class="text-left  font-semibold">Country</p>
-          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
-            <mat-select [placeholder]="'Select Country'" class="w-full">
-              <mat-option> Nigeria</mat-option>
-              <mat-option> Ghana</mat-option>
-            </mat-select>
-          </div>
-        </div>
+      <div class="mt-0 ">
+
         <div>
-          <p class="text-left  font-semibold">State</p>
-          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
-            <mat-select [placeholder]="'Select State'" class="w-full">
-              <mat-option> Lagos</mat-option>
-              <mat-option>Abuja</mat-option>
-            </mat-select>
+          <div class="p-2 ">
+            <p class="text-left  font-semibold">Branch Name</p>
+            <app-input [customClass]="'w-full p-2'" [placeholder]="'Enter Branch Name'"></app-input>
+          </div>
+          <div class="p-2 text-left mb-10">
+            <mat-checkbox class="">If this is buliding you Head Office identify by checking the box</mat-checkbox>
+            <mat-checkbox >
+              <div class="font-[400] text-[14px] pt-2">Claim Ownership </div> 
+              <div class="font-[400] text-[13px] mt-1"> we will notify you if any other attempt is made to claim your
+                property.</div>
+            </mat-checkbox>
+  
           </div>
         </div>
-      </div>
-      <div>
-        <p class="text-left  font-semibold">Local Government Area (LGA)</p>
-        <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
-      </div>
-      <div>
-        <p class="text-left  font-semibold">District</p>
-        <app-input [customClass]="'w-full'" [placeholder]="'Enter Local Government Area'"></app-input>
-      </div>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="">
-          <p class="text-left  font-semibold">City</p>
-          <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
-            <mat-select [placeholder]="'Select Country'" class="w-full">
-              <mat-option> Nigeria</mat-option>
-              <mat-option> Ghana</mat-option>
-            </mat-select>
-          </div>
+        <div class="w-full flex  items-center">
+          <app-button buttonText="Add " (click)="save()" buttonStyles="w-[368px] "></app-button>
         </div>
-        <div>
-          <p class="text-left  font-semibold">Home Number</p>
-          <app-input [customClass]="'w-full'" [placeholder]="'Enter Home Number'"></app-input>
-        </div>
-      </div>
-      <div>
-        <p class="text-left  font-semibold">Street Name</p>
-        <app-input [customClass]="'w-full'" [placeholder]="'Enter Street Name'"></app-input>
-      </div>
-      <div>
-        <div class="flex justify-between">
-          <p class="text-left  font-semibold">ATOKA</p>
-          <p class="text-[#DA7B07]">Save location</p>
-        </div>
-        <app-input [customClass]="'w-full'" [placeholder]="'Atoka'"></app-input>
+
       </div>
     </div>
 
-    <div class="flex gap-4 items-center">
-      <mat-checkbox color="primary"></mat-checkbox>
-      <div>
-        <p>Verify Ownership</p>
-        <p>we will notify you if any other attempt is made to claim your property.</p>
-      </div>
-    </div>
-
-    <div class="flex mx-auto mt-5">
-      <app-button
-      buttonText="Add Branch"
-      buttonStyles="w-[368px]"
-      ></app-button>
-    </div>
   </div>
+
 </div>

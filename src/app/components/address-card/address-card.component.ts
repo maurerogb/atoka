@@ -13,5 +13,6 @@ export class AddressCardComponent {
   @Input() address?: Address;
   @Input() showResidenceCount?: boolean;
   @Input() isResidential?: boolean;
+  @Input() buttonStyles?: string
 
 }

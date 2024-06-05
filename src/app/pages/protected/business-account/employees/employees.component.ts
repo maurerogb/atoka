@@ -1,25 +1,25 @@
-import { ResponseCode } from './../../../../model/enums';
-import { EmployeeService } from './../../../../services/employee.service';
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { ButtonComponent } from '../../../../components/button/button.component';
-import { MatMenuModule } from '@angular/material/menu'
-import { EmployeeDetailsComponent } from '../../../../components/modals/employee-details/employee-details.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AddEmployeeModalComponent } from '../../../../components/modals/add-employee-modal/add-employee-modal.component';
-import { RemoveEmployeeComponent } from '../../../../components/modals/remove-employee/remove-employee.component';
 import { AddBranchComponent } from '../../../../components/modals/add-branch/add-branch.component';
+import { AddEmployeeModalComponent } from '../../../../components/modals/add-employee-modal/add-employee-modal.component';
+import { EmployeeDetailsComponent } from '../../../../components/modals/employee-details/employee-details.component';
 import { RejectEmployeeComponent } from '../../../../components/modals/reject-employee/reject-employee.component';
+import { RemoveEmployeeComponent } from '../../../../components/modals/remove-employee/remove-employee.component';
+import { ResponseCode } from './../../../../model/enums';
+import { EmployeeService } from './../../../../services/employee.service';
 // import { EmployeeService } from '../../../../services/employee.service';
 import { CommonModule } from '@angular/common';
-import { Route, Router } from '@angular/router';
-import { SettingsService } from '../../../../services/settings.service';
+import { Router } from '@angular/router';
 import { AddressCardComponent } from "../../../../components/address-card/address-card.component";
 import { AtokaSearchComponent } from "../../../../components/atoka-search/atoka-search.component";
-import { AtokaSearchService } from '../../../../services/atoka-search.service';
-import { Address } from '../../../../model/atoka-query';
 import { RequestCardComponent } from "../../../../components/request-card/request-card.component";
+import { Address } from '../../../../model/atoka-query';
 import { Employee } from '../../../../model/businessInfo';
+import { AtokaSearchService } from '../../../../services/atoka-search.service';
+import { SettingsService } from '../../../../services/settings.service';
 @Component({
     selector: 'app-employees',
     standalone: true,
@@ -107,6 +107,7 @@ export class EmployeesComponent {
       dialogConfig
     );
   }
+    // AddressSearchComponent
   removeEmployee() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxHeight = '90vh';
@@ -125,7 +126,7 @@ export class EmployeesComponent {
   }
   addBranch() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.maxHeight = '90vh';
+    dialogConfig.maxHeight = '98vh';
     let dialogRef = this.matDialog.open(
       AddBranchComponent,
       dialogConfig

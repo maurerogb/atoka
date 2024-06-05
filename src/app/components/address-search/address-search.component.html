@@ -1,14 +1,16 @@
-<!-- <app-address-search></app-address-search>
+ <app-atoka-search (addressInfo)="getResult($event)" [labelName]="lebel"></app-atoka-search>
 
 <p class="text-sm font-light text-gray-500 text-center pb-4">
   Don't have ATOKA?
-  <a (click)="showform = !showform" href="javascript:"
+  <a (click)="showform = !showform" href="javascript:" class="font-semibold cursor-pointer text-[#003A50]"
     >Enter Address Manually </a
   >.
 </p>
+<!-- <p class="flex justify-center mt-5 font-display">Don’t have ATOKA? <span class="font-semibold cursor-pointer text-[#003A50]" (click)="showform = !showform">Enter address manually</span></p> -->
+
 
 @if(showform){
-<app-address-form></app-address-form>
-} -->
+  <app-address-form  [buttonType]="'rounded'" [includeVerify]="includeVerify"  [hideForm]="showform" ></app-address-form>
+}
 
-<p>Testing</p>
+<!-- <p>Testing</p> -->

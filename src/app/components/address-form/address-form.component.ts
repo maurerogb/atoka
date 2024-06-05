@@ -1,4 +1,3 @@
-import { ListItem, NewStreetRequest, StreetDetails } from './../../model/atoka-query';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,22 +9,28 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CountryService } from '../../services/country.service';
+import { ListItem, NewStreetRequest, StreetDetails } from './../../model/atoka-query';
 
-import { debounceTime } from 'rxjs';
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { debounceTime } from 'rxjs';
+import { ButtonComponent } from "../button/button.component";
 
 @Component({
-  selector: 'app-address-form',
-  standalone: true,
-  imports: [MatIconModule, MatFormFieldModule, MatAutocompleteModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule],
-  templateUrl: './address-form.component.html',
-  styleUrl: './address-form.component.scss'
+    selector: 'app-address-form',
+    standalone: true,
+    templateUrl: './address-form.component.html',
+    styleUrl: './address-form.component.scss',
+    imports: [MatIconModule, MatFormFieldModule, MatAutocompleteModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatButtonModule,
+       MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, ButtonComponent]
 })
 export class AddressFormComponent implements OnInit {
 
   @Output() showFormState: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() hideForm: boolean = false;
+@Input() includeVerify: boolean = false;
+@Input() buttonType: string = 'squared'
+
   streetOptions?: StreetDetails[];
   stateOptions!: ListItem[];
   cityOptions!: ListItem[];

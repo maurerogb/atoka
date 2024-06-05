@@ -1,22 +1,23 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { IncidentService } from '../../../../services/incident.service';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialog } from '@angular/material/dialog';
+import { AddressSearchComponent } from "../../../../components/address-search/address-search.component";
 import { ButtonComponent } from '../../../../components/button/button.component';
 
 @Component({
-  selector: 'app-branch',
-  standalone: true,
-  imports: [
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-    ButtonComponent
-  ],
-  templateUrl: './branch.component.html',
-  styleUrl: './branch.component.scss'
+    selector: 'app-branch',
+    standalone: true,
+    templateUrl: './branch.component.html',
+    styleUrl: './branch.component.scss',
+    imports: [
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        ButtonComponent,
+        AddressSearchComponent
+    ]
 })
 export class BranchComponent {
   filterForm: any;
