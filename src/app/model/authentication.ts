@@ -24,4 +24,5 @@ export interface loginInfo {
   firstName: string,
   surname: string,
   hasBusinessInfo: string,
+  BusinessId:number
 }

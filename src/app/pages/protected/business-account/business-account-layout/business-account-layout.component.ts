@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { DashboardSidebarComponent } from '../../../../components/dashboard-sidebar/dashboard-sidebar.component';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { DashboardNavComponent } from '../../../../components/dashboard-nav/dashboard-nav.component';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
+import { DashboardNavComponent } from '../../../../components/dashboard-nav/dashboard-nav.component';
+import { DashboardSidebarComponent } from '../../../../components/dashboard-sidebar/dashboard-sidebar.component';
 
 @Component({
   selector: 'app-business-account-layout',
@@ -72,6 +72,13 @@ export class BusinessAccountLayoutComponent {
       routerLink: '/app/business-account/branch',
       activeIcon: 'assets/svg/branch.svg',
       inactiveIcon: 'assets/svg/branch.svg',
+    }
+    ,
+    {
+      name: 'Manager/Owner',
+      routerLink: '/app/tenant/tenant',
+      activeIcon: 'assets/svg/employee.svg',
+      inactiveIcon: 'assets/svg/employee.svg',
     }
 
   ];

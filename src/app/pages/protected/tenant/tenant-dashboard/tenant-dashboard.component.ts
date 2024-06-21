@@ -1,9 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { ButtonComponent } from '../../../../components/button/button.component';
-import { CommonModule } from '@angular/common';
-import { DashboardService } from '../../../../services/dashboard.service';
 import { Router } from '@angular/router';
+import { ButtonComponent } from '../../../../components/button/button.component';
+import { DashboardService } from '../../../../services/dashboard.service';
 
 @Component({
   selector: 'app-tenant-dashboard',
@@ -27,7 +27,7 @@ export class TenantDashboardComponent {
 
   ngOnInit(): void{
     this.userId = localStorage.getItem('userId');
-    this.getRecentVisit()
+    // this.getRecentVisit()
   }
 
   getRecentVisit(){

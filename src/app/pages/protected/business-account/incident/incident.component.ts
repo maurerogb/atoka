@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import { ButtonComponent } from '../../../../components/button/button.component';
 import { ReportIncidentModalComponent } from '../../../../components/modals/report-incident-modal/report-incident-modal.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ViewIncidentComponent } from '../../../../components/modals/view-incident/view-incident.component';
 import { IncidentService } from '../../../../services/incident.service';
 @Component({
@@ -45,6 +45,13 @@ export class IncidentComponent {
       end_date: '',
     });
 
+    this.createForm();
+
+    this.GetAllReportedIncident();
+    this.userId = localStorage.getItem('userId');
+  }
+
+  private createForm() {
     this.incidentForm = this.fb.group({
       incidentDetails: 'string',
       atokaCode: 'string',
@@ -60,9 +67,6 @@ export class IncidentComponent {
         },
       ],
     });
-
-    this.getAllIncident();
-    this.userId = localStorage.getItem('userId');
   }
 
   reportIncident() {
@@ -99,6 +103,8 @@ export class IncidentComponent {
   GetAllReportedIncident() {
     this.incidentService.GetAllReportedIncident().subscribe((res: any) => {
       this.data = res.data;
+      console.log('this.data >> ' , this.data);
+
     });
   }
 }

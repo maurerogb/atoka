@@ -20,8 +20,8 @@ export interface Address {
   electricDistribution?: string;
   mast?:                 string;
   atoka?:                string;
-  longitude?:            string;
-  latitude?:             string;
+  longitude:            string;
+  latitude:             string;
   residentDetailId?:     number;
 }
 

@@ -1,5 +1,4 @@
-import { ResponseCode } from './../../../model/enums';
-import { loginRequest, loginInfo } from './../../../model/authentication';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,14 +8,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { AuthenticationService } from '../../../services/authentication.service';
-import { jwtDecode } from 'jwt-decode';
-import { Router, RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CommonModule } from '@angular/common';
-import { LoadingService } from '../../../services/loading.service';
+import { MatSelectModule } from '@angular/material/select';
+import { Router, RouterModule } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 import { AddressSearchComponent } from "../../../components/address-search/address-search.component";
+import { AuthenticationService } from '../../../services/authentication.service';
+import { LoadingService } from '../../../services/loading.service';
+import { loginInfo, loginRequest } from './../../../model/authentication';
+import { ResponseCode } from './../../../model/enums';
 
 @Component({
   selector: 'app-login',
@@ -74,6 +74,8 @@ export class LoginComponent implements OnInit {
             firstName: decodedResp.FirstName,
             surname: decodedResp.Surname,
             hasBusinessInfo: decodedResp.hasBusinessInfo,
+            BusinessId: decodedResp.BusinessId
+
           }
           this.authService.setLoginInfo(data);
           this.loginfrom.reset();

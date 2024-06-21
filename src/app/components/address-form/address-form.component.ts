@@ -27,7 +27,7 @@ export class AddressFormComponent implements OnInit {
 
   @Output() showFormState: EventEmitter<string> = new EventEmitter<string>();
 
-  @Input() hideForm: boolean = false;
+@Input() hideForm: boolean = false;
 @Input() includeVerify: boolean = false;
 @Input() buttonType: string = 'squared'
 

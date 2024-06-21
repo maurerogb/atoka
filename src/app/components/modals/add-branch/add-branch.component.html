@@ -18,24 +18,35 @@
       }
 
       <div class="mt-0 ">
-
-        <div>
+        <div [formGroup]="brachForm">
           <div class="p-2 ">
             <p class="text-left  font-semibold">Branch Name</p>
-            <app-input [customClass]="'w-full p-2'" [placeholder]="'Enter Branch Name'"></app-input>
+            <input  class="w-full p-4 mt-3 rounded-lg bg-[#FCFCFC] focus:bg-[white] outline-0 border-[#E6E6E6] border-solid border focus:border-[#979797] font-poppins text-[15px]"  formControlName="branchName"  placeholder="'Enter Branch Name'"/>
           </div>
           <div class="p-2 text-left mb-10">
-            <mat-checkbox class="">If this is buliding you Head Office identify by checking the box</mat-checkbox>
-            <mat-checkbox >
-              <div class="font-[400] text-[14px] pt-2">Claim Ownership </div> 
+            <mat-checkbox class="" formControlName="isHQ">If this is buliding your Head Office identify by checking the box</mat-checkbox>
+            <mat-checkbox  formControlName="confirmOwnership" >
+              <div class="font-[400] text-[14px] pt-2">Claim Ownership </div>
               <div class="font-[400] text-[13px] mt-1"> we will notify you if any other attempt is made to claim your
                 property.</div>
             </mat-checkbox>
-  
+
           </div>
         </div>
-        <div class="w-full flex  items-center">
-          <app-button buttonText="Add " (click)="save()" buttonStyles="w-[368px] "></app-button>
+        <div class="">
+          <button
+          (click)="save()"
+
+          class="py-0 block font-medium text-base w-full bg-[#0090C7] text-white rounded-lg lg:py-4"
+
+        >
+          <span class="relative block w-fit mx-auto">
+            <span>
+              Submit
+            </span>
+          </span>
+        </button>
+          <!-- <app-button buttonText="Add " (click)="save()" buttonStyles="w-[368px] "></app-button> -->
         </div>
 
       </div>

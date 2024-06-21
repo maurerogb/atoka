@@ -1,6 +1,34 @@
 <!-- <google-map height="600px" width="800px" [options]="options" /> -->
-<google-map height="450px"
-            width="1000px"
-            [center]="center"
-            [zoom]="zoom" >
+
+<div class=" ">
+
+  <div  class="grid grid-cols-3  ">
+    <app-atoka-search (addressInfo)="setLocation($event)"></app-atoka-search>
+  </div>
+
+
+  <div class="grid grid-cols-12" >
+
+
+    <google-map
+    height="640px"
+    width="1140px"
+  [center]="center"
+  [zoom]="zoom"
+  (mapClick)="addMarker($event)">
+  <map-traffic-layer [autoRefresh]="false" />
+      <map-marker [position]="position" [options]="markerOptions" />
+
 </google-map>
+
+
+    <!-- <google-map height="640px"
+    width="1140px"
+    [center]="center"
+    [zoom]="zoom" >
+    <map-marker></map-marker>
+</google-map> -->
+  </div>
+
+</div>
+
