@@ -1,6 +1,6 @@
 <div class="border border-dashed border-[#BBBBBB] rounded-lg p-5 flex justify-center">
   <input
-          type="file"
+          [type]="fileType"
           #fileUpload
           class="hidden"
           (change)="uploadFile($event)"

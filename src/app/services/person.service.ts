@@ -34,7 +34,7 @@ export class PersonService extends HttpService<PersonRequest> {
 }
 
 setPerson(person: any) : void {
-  localStorage.removeItem('personalData')
+  localStorage?.removeItem('personalData')
  localStorage.setItem('personalData',JSON.stringify(person));
 }
 
@@ -49,8 +49,8 @@ getUserId(userId: any) : any {
  localStorage.getItem('userId');
 }
 
-getUse() : PersonalData {
-  return <PersonalData> JSON.parse( localStorage.getItem('personalData')?? "");
+getUse() : any {
+  return    localStorage.getItem('personalData');
 }
 
 removePerson(){

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -17,6 +17,8 @@ export class UploadFileComponent {
   @Input() file: FormControl = new FormControl();
   @Input() fileType! : any;
 
+  @Output() uploadedFile :  EventEmitter<File> = new EventEmitter<File>();
+
   fileName : any;
 
 
@@ -26,6 +28,8 @@ export class UploadFileComponent {
       const reader = new FileReader();
       this.newfile = event.target.files[0];
       console.log(this.newfile?.name);
+
+      this.uploadedFile.emit(this.newfile)
 
       reader.onload = (_event: any) => {
 

@@ -25,7 +25,7 @@ export class AuthenticationService extends HttpService<BaseResponse<any>> {
   }
 
   get token(){
-    return this.perspnServ.getUse().title
+    return this.perspnServ?.getUse()?.title
   }
 
   login(user:loginRequest ): Observable<loginResponse>{

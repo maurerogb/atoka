@@ -15,15 +15,15 @@ import { loginInfo } from '../model/authentication';
 export class HttpService<T> {
   private _httpOptions: any;
 
-  testMode = environment.testMode;
-   localUrl = environment.localUrl;
-    remoteUrl = environment.remoteUrl;
+  // testMode = environment.testMode;
+  //  localUrl = environment.localUrl;
+  //   remoteUrl = environment.remoteUrl;
 
   constructor(public httpClient: HttpClient) { }
-  baseUrl = this.testMode ? this.localUrl : this.remoteUrl;
+  // baseUrl = this.testMode ? this.localUrl : this.remoteUrl;
 
   protected get<T>(url: any, options?: any): Observable<T> {
-    url = this.baseUrl + url;
+    // url = this.baseUrl + url;
     return this.httpClient.get<T>(url, {'headers':this.header()}).pipe(
       map((body: any) => body),
       catchError(this.handleError)
@@ -31,7 +31,7 @@ export class HttpService<T> {
   }
 
   protected post<T>(url: any, payload: any, options?: any): Observable<T> {
-    url = this.baseUrl + url;
+    // url = this.baseUrl + url;
     return this.httpClient.post<T>(url, payload,  {'headers':this.header()}).pipe(
       map((body: any) => body),
       catchError(this.handleError)
@@ -39,29 +39,29 @@ export class HttpService<T> {
   }
 
   protected filePost(url: any, payload: any, options?: any): Observable<T> {
-    url = this.baseUrl + url;
-    return this.httpClient.post<T>(url, payload, options).pipe(
+    // url = this.baseUrl + url;
+    return this.httpClient.post<T>(url, payload,  {'headers':this.header()}).pipe(
       map((body: any) => body),
       catchError(this.handleError)
     );
   }
 
   protected patch<T>(url: any, payload: any, options?: any): Observable<T> {
-    url = this.baseUrl + url;
+    // url = this.baseUrl + url;
     return this.httpClient.patch<T>(url, payload, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
     );
   }
   protected put<T>(url: any, payload?: any, options?: any): Observable<T> {
-    url = this.baseUrl + url;
+    // url = this.baseUrl + url;
     return this.httpClient.put<T>(url, payload, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
     );
   }
   protected delete<T>(url: any, options?: any): Observable<T> {
-    url = this.baseUrl + url;
+    // url = this.baseUrl + url;
     return this.httpClient.delete<T>(url, options).pipe(
       map((body: any) => body),
       catchError(this.handleError)
@@ -69,7 +69,7 @@ export class HttpService<T> {
   }
 
   getFile(url: string, options?: any) {
-    url = this.baseUrl + url;
+    // url = this.baseUrl + url;
     return this.httpClient
       .get(url, { params: options, responseType: 'blob' })
       .pipe(
@@ -79,10 +79,8 @@ export class HttpService<T> {
   }
 
   private header  (): HttpHeaders {
-   let user :loginInfo =<loginInfo> JSON.parse (localStorage.getItem('userData') ?? "");
-
-    return new HttpHeaders().set('userId' ,user.userId ).set('Authorization', `Bearer ${user.token}`,)
-
+   let user :any =localStorage.getItem('userData') ;
+    return new HttpHeaders().set('userId' ,user?.userId ).set('Authorization', `Bearer ${user?.token}`,)
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -93,11 +91,11 @@ export class HttpService<T> {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.message}`,
-        error
-      );
+      // console?.error(
+      //   `Backend returned code ${error.status}, ` +
+      //   `body was: ${error.message}`,
+      //   error
+      // );
     }
     // return an observable with a user-facing error message
     return throwError(
