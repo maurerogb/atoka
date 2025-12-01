@@ -26,7 +26,6 @@ export class HttpService<T> {
     // url = this.baseUrl + url;
     return this.httpClient.get<T>(url, {'headers':this.header()}).pipe(
       map((body: any) => body),
-      catchError(this.handleError)
     );
   }
 
@@ -34,7 +33,6 @@ export class HttpService<T> {
     // url = this.baseUrl + url;
     return this.httpClient.post<T>(url, payload,  {'headers':this.header()}).pipe(
       map((body: any) => body),
-      catchError(this.handleError)
     );
   }
 
@@ -42,7 +40,6 @@ export class HttpService<T> {
     // url = this.baseUrl + url;
     return this.httpClient.post<T>(url, payload,  {'headers':this.header()}).pipe(
       map((body: any) => body),
-      catchError(this.handleError)
     );
   }
 
@@ -50,21 +47,18 @@ export class HttpService<T> {
     // url = this.baseUrl + url;
     return this.httpClient.patch<T>(url, payload, options).pipe(
       map((body: any) => body),
-      catchError(this.handleError)
     );
   }
   protected put<T>(url: any, payload?: any, options?: any): Observable<T> {
     // url = this.baseUrl + url;
     return this.httpClient.put<T>(url, payload, options).pipe(
       map((body: any) => body),
-      catchError(this.handleError)
     );
   }
   protected delete<T>(url: any, options?: any): Observable<T> {
     // url = this.baseUrl + url;
     return this.httpClient.delete<T>(url, options).pipe(
       map((body: any) => body),
-      catchError(this.handleError)
     );
   }
 
@@ -74,7 +68,7 @@ export class HttpService<T> {
       .get(url, { params: options, responseType: 'blob' })
       .pipe(
         map((body: any) => body),
-        catchError(this.handleError)
+
       );
   }
 

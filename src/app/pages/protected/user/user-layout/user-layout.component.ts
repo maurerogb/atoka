@@ -70,12 +70,6 @@ export class UserLayoutComponent {
 
   bottomNav = [
     {
-      name: 'Account',
-      routerLink: '/app/user/account',
-      activeIcon: 'assets/svg/account.svg',
-      inactiveIcon: 'assets/svg/Profile.svg',
-    },
-    {
       name: 'Settings',
       routerLink: '/app/user/settings',
       activeIcon: 'assets/svg/Setting.svg',
@@ -83,7 +77,7 @@ export class UserLayoutComponent {
     },
     {
       name: 'Logout',
-      routerLink: '/logout',
+      routerLink: '/signin',
       activeIcon: 'assets/svg/Logout.svg',
       inactiveIcon: 'assets/svg/Logout.svg',
     }

@@ -18,4 +18,6 @@ export class DashboardSidebarComponent {
   @Input() navList!: INavItem[];
   @Input() buttomNav!: INavItem[];
 
+
+
 }

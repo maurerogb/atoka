@@ -1,15 +1,15 @@
 <div class="page-wrapper">
   <div class="grid grid-cols-2 h-screen">
     <div class="bg-onboarding h-full w-full text-white">
-      <div class="flex  justify-center  h-full ">
+      <div class="flex justify-center h-full">
         <div class="pt-[130px]">
           <img
-            class="h-[100px] w-full mt-[25px]  "
+            class="h-[100px] w-full mt-[25px]"
             src="assets/svg/logo.svg"
             alt="logo"
           />
           <div id="steps" class="atoka-form-steps pl-50 w-[400px] pt-9">
-            <form class=""  [formGroup]="loginfrom">
+            <form class="" [formGroup]="loginfrom">
               <div class="grid gap-x-4">
                 <div class="control">
                   <mat-label class="text-sm">User Name</mat-label>
@@ -21,7 +21,8 @@
                     <input
                       matInput
                       placeholder="First name"
-                      type="text" formControlName="username"
+                      type="text"
+                      formControlName="username"
                       name="firstname"
                       id="firstname"
                     />
@@ -37,7 +38,8 @@
                     floatLabel="always"
                   >
                     <input
-                      matInput formControlName="password"
+                      matInput
+                      formControlName="password"
                       placeholder="Password"
                       type="password"
                       name="lastname"
@@ -50,30 +52,32 @@
                       <mat-checkbox class="">Remember me</mat-checkbox>
                     </section> -->
 
-                    <a
-                      class="text-white"
-                      href="javascript:void(0)"
-                      rel=""
-                    >
+                    <a class="text-white" href="javascript:void(0)" rel="">
                       Forgot Password?</a
                     >
                   </div>
                 </div>
               </div>
               <!-- [disabled]="loading"  [disabled]="!loginfrom.valid" -->
-              <div class="flex flex-col items-center mt-8 gap-y-4 ">
+              <div class="flex flex-col items-center mt-8 gap-y-4">
                 <button
-
                   type="button"
                   mat-flat-button
                   color="primary "
-                   (click)="register()"
+                  (click)="signIn()"
                 >
                   Sign in
                   <!-- <mat-spinner class="text-[12px]" *ngIf="loading" ></mat-spinner> -->
                 </button>
-                <div >I don't have an account? <a href="javascript:void(0)" (click)="signup()" class="text-[#DA7B07] font-bold ">Signup</a> </div>
-
+                <div>
+                  I don't have an account?
+                  <a
+                    href="javascript:void(0)"
+                    (click)="signup()"
+                    class="text-[#DA7B07] font-bold"
+                    >Signup</a
+                  >
+                </div>
               </div>
             </form>
           </div>
@@ -82,12 +86,15 @@
     </div>
     <div>
       <div class="flex flex-col space-y-5 mx-56 my-56">
+        <!-- <app-address-search></app-address-search> -->
         <img class="w-full" src="assets/svg/login.svg" />
-        <div class="w-[300px] h-[100px] gap-4 ml-12 text-center" >
-
-          <p class="font-bold leading-8 text-[#005677]  text-[24px]">Easy Direction</p>
-          <p class="text-[#005677] font-normal text-center  text-[16px]">Get direction and safety to any location in Nigeria</p>
-
+        <div class="w-[300px] h-[100px] gap-4 ml-12 text-center">
+          <p class="font-bold leading-8 text-[#005677] text-[24px]">
+            Easy Direction
+          </p>
+          <p class="text-[#005677] font-normal text-center text-[16px]">
+            Get direction and safety to any location in Nigeria
+          </p>
         </div>
       </div>
     </div>

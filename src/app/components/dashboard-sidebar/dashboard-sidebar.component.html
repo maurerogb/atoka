@@ -1,53 +1,48 @@
-<div class="sidebar-container">
-  <div class="sidebar">
-    <div class="logo-div px-12 py-8 w-full">
-      <img src="assets/svg/logo.svg" alt="" class="w-full">
+<div class="sidebar" id="sidebar">
+  <div class="logo-div px-5 pt-6 flex mx-auto">
+    <img src="assets/svg/logo.svg" alt="" class="w-full">
+  </div>
+
+  <div class="top-nav">
+    <li class="nav-link font-display" *ngFor="let nav of navList">
+      <a
+      [routerLink]="nav.routerLink"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [class.activelink]="rla.isActive"
+      [routerLinkActiveOptions]="{ exact: nav.exact || false }"
+      >
+      <img [src]="nav.activeIcon" [class.hidden]="!rla.isActive" alt="" />
+      <img [src]="nav.inactiveIcon" [class.hidden]="rla.isActive" alt="" />
+      <span>{{ nav.name }}</span>
+    </a>
+    </li>
+  </div>
+
+  <div class="bottom-nav">
+    <li class="nav-link font-display" *ngFor="let nav of buttomNav">
+      <a
+      [routerLink]="nav.routerLink"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [class.activelink]="rla.isActive"
+      [routerLinkActiveOptions]="{ exact: nav.exact || false }"
+      >
+      <img [src]="nav.activeIcon" [class.hidden]="!rla.isActive" alt="" />
+      <img [src]="nav.inactiveIcon" [class.hidden]="rla.isActive" alt="" />
+        <span>{{nav.name}}</span>
+      </a>
+    </li>
+
+    <div class="border-t border-t-[#F1F3F9] grid grid-cols-[1fr_auto] items-center gap-4 pt-4">
+      <div class="w-10 h-10 rounded-full flex justify-center items-center">
+        <img src="assets/images/avatar-1.png" alt="" class="w-full">
+      </div>
+      <div>
+        <p class="text-[#101828] font-medium">Goody’s enterprise</p>
+        <p class="text-[#667085]">Goody’s&#64;enterprise.com</p>
+      </div>
     </div>
-
-    <ul class="">
-      <div class="top-nav">
-        <li class="nav-link font-display" *ngFor="let nav of navList">
-          <a
-          [routerLink]="nav.routerLink"
-          routerLinkActive
-          #rla="routerLinkActive"
-          [class.activelink]="rla.isActive"
-          [routerLinkActiveOptions]="{ exact: nav.exact || false }"
-          >
-          <img [src]="nav.activeIcon" [class.hidden]="!rla.isActive" alt="" />
-          <img [src]="nav.inactiveIcon" [class.hidden]="rla.isActive" alt="" />
-          <span>{{ nav.name }}</span>
-        </a>
-        </li>
-      </div>
-
-      <div class="bottom-nav">
-        <li class="nav-link font-display" *ngFor="let nav of buttomNav">
-          <a
-          [routerLink]="nav.routerLink"
-          routerLinkActive
-          #rla="routerLinkActive"
-          [class.activelink]="rla.isActive"
-          [routerLinkActiveOptions]="{ exact: nav.exact || false }"
-          >
-          <img [src]="nav.activeIcon" [class.hidden]="!rla.isActive" alt="" />
-          <img [src]="nav.inactiveIcon" [class.hidden]="rla.isActive" alt="" />
-            <span>{{nav.name}}</span>
-          </a>
-        </li>
-        <!-- <li class="nav-link font-display">
-          <a routerLink="" routerLinkActive="router-link-active">
-            <img src="assets/svg/Setting.svg" alt="">
-            <span>Settings</span>
-          </a>
-        </li> -->
-        <!-- <li class="nav-link font-display">
-          <a routerLink="" routerLinkActive="router-link-active">
-            <img src="assets/svg/Logout.svg" alt="">
-            <span>Logout</span>
-          </a>
-        </li> -->
-      </div>
-    </ul>
   </div>
 </div>
+

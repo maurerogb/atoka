@@ -33,9 +33,14 @@ export class AtokaSearchComponent implements OnInit {
   packages$!: Address[];
   withRefresh = false;
 
-  @Input() labelName:string | undefined;
+  @Input() labelName: string | undefined;
   @Input() addressCode: string | undefined;
+<<<<<<< HEAD
   @Output() returnCode : EventEmitter<string> = new EventEmitter<string>();
+=======
+  @Output() returnCode: EventEmitter<string> = new EventEmitter<string>();
+  @Output() addressInfo: EventEmitter<Address> = new EventEmitter<Address>();
+>>>>>>> a80c031ac0218eb4e69d7487b722423ecad6a4a4
   constructor(private atokaServ: AtokaSearchService) { }
 
   ngOnInit() {
@@ -44,16 +49,16 @@ export class AtokaSearchComponent implements OnInit {
       .subscribe((value: any) => {
         this.search(value);
       })
-      // this.atokaSearch.patchValue(this.addressCode?? '')
+    // this.atokaSearch.patchValue(this.addressCode?? '')
   }
 
-ngOnChanges(changes: SimpleChanges): void {
-  //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-  //Add '${implements OnChanges}' to the class.
-  console.log(this.addressCode);
+  ngOnChanges(changes: SimpleChanges): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    console.log(this.addressCode);
 
-  this.atokaSearch.patchValue(this.addressCode?? '')
-}
+    this.atokaSearch.patchValue(this.addressCode ?? '')
+  }
 
   // onSearchInputChange(searchTerm: string) {
   //   this.searchInput.next(searchTerm);
@@ -61,19 +66,28 @@ ngOnChanges(changes: SimpleChanges): void {
 
 
   search(value: any) {
-    if(value !== ''){
-    this.atokaServ.searchAtoka(value).subscribe({
-      next: (data: any) => {
-        this.filteredOptions = data.data;
-        console.log(this.option);
-      }
-    });
-  }
+    if (value !== '') {
+      this.atokaServ.searchAtoka(value).subscribe({
+        next: (data: any) => {
+          this.filteredOptions = data.data;
+          console.log(data.data);
+        }
+      });
+    }
   }
 
+<<<<<<< HEAD
   setAddressCode(e: MatAutocompleteSelectedEvent){
 
  this.addressCode = e.option.value
+=======
+  setAddressCode(e: MatAutocompleteSelectedEvent) {
+
+    this.addressInfo.emit(
+      this.filteredOptions?.find(a => a.atoka == e.option.value))
+
+    this.addressCode = e.option.value
+>>>>>>> a80c031ac0218eb4e69d7487b722423ecad6a4a4
     this.returnCode.emit(this.addressCode)
   }
 

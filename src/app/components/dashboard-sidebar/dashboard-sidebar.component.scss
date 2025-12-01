@@ -1,13 +1,12 @@
-ul {
+.top-nav, .bottom-nav{
   list-style: none;
-  padding: 0 20px 30px;
+  padding: 0 20px 35px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 12px;
 }
 .nav-link{
   cursor: pointer;
-  margin-bottom: 0.5rem;
 
   a{
     color: black;
@@ -22,12 +21,12 @@ ul {
         font-family: "Poppins";
         line-height: normal;
         white-space: nowrap;
-        padding: 0.9rem;
+        padding: 12px;
         position: relative;
 
         &:hover,
   &.activelink {
-    background: #00adef;
+    background: #0090C7;
     color: white;
     border-radius: 8px;
   }
@@ -35,39 +34,40 @@ ul {
 
 }
 
-.sidebar-container{
-  // position: fixed;
+.sidebar{
+  position: fixed;
     z-index: 3;
-    height: 100%;
+    height: 100vh;
     box-shadow: unset;
     top: 0;
-    left: 0px;
+    left: 0;
+    bottom: 0;
     background: white;
-    // max-width: 21vw;
-    // min-width: 21vw;
-    // width: 21vw;
+    width: 270px;
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.sidebar{
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-.logo-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  &:focus-visible {
-    outline: 0;
-  }
-}
+
+
 .top-nav{
   justify-self: start;
-  margin-bottom: 2.5rem;
+  flex: 1;
+  // margin-bottom: 2.5rem;
 }
 .bottom-nav {
-  margin-top: 3.5rem;
   display: flex;
+  justify-self: flex-end;
   flex-direction: column;
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar{
+    transform: translateX(-100%);
+    transition: 0.5s;
+  }
+  .showSidebar.sidebar{
+    transform: translateX(0);
+  }
 }

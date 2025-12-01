@@ -5,7 +5,7 @@
   </div>
 
   <div class="bg-white shadow-md mt-4 lg:mt-8 py-5 lg:py-10 px-8 rounded-lg lg:!mb-8">
-    <div class="flex justify-between">
+    <div class="flex justify-between pb-5 border-b border-[#EAECF0]">
       <div>
         <p class="text-[#003A50] font-bold text-base">Personal info</p>
         <p>Update your photo and personal details here.</p>
@@ -15,102 +15,47 @@
       buttonStyles="px-8"
       ></app-button>
     </div>
-    <div class="flex flex-col gap-4 lg:gap-6 px-8 py-5 mt-4">
-      <div class="grid grid-cols-2">
+    <div class="flex flex-col gap-4 lg:gap-6 py-5 mt-4">
+      <div class="grid grid-cols-[20%_80%] pb-5 border-b border-[#EAECF0]">
         <p class="text-[#005677] font-semibold">Name</p>
         <div class="flex gap-3">
           <app-input></app-input>
           <app-input></app-input>
+          <app-input></app-input>
         </div>
       </div>
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-[20%_60%] pb-5 border-b border-[#EAECF0]">
         <p class="text-[#005677] font-semibold">Email Address</p>
         <app-input></app-input>
       </div>
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-[20%_60%] pb-5 border-b border-[#EAECF0]">
         <p class="text-[#005677] font-semibold">Profile Image</p>
         <app-upload-profile-image></app-upload-profile-image>
       </div>
-      <div class="grid grid-cols-2">
-        <p class="text-[#005677] font-semibold">Role</p>
+      <div class="grid grid-cols-[20%_60%] pb-5 border-b border-[#EAECF0]">
+        <p class="text-[#005677] font-semibold">Phone Number</p>
         <app-input></app-input>
       </div>
-      <div class="grid grid-cols-2">
-        <p class="text-[#005677] font-semibold">Country</p>
+      <div class="grid grid-cols-[20%_60%] pb-5 border-b border-[#EAECF0]">
+        <p class="text-[#005677] font-semibold">Gender</p>
         <app-input></app-input>
       </div>
-      <div class="grid grid-cols-2 items-center">
+      <div class="grid grid-cols-[20%_60%] pb-5 border-b border-[#EAECF0] items-center">
         <p class="text-[#005677] font-semibold">ATOKA</p>
         <div>
           <app-input></app-input>
           <p class="flex justify-start pt-2 text-[#00ADEF] font-semibold cursor-pointer">Change Address</p>
         </div>
       </div>
-      <div class="grid grid-cols-2">
-        <p class="text-[#005677] font-semibold">Timezone</p>
-        <div class="border border-[#E6E6E6] rounded-lg p-4 w-full">
-          <mat-select [placeholder]="'Select Timezone'" class="w-full">
-            <mat-option> Nigeria</mat-option>
-            <mat-option> Ghana</mat-option>
-          </mat-select>
-        </div>
+      <div class="grid grid-cols-[20%_60%] pb-5 border-b border-[#EAECF0]">
+        <p class="text-[#005677] font-semibold">Date of Birth</p>
+        <app-input></app-input>
       </div>
-    </div>
-  </div>
-
-  <div class="bg-white shadow-md mt-4 lg:mt-8 py-5 lg:py-10 lg:pb-14 px-8 rounded-lg">
-    <div class="grid grid-cols-[1fr_2fr] px-8">
-      <div>
-        <p class="text-[#003A50] font-bold">Branch office</p>
-        <p>Share a few snippets of your work.</p>
+      <div class="grid grid-cols-[20%_60%]">
+        <p class="text-[#005677] font-semibold">Amount Status</p>
+       <p>Active</p>
       </div>
-      <div class="flex flex-col gap-4">
-        <div class="border border-[#EAECF0] rounded-lg p-5">
-          <p class="text-[#003A50] font-bold">Head Office</p>
-          <div class="">
-            <div class="bg-[#F5F4F7] rounded-lg p-5 mt-5">
-              <p class="font-semibold">LE2345678909</p>
-              <p>Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
-            </div>
 
-            <div class="flex gap-4 items-center mt-5">
-              <div>
-                <img src="assets/images/avatar-img.png" alt="" />
-              </div>
-              <p>You currently have 20 employees at this business location.</p>
-            </div>
-          </div>
-        </div>
-        <div class="border border-[#9E77ED] rounded-lg p-5">
-          <p class="text-[#003A50] font-bold">Branch Office</p>
-          <div class="">
-            <div class="bg-[#EEFAFF] rounded-lg p-5 mt-5">
-              <p class="font-semibold">LE2345678909</p>
-              <p>Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
-            </div>
-
-            <div class="flex gap-4 items-center mt-5">
-              <div>
-                <img src="assets/images/avatar-img.png" alt="" />
-              </div>
-              <p>You currently have 20 employees at this business location.</p>
-            </div>
-          </div>
-          <div class="">
-            <div class="bg-[#EEFAFF] rounded-lg p-5 mt-5">
-              <p class="font-semibold">LE2345678909</p>
-              <p>Etiebets place, 21 shomolu Avenue, ikoyi, Lagos Nigeria</p>
-            </div>
-
-            <div class="flex gap-4 items-center mt-5">
-              <div>
-                <img src="assets/images/avatar-img.png" alt="" />
-              </div>
-              <p>You currently have 20 employees at this business location.</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

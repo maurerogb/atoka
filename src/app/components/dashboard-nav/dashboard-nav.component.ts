@@ -11,9 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 export class DashboardNavComponent {
 
   @Input() title!: any;
-  @Output() buttonToogle = new EventEmitter<boolean>()
 
   toggle(){
-    this.buttonToogle.emit()
+    document.getElementById('sidebar')?.classList.toggle("showSidebar")
   }
 }

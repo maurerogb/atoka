@@ -116,6 +116,7 @@ export class BusinessAccountComponent implements OnInit {
 
         if (res.responseCode == ResponseCode.Success) {
           this.toast.success( res.description, 'Success');
+<<<<<<< HEAD
           if (this.user.getPerson().accountTypeId == 2) {
             console.log(this.user.getPerson().accountTypeId );
             this.route.navigate(['/business-account'])
@@ -126,6 +127,18 @@ export class BusinessAccountComponent implements OnInit {
             console.log(this.user.getPerson().accountTypeId );
             this.route.navigate(['/business-account'])
           }
+=======
+          // if (this.user.getPerson().accountTypeId == 2) {
+          //   console.log(this.user.getPerson().accountTypeId );
+          //   this.route.navigate(['/business-account'])
+          // }
+
+
+          // if (this.user.getPerson().accountTypeId == 1) {
+          //   console.log(this.user.getPerson().accountTypeId );
+          //   this.route.navigate(['/business-account'])
+          // }
+>>>>>>> a80c031ac0218eb4e69d7487b722423ecad6a4a4
         }
 
       }

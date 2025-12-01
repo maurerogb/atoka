@@ -17,6 +17,17 @@ export class InputComponent {
   @Input() customClass!: string;
   @Input() customInputClass!: string;
   @Input() errorMessage: string = '';
-  @Input() value?: string;
+ // @Input() control?: string;
+
+
+  public get value() : string {
+    return this.control.value
+  }
+
+
+  public set value(v : string) {
+    this.control.setValue(v);
+  }
+
 
 }

@@ -16,6 +16,7 @@ export class BusinessAccountLayoutComponent {
 
   currentRoute!: string;
 
+
   constructor(
     private router: Router
     ) { }
@@ -65,6 +66,12 @@ export class BusinessAccountLayoutComponent {
       routerLink: '/app/business-account/employees',
       activeIcon: 'assets/svg/employee.svg',
       inactiveIcon: 'assets/svg/employee.svg',
+    },
+    {
+      name: 'Branch',
+      routerLink: '/app/business-account/branch',
+      activeIcon: 'assets/svg/branch.svg',
+      inactiveIcon: 'assets/svg/branch.svg',
     }
 
   ];
@@ -73,14 +80,14 @@ export class BusinessAccountLayoutComponent {
     {
       name: 'Settings',
       routerLink: '/app/business-account/settings',
-      activeIcon: 'assets/svg/employee.svg',
-      inactiveIcon: 'assets/svg/employee.svg',
+      activeIcon: 'assets/svg/Setting.svg',
+      inactiveIcon: 'assets/svg/Setting.svg',
     },
     {
       name: 'Logout',
-      routerLink: '/logout',
-      activeIcon: 'assets/svg/employee.svg',
-      inactiveIcon: 'assets/svg/employee.svg',
+      routerLink: '/signin',
+      activeIcon: 'assets/svg/Logout.svg',
+      inactiveIcon: 'assets/svg/Logout.svg',
     }
   ]
 

@@ -1,2 +1,20 @@
+<<<<<<< HEAD
  @if (isLoading) {<div class="loader" > ></div>}
 
+=======
+@if(loading$ | async) {
+
+<div class="spinner-container">
+  @if(customLoadingIndicator) {
+
+  <ng-container *ngTemplateOutlet="customLoadingIndicator" />
+
+  } @else {
+
+  <mat-spinner></mat-spinner>
+
+  }
+</div>
+
+}
+>>>>>>> a80c031ac0218eb4e69d7487b722423ecad6a4a4
